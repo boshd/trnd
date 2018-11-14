@@ -25,7 +25,7 @@
 		BCD0D341219BD7E80013A695 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2E8219BD7E00013A695 /* CommentCell.swift */; };
 		BCD0D342219BD7E80013A695 /* SearchCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2E9219BD7E00013A695 /* SearchCollectionDataSource.swift */; };
 		BCD0D343219BD7E80013A695 /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */; };
-		BCD0D344219BD7E80013A695 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2EB219BD7E10013A695 /* EmailViewController.swift */; };
+		BCD0D344219BD7E80013A695 /* Username+EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2EB219BD7E10013A695 /* Username+EmailViewController.swift */; };
 		BCD0D345219BD7E80013A695 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2EC219BD7E10013A695 /* ImageCell.swift */; };
 		BCD0D346219BD7E80013A695 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2ED219BD7E10013A695 /* ProfileHeader.swift */; };
 		BCD0D347219BD7E80013A695 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */; };
@@ -147,7 +147,7 @@
 		BCD0D2E8219BD7E00013A695 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		BCD0D2E9219BD7E00013A695 /* SearchCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionDataSource.swift; sourceTree = "<group>"; };
 		BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
-		BCD0D2EB219BD7E10013A695 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		BCD0D2EB219BD7E10013A695 /* Username+EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Username+EmailViewController.swift"; sourceTree = "<group>"; };
 		BCD0D2EC219BD7E10013A695 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		BCD0D2ED219BD7E10013A695 /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +274,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC37CB33219C86F700D8450C /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0D2E5219BD7E00013A695 /* OnboardNavigationController.swift */,
+				BCD0D31D219BD7E50013A695 /* WelcomeViewController.swift */,
+				BCD0D2EB219BD7E10013A695 /* Username+EmailViewController.swift */,
+				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
+				BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */,
+				BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */,
+				BC37CB34219C876100D8450C /* Other */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		BC37CB34219C876100D8450C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BCD0D32E219BD7E70013A695 /* RegisterViewController.swift */,
+				BCD0D30D219BD7E40013A695 /* SignInViewController.swift */,
+				BCD0D337219BD7E80013A695 /* SignUpDetailsViewController.swift */,
+				BCD0D314219BD7E40013A695 /* SignUpUserViewController.swift */,
+				BCD0D322219BD7E60013A695 /* SignUpViewController.swift */,
+				BCD0D329219BD7E60013A695 /* SignUpViewController1.swift */,
+				BCD0D333219BD7E70013A695 /* usernameViewController.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		BCD0D2A6219BD5B00013A695 = {
 			isa = PBXGroup;
 			children = (
@@ -299,13 +327,13 @@
 		BCD0D2B1219BD5B00013A695 /* trnd */ = {
 			isa = PBXGroup;
 			children = (
+				BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */,
 				BCD0D39C219BE9720013A695 /* Layouts */,
 				BCD0D39B219BE94D0013A695 /* Resources */,
 				BCD0D399219BE8090013A695 /* Support */,
 				BCD0D398219BE8030013A695 /* Views */,
 				BCD0D397219BE7FD0013A695 /* Model */,
 				BCD0D396219BE7F60013A695 /* Controllers */,
-				BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */,
 				BCD0D2BE219BD5B30013A695 /* LaunchScreen.storyboard */,
 				BCD0D2C1219BD5B30013A695 /* Info.plist */,
 				BCD0D2BC219BD5B30013A695 /* Assets.xcassets */,
@@ -355,27 +383,15 @@
 			isa = PBXGroup;
 			children = (
 				BCD0D301219BD7E20013A695 /* NavigationController.swift */,
-				BCD0D2E5219BD7E00013A695 /* OnboardNavigationController.swift */,
+				BC37CB33219C86F700D8450C /* Onboard */,
 				BCD0D303219BD7E30013A695 /* PostsViewController.swift */,
 				BCD0D2F9219BD7E20013A695 /* ProfileViewController.swift */,
-				BCD0D32E219BD7E70013A695 /* RegisterViewController.swift */,
 				BCD0D315219BD7E50013A695 /* SearchViewController.swift */,
 				BCD0D304219BD7E30013A695 /* SettingsViewController.swift */,
-				BCD0D30D219BD7E40013A695 /* SignInViewController.swift */,
-				BCD0D337219BD7E80013A695 /* SignUpDetailsViewController.swift */,
-				BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */,
-				BCD0D314219BD7E40013A695 /* SignUpUserViewController.swift */,
-				BCD0D322219BD7E60013A695 /* SignUpViewController.swift */,
-				BCD0D329219BD7E60013A695 /* SignUpViewController1.swift */,
-				BCD0D333219BD7E70013A695 /* usernameViewController.swift */,
-				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
-				BCD0D31D219BD7E50013A695 /* WelcomeViewController.swift */,
 				BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */,
 				BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */,
-				BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */,
 				BCD0D2F4219BD7E10013A695 /* CamViewController.swift */,
 				BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */,
-				BCD0D2EB219BD7E10013A695 /* EmailViewController.swift */,
 				BCD0D300219BD7E20013A695 /* FeedViewController.swift */,
 				BCD0D335219BD7E70013A695 /* FollowViewController.swift */,
 				BCD0D2FF219BD7E20013A695 /* FotoPreviewViewController.swift */,
@@ -675,6 +691,7 @@
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -693,6 +710,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -799,7 +817,7 @@
 				BCD0D374219BD7E80013A695 /* SearchTableDataSource.swift in Sources */,
 				BCD0D353219BD7E80013A695 /* PostService.swift in Sources */,
 				BCD0D350219BD7E80013A695 /* PasswordViewController.swift in Sources */,
-				BCD0D344219BD7E80013A695 /* EmailViewController.swift in Sources */,
+				BCD0D344219BD7E80013A695 /* Username+EmailViewController.swift in Sources */,
 				BCD0D341219BD7E80013A695 /* CommentCell.swift in Sources */,
 				BCD0D34B219BD7E80013A695 /* OnboardTextField.swift in Sources */,
 				BCD0D392219BD7E80013A695 /* UserService.swift in Sources */,

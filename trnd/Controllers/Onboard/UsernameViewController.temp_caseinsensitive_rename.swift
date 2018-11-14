@@ -14,12 +14,9 @@ import VBFPopFlatButton
 class UsernameViewController: UIViewController, UITextFieldDelegate {
     
     // IB Outlets
-    @IBOutlet weak var curvedView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var field: UITextField!
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var con: NSLayoutConstraint!
     @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
@@ -29,19 +26,16 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
+        //dismiss(animated: false, completion: nil)
     }
     
     // LIFE CYCLE
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         field.becomeFirstResponder()
-        curvedView.layer.cornerRadius = 10
+        
+        
         UITextField.appearance().tintColor = .white
         nextButton.layer.cornerRadius = 10
         
@@ -185,16 +179,7 @@ class UsernameViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     self.nextButton.tintColor = UIColor(red:0.71, green:0.22, blue:0.33, alpha:1.0)
                     UserDefaults.standard.set(self.field.text, forKey: DEFAULTS_USERNAME_)
-                    if let viewController = UIStoryboard(name: "Onboard", bundle: nil).instantiateViewController(withIdentifier: "emailViewController") as? EmailViewController {
-                        if let navigator = self.navigationController {
-                            navigator.pushViewController(viewController, animated: false)
-                            self.indicator.stopAnimating()
-                            self.indicator.isHidden = true
-                            self.nextButton.isEnabled = true
-                            self.nextButton.setTitle("next", for: .normal)
-                            
-                        }
-                    }
+                    
                 }
             })
             

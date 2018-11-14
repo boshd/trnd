@@ -52,7 +52,7 @@ class SignInViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     /// Dismisses the keyboard
-    func dismissKeyboard() {
+    override func dismissKeyboard() {
         view.endEditing(true)
     }
     

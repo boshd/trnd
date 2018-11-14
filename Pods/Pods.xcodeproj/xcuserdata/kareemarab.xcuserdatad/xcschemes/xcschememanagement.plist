@@ -102,19 +102,26 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>TextFieldEffects.xcscheme</key>
+		<key>SwiftIconFont.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
-		<key>VBFPopFlatButton.xcscheme</key>
+		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
+		</dict>
+		<key>VBFPopFlatButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>

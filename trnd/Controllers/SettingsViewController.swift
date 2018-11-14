@@ -145,7 +145,7 @@ class SettingsViewController: UIViewController {
     }
     
     /// Dismisses the keyboard
-    @objc func dismissKeyboard() {
+    @objc override func dismissKeyboard() {
         view.endEditing(true)
     }
     

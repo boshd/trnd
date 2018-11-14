@@ -42,7 +42,7 @@ class SignUpDetailsViewController: UIViewController {
     // MARK: - Methods: Internal
     
     /// Dismisses the keyboard
-    func dismissKeyboard() {
+    override func dismissKeyboard() {
         view.endEditing(true)
     }
     

@@ -15,20 +15,14 @@ class WelcomeViewController: UIViewController {
     // IB Outlets
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signUpButtonView: UIView!
-    @IBOutlet weak var curvedView: UIView!
-    @IBOutlet weak var legalLabel: UILabel!
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var welcomeToGift: UILabel!
-    @IBOutlet weak var viewww: UIView!
-    @IBOutlet weak var giftLabel: UILabel!
     
     // IB Actions
     @IBAction func signUpButton(_ sender: UIButton) { // Touch up
         let story = UIStoryboard(name: "Onboard", bundle: nil)
-        let controller = story.instantiateViewController(withIdentifier: "SignUpNameViewControllerNAV")
-        controller.modalTransitionStyle = .coverVertical
-        present(controller, animated: false, completion: nil)
+        let controller = story.instantiateViewController(withIdentifier: "usernameEmailViewController")
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     @IBAction func signInButton(_ sender: AnyObject) {
@@ -38,24 +32,20 @@ class WelcomeViewController: UIViewController {
     }
     
     // 
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     //
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        curvedView.layer.cornerRadius = 10
+        self.title = "TRND"
+        //curvedView.layer.cornerRadius = 10
         self.signUpButton.layer.cornerRadius = 10
         //self.signUpButtonView.layer.cornerRadius = 10
         self.signInButton.layer.cornerRadius = 4
         self.signUpButton.clipsToBounds = true
-        self.signUpButton.setTitleColor(UIColor.fabishPink(), for: .highlighted)
+        self.signUpButton.setTitleColor(UIColor.white, for: .highlighted)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
 }

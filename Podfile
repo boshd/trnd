@@ -18,6 +18,7 @@ target 'trnd' do
   pod 'ALCameraViewController'
   pod 'TextFieldEffects'
   pod 'CRRefresh'
+  pod 'SwiftIconFont'
 
   pod 'ARVideoKit', :git => 'https://github.com/AFathi/ARVideoKit.git'
 

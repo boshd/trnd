@@ -19,7 +19,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var curvedView: UIView!
     @IBOutlet weak var revealButton: UIButton!
     @IBOutlet weak var buttonView: UIView!
     
@@ -59,6 +58,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.title = "TRND"
         if #available(iOS 11, *) {
             // Disables the password autoFill accessory view.
             passwordField.textContentType = UITextContentType(rawValue: "")
@@ -70,7 +70,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         }
         passwordField.becomeFirstResponder()
         UITextField.appearance().tintColor = .white
-        curvedView.layer.cornerRadius = 10
         self.indicator.isHidden = true
         passwordField.delegate = self
         

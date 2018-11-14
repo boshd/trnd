@@ -18,6 +18,6 @@ struct UsernameValidator {
     
     // Checks if username is between 4 & 15 characters
     static func usernameInvalidLength(_ username: String) -> Bool {
-        return username.characters.count < 4 || username.characters.count > 15
+        return username.count < 4 || username.count > 15
     }
 }

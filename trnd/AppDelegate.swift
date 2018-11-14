@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup Parse Server
         ParseServer.singleInstance.initializeParseServer()
         
+        
+        UINavigationBar.appearance().barTintColor = UIColor.offBlack()
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        
+        
         return true
     }
     

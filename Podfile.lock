@@ -21,6 +21,7 @@ PODS:
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
   - pop (1.0.12)
+  - SwiftIconFont (2.9.1)
   - TextFieldEffects (1.5.1)
   - VBFPopFlatButton (0.0.7):
     - pop
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - FLAnimatedImage
   - KILabel (= 1.0.0)
   - Parse
+  - SwiftIconFont
   - TextFieldEffects
   - VBFPopFlatButton
 
@@ -50,6 +52,7 @@ SPEC REPOS:
     - KILabel
     - Parse
     - pop
+    - SwiftIconFont
     - TextFieldEffects
     - VBFPopFlatButton
 
@@ -74,9 +77,10 @@ SPEC CHECKSUMS:
   KILabel: 84049969642d4ac1061ebe38ad4c0da37fed108b
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: 79db4c9a284fed0b2c73f287c9893297641c294e
+PODFILE CHECKSUM: 8e99974dcc20c09c4f30cd8e177224125d41b247
 
 COCOAPODS: 1.5.3
