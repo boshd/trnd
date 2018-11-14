@@ -1,0 +1,82 @@
+PODS:
+  - ALCameraViewController (3.0.3)
+  - ARVideoKit (1.3)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - CRRefresh (1.1.2)
+  - FBSDKCoreKit (4.38.1):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.38.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.38.1):
+    - FBSDKCoreKit
+  - FLAnimatedImage (1.0.12)
+  - KILabel (1.0.0)
+  - Parse (1.17.1):
+    - Parse/Core (= 1.17.1)
+  - Parse/Core (1.17.1):
+    - Bolts/Tasks (~> 1.9)
+  - pop (1.0.12)
+  - TextFieldEffects (1.5.1)
+  - VBFPopFlatButton (0.0.7):
+    - pop
+
+DEPENDENCIES:
+  - ALCameraViewController
+  - ARVideoKit (from `https://github.com/AFathi/ARVideoKit.git`)
+  - CRRefresh
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - FLAnimatedImage
+  - KILabel (= 1.0.0)
+  - Parse
+  - TextFieldEffects
+  - VBFPopFlatButton
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ALCameraViewController
+    - Bolts
+    - CRRefresh
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - FLAnimatedImage
+    - KILabel
+    - Parse
+    - pop
+    - TextFieldEffects
+    - VBFPopFlatButton
+
+EXTERNAL SOURCES:
+  ARVideoKit:
+    :git: https://github.com/AFathi/ARVideoKit.git
+
+CHECKOUT OPTIONS:
+  ARVideoKit:
+    :commit: 6037aa9619834db0e897952fcbbd09bb66b8eb15
+    :git: https://github.com/AFathi/ARVideoKit.git
+
+SPEC CHECKSUMS:
+  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
+  ARVideoKit: 9bd6fd31662b8b4c3966797e0f596f4d87948475
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  CRRefresh: d2981e419e87b0868c19f8b1f8f562d8704f6db3
+  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
+  FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
+  FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  KILabel: 84049969642d4ac1061ebe38ad4c0da37fed108b
+  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
+  VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
+
+PODFILE CHECKSUM: 79db4c9a284fed0b2c73f287c9893297641c294e
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,6 @@
+framework module Pods_trnd {
+  umbrella header "Pods-trnd-umbrella.h"
+
+  export *
+  module * { export * }
+}
