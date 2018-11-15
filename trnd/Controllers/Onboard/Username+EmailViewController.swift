@@ -149,12 +149,14 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
             self.errLabel.isHidden = true
             self.nextButton.isEnabled = true
+            self.emailField.enablesReturnKeyAutomatically = true
             print("im hereeeeeeee yooo")
         } else {
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            self.emailField.enablesReturnKeyAutomatically = false
             print("still not there yooo")
         }
     }
@@ -164,11 +166,12 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         switch true {
         case UsernameValidator.usernameInvalidLength(usernameField.text!):
             user_bool = false
-            errLabel.text = "Username must be longer."
+            errLabel.text = " 4 < username < 14 :')"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            self.emailField.enablesReturnKeyAutomatically = false
         default:
             
             //print("here")
@@ -189,6 +192,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     self.nextButton.isEnabled = false
                     self.nextButton.backgroundColor =  UIColor.offGreen()
                     self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+                    self.emailField.enablesReturnKeyAutomatically = false
                     print("username taken")
                 } else {
                     self.errLabel.text = ""
@@ -207,18 +211,20 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         switch true {
         case TextFieldValidator.emptyFieldExists(emailField, usernameField):
             email_bool = false
-            errLabel.text = "Something's missing."
+            errLabel.text = "Fields can't be empty."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            self.emailField.enablesReturnKeyAutomatically = false
         case EmailValidator.invalidEmail(emailField.text!):
             email_bool = false
-            errLabel.text = "That doesn't seem like a correct email"
+            errLabel.text = "Are you sure this email is valid?"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            self.emailField.enablesReturnKeyAutomatically = false
         default:
             
             let queryy: PFQuery = PFUser.query()!
@@ -229,6 +235,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     self.errLabel.text = "Email taken."
                     self.errLabel.isHidden  = false
                     self.nextButton.isEnabled = false
+                    self.emailField.enablesReturnKeyAutomatically = false
                     print("reached 2")
                 } else {
                     self.errLabel.text = ""
