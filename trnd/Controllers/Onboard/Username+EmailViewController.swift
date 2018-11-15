@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Parse
 import TextFieldEffects
+import KRProgressHUD
 
 class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     
@@ -18,10 +19,10 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var errLabel: UILabel!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    //@IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var username_query_isGood: Bool = false
-    var email_query_isGood: Bool = false
+    var user_bool: Bool = false
+    var email_bool: Bool = false
     // This constraint ties an element at zero points from the bottom layout guide
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet var keyboardHeightLayoutConstraint_ind: NSLayoutConstraint?
@@ -29,19 +30,42 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     
     // IB Actions
     @IBAction func nextAction(_ sender: AnyObject) {
+        //GO()
+    }
+    
+    @IBAction func next(_ sender: Any) {
         GO()
     }
     
-    @IBAction func backAction(_ sender: Any) {
-        navigationController?.popViewController(animated: false)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            //textField.resignFirstResponder()
+            GO()
+        }
+        
+        return true
+    }
+    
+    private func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        //textField code
+        
+        textField.resignFirstResponder()  //if desired
+        //GO()
+        return true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         usernameField.becomeFirstResponder()
-        self.nextButton.backgroundColor =  UIColor.offGreen()
-        self.nextButton.isEnabled = false
+        check_bools()
+        //usernameChanged()
+        //emailChanged()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,8 +85,8 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicator.isHidden = false
-        hideKeyboardWhenTappedAround()
+
+        //hideKeyboardWhenTappedAround()
         let backButton = UIBarButtonItem()
         backButton.title = "" //in your case it will be empty or you can put the title of your choice
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -78,10 +102,9 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         
 
         UITextField.appearance().tintColor = .white
-
-        
-        self.indicator.isHidden = true
-        indicator.color = UIColor.litPink()
+        usernameField.delegate = self
+        emailField.delegate = self
+    
         
         usernameField.addTarget(self, action: #selector(usernameChanged), for: .editingChanged)
         emailField.addTarget(self, action: #selector(emailChanged), for: .editingChanged)
@@ -120,15 +143,34 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @objc func check_bools() {
+        if user_bool && email_bool {
+            self.nextButton.backgroundColor =  UIColor.litGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            self.errLabel.isHidden = true
+            self.nextButton.isEnabled = true
+            print("im hereeeeeeee yooo")
+        } else {
+            errLabel.isHidden  = false
+            nextButton.isEnabled = false
+            self.nextButton.backgroundColor = UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            print("still not there yooo")
+        }
+    }
+    
     @objc func usernameChanged() {
+        user_bool = false
         switch true {
         case UsernameValidator.usernameInvalidLength(usernameField.text!):
+            user_bool = false
             errLabel.text = "Username must be longer."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         default:
+            
             //print("here")
             //errLabel.text = ""
             nextButton.isEnabled = false
@@ -138,8 +180,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
             query.whereKey("username", equalTo: usernameField.text!)
             query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
                 if object != nil {
-                    self.indicator.isHidden = true
-                    self.indicator.stopAnimating()
+                    self.user_bool = false
                     self.nextButton.setTitle("next", for: .normal)
                     
                     self.errLabel.text = "Username taken."
@@ -150,7 +191,9 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
                     print("username taken")
                 } else {
-                    self.emailChanged()
+                    self.errLabel.text = ""
+                    self.user_bool = true
+                    self.check_bools()
                 }
             })
         }
@@ -159,89 +202,56 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func emailChanged() {
-        self.nextButton.backgroundColor =  UIColor.litGreen()
-        self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
-        self.nextButton.isEnabled = true
+        email_bool = false
+        self.errLabel.text = ""
         switch true {
         case TextFieldValidator.emptyFieldExists(emailField, usernameField):
+            email_bool = false
             errLabel.text = "Something's missing."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         case EmailValidator.invalidEmail(emailField.text!):
+            email_bool = false
             errLabel.text = "That doesn't seem like a correct email"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
             self.nextButton.backgroundColor = UIColor.offGreen()
             self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         default:
+            
             let queryy: PFQuery = PFUser.query()!
             queryy.whereKey("email", equalTo: self.emailField.text!)
             queryy.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
                 if object != nil {
-                    
-                    self.errLabel.text = "Email taken. Perhaps you already have an account? Try signing in."
+                    self.email_bool = false
+                    self.errLabel.text = "Email taken."
                     self.errLabel.isHidden  = false
                     self.nextButton.isEnabled = false
                     print("reached 2")
                 } else {
-                    self.nextButton.backgroundColor =  UIColor.litGreen()
-                    self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
-                    self.errLabel.isHidden = true
-                    self.nextButton.isEnabled = true
+                    self.errLabel.text = ""
+                    self.email_bool = true
+                    self.check_bools()
                 }
             })
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-        } else {
-            // Not found, so remove keyboard.
-            GO()
-        }
-        // Do not add a line break
-        
-        return false
-        
-    }
-    
-    func editingChanged(_ textField: UITextField) {
-        if textField.text?.count == 1 {
-            if textField.text?.first == " " {
-                textField.text = ""
-                return
-            }
-        }
-        guard
-            let habit = usernameField.text, !habit.isEmpty
-            else {
-                nextButton.isEnabled = false
-                nextButton.backgroundColor =  UIColor(red:0.64, green:0.20, blue:0.29, alpha:1.0)
-                return
-        }
-        nextButton.isEnabled = true
-        //nextButton.backgroundColor =  .white
-    }
-    
     // Methods
     func GO() {
+        KRProgressHUD.show()
         nextButton.titleLabel?.text = ""
         nextButton.backgroundColor = UIColor.offGreen()
         nextButton.isEnabled = false
-        indicator.isHidden = false
-        indicator.startAnimating()
         switch true {
         case TextFieldValidator.emptyFieldExists(emailField, usernameField):
+            
+            KRProgressHUD.dismiss()
             self.nextButton.titleLabel?.text = "Next"
             self.nextButton.backgroundColor = UIColor.litGreen()
             self.nextButton.isEnabled = true
-            self.indicator.isHidden = true
-            self.indicator.stopAnimating()
             errLabel.text = "Email can't be empty"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -250,11 +260,10 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                 self.nextButton.isEnabled = true
             }
         case EmailValidator.invalidEmail(emailField.text!):
+            KRProgressHUD.dismiss()
             self.nextButton.titleLabel?.text = "Next"
             self.nextButton.backgroundColor = UIColor.litGreen()
             self.nextButton.isEnabled = true
-            self.indicator.isHidden = true
-            self.indicator.stopAnimating()
             errLabel.text = "Please enter a valid email"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -262,23 +271,11 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                 self.errLabel.isHidden = true
                 self.nextButton.isEnabled = true
             })
-//        case UsernameValidator.usernameInvalidLength(usernameField.text!):
-//            errLabel.text = "Username has to be a bit longer"
-//            errLabel.isHidden  = false
-//            nextButton.isEnabled = false
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-//                self.errLabel.isHidden = true
-//                self.nextButton.isEnabled = true
-//            })
         default:
-            
-            
             let username_query: PFQuery = PFUser.query()!
             username_query.whereKey("username", equalTo: usernameField.text!)
             username_query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
                 if object != nil {
-                    self.indicator.isHidden = true
-                    self.indicator.stopAnimating()
                     self.nextButton.setTitle("Next", for: .normal)
                     
                     self.errLabel.text = "username taken"
@@ -292,15 +289,12 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     self.nextButton.titleLabel?.text = "Next"
                     self.nextButton.backgroundColor = UIColor.litGreen()
                     self.nextButton.isEnabled = true
-                    self.indicator.isHidden = true
-                    self.indicator.stopAnimating()
+                    KRProgressHUD.dismiss()
                 } else {
                     let email_query: PFQuery = PFUser.query()!
                     email_query.whereKey("email", equalTo: self.emailField.text!)
                     email_query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
                         if object != nil {
-                            self.indicator.isHidden = true
-                            self.indicator.stopAnimating()
                             self.nextButton.setTitle("Next", for: .normal)
                             
                             self.errLabel.text = "Email taken. Try signing in."
@@ -313,14 +307,14 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                             self.nextButton.titleLabel?.text = "Next"
                             self.nextButton.backgroundColor = UIColor.litGreen()
                             self.nextButton.isEnabled = true
-                            self.indicator.isHidden = true
-                            self.indicator.stopAnimating()
+                            KRProgressHUD.dismiss()
                         } else {
                             UserDefaults.standard.set(self.emailField.text, forKey: DEFAULTS_EMAIL)
                             UserDefaults.standard.set(self.usernameField.text, forKey: DEFAULTS_USERNAME_)
                             let story = UIStoryboard(name: "Onboard", bundle: nil)
                             let controller = story.instantiateViewController(withIdentifier: "passwordViewController")
                             self.navigationController?.pushViewController(controller, animated: true)
+                            KRProgressHUD.dismiss()
                         }
                     })
 

@@ -19,6 +19,7 @@ target 'trnd' do
   pod 'TextFieldEffects'
   pod 'CRRefresh'
   pod 'SwiftIconFont'
+  pod 'KRProgressHUD'
 
   pod 'ARVideoKit', :git => 'https://github.com/AFathi/ARVideoKit.git'
 

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Parse
 import VBFPopFlatButton
+import KRProgressHUD
 
 class PasswordViewController: UIViewController, UITextFieldDelegate {
     
@@ -17,7 +18,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errLabel: UILabel!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    //@IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var revealButton: UIButton!
     
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
@@ -71,8 +72,8 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        indicator.isHidden = false
-        hideKeyboardWhenTappedAround()
+
+        //hideKeyboardWhenTappedAround()
         let backButton = UIBarButtonItem()
         backButton.title = "" //in your case it will be empty or you can put the title of your choice
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -92,10 +93,9 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
             passwordField.textContentType = UITextContentType(rawValue: "")
         }
 
-        self.indicator.isHidden = true
+  
         passwordField.delegate = self
-        
-        indicator.color = UIColor.litGreen()
+
 
         passwordField.addTarget(self, action:#selector(PasswordViewController.passwordChanged), for: UIControl.Event.editingChanged)
         
@@ -211,7 +211,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
                 let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignUpProfileViewController")
                 //self.present(controller!, animated: false, completion: nil)
                 self.navigationController?.pushViewController(controller!, animated: false)
-                
+                KRProgressHUD.dismiss()
                 
             } else if let error = error {
                 print(error)
@@ -229,9 +229,11 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     
     // Methods
     func GO() {
+        KRProgressHUD.show()
         self.passwordField.isEnabled = false
         switch true {
         case TextFieldValidator.emptyFieldExists(passwordField):
+            KRProgressHUD.dismiss()
             errLabel.text = "please enter password."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -241,6 +243,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
                 self.passwordField.isEnabled = true
             })
         case PasswordValidator.passwordInvalidLength(passwordField.text!):
+            KRProgressHUD.dismiss()
             errLabel.text = "keep the password over six characters"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -250,8 +253,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
                 self.passwordField.isEnabled = true
             })
         default:
-            self.indicator.isHidden = false
-            self.indicator.startAnimating()
             self.nextButton.setTitle("", for: .normal)
             
             self.errLabel.isHidden = true

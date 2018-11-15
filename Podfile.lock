@@ -16,6 +16,9 @@ PODS:
     - FBSDKCoreKit
   - FLAnimatedImage (1.0.12)
   - KILabel (1.0.0)
+  - KRActivityIndicatorView (3.0.0)
+  - KRProgressHUD (3.4.0):
+    - KRActivityIndicatorView (= 3.0.0)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - FLAnimatedImage
   - KILabel (= 1.0.0)
+  - KRProgressHUD
   - Parse
   - SwiftIconFont
   - TextFieldEffects
@@ -50,6 +54,8 @@ SPEC REPOS:
     - FBSDKShareKit
     - FLAnimatedImage
     - KILabel
+    - KRActivityIndicatorView
+    - KRProgressHUD
     - Parse
     - pop
     - SwiftIconFont
@@ -75,12 +81,14 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   KILabel: 84049969642d4ac1061ebe38ad4c0da37fed108b
+  KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
+  KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: 8e99974dcc20c09c4f30cd8e177224125d41b247
+PODFILE CHECKSUM: cf118168797c289b780842f1ba55433c95bc62b4
 
 COCOAPODS: 1.5.3

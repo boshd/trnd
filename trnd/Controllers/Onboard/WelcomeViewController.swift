@@ -41,7 +41,7 @@ class WelcomeViewController: UIViewController {
         //self.signUpButtonView.layer.cornerRadius = 10
         self.signInButton.layer.cornerRadius = 4
         self.signUpButton.clipsToBounds = true
-        self.signUpButton.setTitleColor(UIColor.white, for: .highlighted)
+        self.signUpButton.setTitleColor(UIColor.offBlack(), for: .highlighted)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

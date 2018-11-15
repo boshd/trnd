@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE8545B30E3AE8D5FD8B5D70C14527DE"
-               BlueprintName = "pop"
+               BlueprintIdentifier = "FAC7D1614A249BDBB43198E3409F6102"
+               BlueprintName = "KRActivityIndicatorView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "pop.framework">
+               BuildableName = "KRActivityIndicatorView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
