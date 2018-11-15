@@ -16,11 +16,11 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     // IB Outlets
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var errLabel: UILabel!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var revealButton: UIButton!
-    @IBOutlet weak var buttonView: UIView!
+    
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     
     var username = UserDefaults.standard.string(forKey: DEFAULTS_USERNAME)
     var email = UserDefaults.standard.string(forKey: DEFAULTS_EMAIL)
@@ -28,15 +28,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     // IB Actions
     @IBAction func nextAction(_ sender: AnyObject) {
         GO()
-    }
-    
-    @IBAction func backAction(_ sender: Any) {
-        navigationController?.popViewController(animated: false)
-    }
-    
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     
@@ -51,65 +42,113 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
     // LIFE CYCLE
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        passwordField.becomeFirstResponder()
+        self.nextButton.backgroundColor =  UIColor.offGreen()
+        self.nextButton.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        passwordField.resignFirstResponder()
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        passwordField.resignFirstResponder()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator.isHidden = false
+        hideKeyboardWhenTappedAround()
+        let backButton = UIBarButtonItem()
+        backButton.title = "" //in your case it will be empty or you can put the title of your choice
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.title = "TRND"
+        self.view.backgroundColor = UIColor.offBlack()
+        //self.navigationItem.hidesBackButton = false
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Basdck", style: .plain, target: nil, action: nil)
+        let yourBackImage = UIImage(from: .fontAwesome, code: "angleleft", textColor: .white, backgroundColor: .clear, size: CGSize(width: 60, height: 60))
+        let bb = UIBarButtonItem(image: yourBackImage, style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        self.navigationItem.backBarButtonItem = bb
+        
         //self.title = "TRND"
         if #available(iOS 11, *) {
             // Disables the password autoFill accessory view.
             passwordField.textContentType = UITextContentType(rawValue: "")
         }
-        nextButton.layer.cornerRadius = 10
-        let username = UserDefaults.standard.string(forKey: DEFAULTS_USERNAME)
-        if let username = username {
-            self.introLabel.text = "hey @\(username). pick a secure password yo."
-        }
-        passwordField.becomeFirstResponder()
-        UITextField.appearance().tintColor = .white
+
         self.indicator.isHidden = true
         passwordField.delegate = self
         
-        indicator.color = UIColor.fabishPink()
-        nextButton.isEnabled = false
-        nextButton.backgroundColor =  UIColor(red:0.64, green:0.20, blue:0.29, alpha:1.0)
+        indicator.color = UIColor.litGreen()
+
         passwordField.addTarget(self, action:#selector(PasswordViewController.passwordChanged), for: UIControl.Event.editingChanged)
         
         
         //NotificationCenter.default.addObserver(self, selector: #selector(PasswordViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         //NotificationCenter.default.addObserver(self, selector: #selector(PasswordViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardNotification(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.buttonView.frame.origin.y == 0{
-                self.buttonView.frame.origin.y -= keyboardSize.height
-            }
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.buttonView.frame.origin.y != 0{
-                self.buttonView.frame.origin.y += keyboardSize.height
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                self.keyboardHeightLayoutConstraint?.constant = 0.0
+                
+            } else {
+                self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+                
             }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
         }
     }
  
     @objc func passwordChanged() {
-
+        self.nextButton.backgroundColor =  UIColor.litGreen()
+        self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
+        self.nextButton.isEnabled = true
         switch true {
         case PasswordValidator.passwordInvalidLength(passwordField.text!):
             errLabel.text = "Password must be longer than six characters."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
-            nextButton.backgroundColor =  UIColor(red:0.64, green:0.20, blue:0.29, alpha:1.0)
+            self.nextButton.backgroundColor = UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         default:
-            self.nextButton.backgroundColor =  UIColor.white
-            //self.nextButton.backgroundColor = UIColor(red:0.71, green:0.22, blue:0.33, alpha:1.0)
+            self.nextButton.backgroundColor =  UIColor.litGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
             self.errLabel.isHidden = true
             self.nextButton.isEnabled = true
 

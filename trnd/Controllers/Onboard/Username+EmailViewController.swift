@@ -40,7 +40,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         usernameField.becomeFirstResponder()
-        self.nextButton.backgroundColor =  UIColor.offPink()
+        self.nextButton.backgroundColor =  UIColor.offGreen()
         self.nextButton.isEnabled = false
     }
     
@@ -67,10 +67,10 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         backButton.title = "" //in your case it will be empty or you can put the title of your choice
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.title = "TRND"
-        
+        self.view.backgroundColor = UIColor.offBlack()
         //self.navigationItem.hidesBackButton = false
         //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Basdck", style: .plain, target: nil, action: nil)
-        let yourBackImage = UIImage(from: .fontAwesome, code: "angleleft", textColor: .white, backgroundColor: .clear, size: CGSize(width: 50, height: 50))
+        let yourBackImage = UIImage(from: .fontAwesome, code: "angleleft", textColor: .white, backgroundColor: .clear, size: CGSize(width: 60, height: 60))
         let bb = UIBarButtonItem(image: yourBackImage, style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
@@ -126,12 +126,14 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
             errLabel.text = "Username must be longer."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
-            self.nextButton.backgroundColor = UIColor.offPink()
+            self.nextButton.backgroundColor = UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         default:
             //print("here")
             //errLabel.text = ""
             nextButton.isEnabled = false
-            self.nextButton.backgroundColor =  UIColor.offPink()
+            self.nextButton.backgroundColor =  UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
             let query: PFQuery = PFUser.query()!
             query.whereKey("username", equalTo: usernameField.text!)
             query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
@@ -144,31 +146,35 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     
                     self.errLabel.isHidden  = false
                     self.nextButton.isEnabled = false
-                    self.nextButton.backgroundColor =  UIColor.offPink()
+                    self.nextButton.backgroundColor =  UIColor.offGreen()
+                    self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
                     print("username taken")
                 } else {
-                    self.nextButton.backgroundColor =  UIColor.litPink()
-                    self.errLabel.isHidden = true
-                    self.nextButton.isEnabled = true
+                    self.emailChanged()
                 }
             })
         }
     }
     
+    
+    
     @objc func emailChanged() {
-        self.nextButton.backgroundColor =  UIColor.litPink()
+        self.nextButton.backgroundColor =  UIColor.litGreen()
+        self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         self.nextButton.isEnabled = true
         switch true {
         case TextFieldValidator.emptyFieldExists(emailField, usernameField):
-            errLabel.text = "field plz."
+            errLabel.text = "Something's missing."
             errLabel.isHidden  = false
             nextButton.isEnabled = false
-            self.nextButton.backgroundColor = UIColor.offPink()
+            self.nextButton.backgroundColor = UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         case EmailValidator.invalidEmail(emailField.text!):
             errLabel.text = "That doesn't seem like a correct email"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
-            self.nextButton.backgroundColor = UIColor.offPink()
+            self.nextButton.backgroundColor = UIColor.offGreen()
+            self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
         default:
             let queryy: PFQuery = PFUser.query()!
             queryy.whereKey("email", equalTo: self.emailField.text!)
@@ -180,7 +186,8 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                     self.nextButton.isEnabled = false
                     print("reached 2")
                 } else {
-                    self.nextButton.backgroundColor =  UIColor.litPink()
+                    self.nextButton.backgroundColor =  UIColor.litGreen()
+                    self.nextButton.setTitleColor(UIColor.offBlack(), for: .normal)
                     self.errLabel.isHidden = true
                     self.nextButton.isEnabled = true
                 }
@@ -192,7 +199,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     {
         // Try to find next responder
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            //nextField.becomeFirstResponder()
+            nextField.becomeFirstResponder()
         } else {
             // Not found, so remove keyboard.
             GO()
@@ -218,18 +225,23 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         nextButton.isEnabled = true
-        nextButton.backgroundColor =  .white
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        //nextButton.backgroundColor =  .white
     }
     
     // Methods
     func GO() {
-        
+        nextButton.titleLabel?.text = ""
+        nextButton.backgroundColor = UIColor.offGreen()
+        nextButton.isEnabled = false
+        indicator.isHidden = false
+        indicator.startAnimating()
         switch true {
         case TextFieldValidator.emptyFieldExists(emailField, usernameField):
+            self.nextButton.titleLabel?.text = "Next"
+            self.nextButton.backgroundColor = UIColor.litGreen()
+            self.nextButton.isEnabled = true
+            self.indicator.isHidden = true
+            self.indicator.stopAnimating()
             errLabel.text = "Email can't be empty"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -238,6 +250,11 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                 self.nextButton.isEnabled = true
             }
         case EmailValidator.invalidEmail(emailField.text!):
+            self.nextButton.titleLabel?.text = "Next"
+            self.nextButton.backgroundColor = UIColor.litGreen()
+            self.nextButton.isEnabled = true
+            self.indicator.isHidden = true
+            self.indicator.stopAnimating()
             errLabel.text = "Please enter a valid email"
             errLabel.isHidden  = false
             nextButton.isEnabled = false
@@ -254,8 +271,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
 //                self.nextButton.isEnabled = true
 //            })
         default:
-            self.username_query_isGood = false
-            self.email_query_isGood = false
+            
             
             let username_query: PFQuery = PFUser.query()!
             username_query.whereKey("username", equalTo: usernameField.text!)
@@ -263,7 +279,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                 if object != nil {
                     self.indicator.isHidden = true
                     self.indicator.stopAnimating()
-                    self.nextButton.setTitle("next", for: .normal)
+                    self.nextButton.setTitle("Next", for: .normal)
                     
                     self.errLabel.text = "username taken"
                     
@@ -273,46 +289,43 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                         self.errLabel.isHidden = true
                         self.nextButton.isEnabled = true
                     })
-                    self.username_query_isGood = false
-                } else {
-                    self.nextButton.tintColor = UIColor(red:0.71, green:0.22, blue:0.33, alpha:1.0)
-                    self.username_query_isGood = true
-                }
-            })
-            
-            let email_query: PFQuery = PFUser.query()!
-            email_query.whereKey("email", equalTo: self.emailField.text!)
-            email_query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
-                if object != nil {
+                    self.nextButton.titleLabel?.text = "Next"
+                    self.nextButton.backgroundColor = UIColor.litGreen()
+                    self.nextButton.isEnabled = true
                     self.indicator.isHidden = true
                     self.indicator.stopAnimating()
-                    self.nextButton.setTitle("next", for: .normal)
-                    
-                    self.errLabel.text = "Email taken. Try signing in."
-                    self.errLabel.isHidden  = false
-                    self.nextButton.isEnabled = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                        self.errLabel.isHidden = true
-                        self.nextButton.isEnabled = true
-                    })
-                    self.email_query_isGood = false
                 } else {
-                    self.nextButton.tintColor = UIColor(red:0.71, green:0.22, blue:0.33, alpha:1.0)
-                    self.email_query_isGood = true
+                    let email_query: PFQuery = PFUser.query()!
+                    email_query.whereKey("email", equalTo: self.emailField.text!)
+                    email_query.getFirstObjectInBackground(block: {(object: PFObject?, error: Error?) -> Void in
+                        if object != nil {
+                            self.indicator.isHidden = true
+                            self.indicator.stopAnimating()
+                            self.nextButton.setTitle("Next", for: .normal)
+                            
+                            self.errLabel.text = "Email taken. Try signing in."
+                            self.errLabel.isHidden  = false
+                            self.nextButton.isEnabled = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                                self.errLabel.isHidden = true
+                                self.nextButton.isEnabled = true
+                            })
+                            self.nextButton.titleLabel?.text = "Next"
+                            self.nextButton.backgroundColor = UIColor.litGreen()
+                            self.nextButton.isEnabled = true
+                            self.indicator.isHidden = true
+                            self.indicator.stopAnimating()
+                        } else {
+                            UserDefaults.standard.set(self.emailField.text, forKey: DEFAULTS_EMAIL)
+                            UserDefaults.standard.set(self.usernameField.text, forKey: DEFAULTS_USERNAME_)
+                            let story = UIStoryboard(name: "Onboard", bundle: nil)
+                            let controller = story.instantiateViewController(withIdentifier: "passwordViewController")
+                            self.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    })
+
                 }
             })
-            
-            if username_query_isGood && email_query_isGood {
-                UserDefaults.standard.set(self.emailField.text, forKey: DEFAULTS_EMAIL)
-                UserDefaults.standard.set(self.usernameField.text, forKey: DEFAULTS_USERNAME_)
-                let story = UIStoryboard(name: "Onboard", bundle: nil)
-                let controller = story.instantiateViewController(withIdentifier: "passwordViewController")
-                navigationController?.pushViewController(controller, animated: true)
-                print("arriveeded")
-            } else {
-                // dont do anything
-                print("wont go no where")
-            }
             
         }
     }

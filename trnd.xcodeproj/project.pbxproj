@@ -280,8 +280,8 @@
 				BCD0D2E5219BD7E00013A695 /* OnboardNavigationController.swift */,
 				BCD0D31D219BD7E50013A695 /* WelcomeViewController.swift */,
 				BCD0D2EB219BD7E10013A695 /* Username+EmailViewController.swift */,
-				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
 				BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */,
+				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
 				BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */,
 				BC37CB34219C876100D8450C /* Other */,
 			);

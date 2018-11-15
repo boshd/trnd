@@ -51,11 +51,11 @@ extension UIColor {
     }
     
     static func offWhite() -> UIColor {
-        return UIColor(red:0.44, green:1.00, blue:0.91, alpha:1.0)
+        return UIColor(red:0.89, green:0.90, blue:0.91, alpha:1.0)
     }
     
     static func offBlack() -> UIColor {
-        return UIColor(red:0.14, green:0.15, blue:0.19, alpha:1.0)
+        return UIColor(red:0.12, green:0.12, blue:0.16, alpha:1.0)
     }
     
     static func blush() -> UIColor {
