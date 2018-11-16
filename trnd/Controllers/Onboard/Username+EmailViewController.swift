@@ -101,7 +101,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.backBarButtonItem = bb
         
 
-        UITextField.appearance().tintColor = .white
+        UITextField.appearance().tintColor = UIColor.litGreen()
         usernameField.delegate = self
         emailField.delegate = self
     

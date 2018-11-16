@@ -93,7 +93,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
             passwordField.textContentType = UITextContentType(rawValue: "")
         }
 
-  
+        UITextField.appearance().tintColor = UIColor.litGreen()
         passwordField.delegate = self
 
 
@@ -193,7 +193,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         user.email = UserDefaults.standard.string(forKey: DEFAULTS_EMAIL)
         user.password = passwordField.text!
         
-        if let image = UIImage(named: "chill.jpg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
+        if let image = UIImage(named: "chill.png"), let avatarData = image.jpegData(compressionQuality: 0.5) {
             let file = PFFile(name: "avatar", data: avatarData)
             user[QueryKey.Avatar] = file
         }
@@ -208,11 +208,9 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 UserDefaults.standard.set(user.username!, forKey: DEFAULTS_USERNAME)
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignUpProfileViewController")
-                //self.present(controller!, animated: false, completion: nil)
-                self.navigationController?.pushViewController(controller!, animated: false)
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                appDelegate?.login()
                 KRProgressHUD.dismiss()
-                
             } else if let error = error {
                 print(error)
                 self.passwordField.isEnabled = true

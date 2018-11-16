@@ -10,8 +10,9 @@
 		04DA35ADABFE22E7E8FFC165 /* Pods_trndTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075DC13973B176B8ED6C3CE /* Pods_trndTests.framework */; };
 		5A06BB74D034BB48B0FFBB33 /* Pods_trndUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622668CE7354B29752044795 /* Pods_trndUITests.framework */; };
 		73539521BD538028BBA2238B /* Pods_trnd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1BD893280B3CE7F8EC1FA /* Pods_trnd.framework */; };
+		BC0EF986219E8269002CE5ED /* chill.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF985219E8269002CE5ED /* chill.png */; };
+		BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF987219E8370002CE5ED /* Main.storyboard */; };
 		BCD0D2B3219BD5B00013A695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */; };
-		BCD0D2B8219BD5B00013A695 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2B6219BD5B00013A695 /* Main.storyboard */; };
 		BCD0D2BB219BD5B00013A695 /* trnd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B9219BD5B00013A695 /* trnd.xcdatamodeld */; };
 		BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2BC219BD5B30013A695 /* Assets.xcassets */; };
 		BCD0D2C0219BD5B30013A695 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2BE219BD5B30013A695 /* LaunchScreen.storyboard */; };
@@ -126,9 +127,10 @@
 		79DF7331788D3A06D05A70FF /* Pods-trndTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trndTests/Pods-trndTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E66006F690FD192BAF1037F /* Pods-trnd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trnd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trnd/Pods-trnd.debug.xcconfig"; sourceTree = "<group>"; };
 		96C891B0A7959738978738CC /* Pods-trndUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC0EF985219E8269002CE5ED /* chill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chill.png; path = ../../../../../Desktop/chill.png; sourceTree = "<group>"; };
+		BC0EF987219E8370002CE5ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BCD0D2AF219BD5B00013A695 /* trnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BCD0D2B7219BD5B00013A695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCD0D2BA219BD5B00013A695 /* trnd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = trnd.xcdatamodel; sourceTree = "<group>"; };
 		BCD0D2BC219BD5B30013A695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD0D2BF219BD5B30013A695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 		BCD0D39B219BE94D0013A695 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BC0EF985219E8269002CE5ED /* chill.png */,
 				BCD0D31F219BD7E50013A695 /* gif.png */,
 				BCD0D33A219BD7E80013A695 /* image1.png */,
 				BCD0D2F6219BD7E10013A695 /* image2.png */,
@@ -479,11 +482,11 @@
 			isa = PBXGroup;
 			children = (
 				BCD0D317219BD7E50013A695 /* Onboard.storyboard */,
+				BC0EF987219E8370002CE5ED /* Main.storyboard */,
 				BCD0D330219BD7E70013A695 /* Cam.storyboard */,
 				BCD0D2FD219BD7E20013A695 /* Foto.storyboard */,
 				BCD0D30C219BD7E40013A695 /* Settings.storyboard */,
 				BCD0D306219BD7E30013A695 /* LaunchScreen.storyboard */,
-				BCD0D2B6219BD5B00013A695 /* Main.storyboard */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -596,16 +599,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC0EF986219E8269002CE5ED /* chill.png in Resources */,
 				BCD0D378219BD7E80013A695 /* gif.png in Resources */,
 				BCD0D2C0219BD5B30013A695 /* LaunchScreen.storyboard in Resources */,
 				BCD0D34F219BD7E80013A695 /* image2.png in Resources */,
 				BCD0D356219BD7E80013A695 /* Foto.storyboard in Resources */,
 				BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */,
 				BCD0D389219BD7E80013A695 /* Cam.storyboard in Resources */,
+				BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */,
 				BCD0D35F219BD7E80013A695 /* LaunchScreen.storyboard in Resources */,
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
-				BCD0D2B8219BD5B00013A695 /* Main.storyboard in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
 				BCD0D349219BD7E80013A695 /* image3.png in Resources */,
 			);
@@ -862,14 +866,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BCD0D2B6219BD5B00013A695 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCD0D2B7219BD5B00013A695 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCD0D2BE219BD5B30013A695 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

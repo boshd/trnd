@@ -20,7 +20,7 @@ struct NavigationManager {
             window?.rootViewController = Storyboard.onboardNavigationController()
         } else {
             //window?.rootViewController = Storyboard.titleViewController()
-            window?.rootViewController = Storyboard.onboardNavigationController()
+            window?.rootViewController = Storyboard.mainController()
         }
     }
     

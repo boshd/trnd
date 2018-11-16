@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,14 +27,13 @@
         <!--CamViewController-->
         <scene sceneID="5Vi-Vl-eHf">
             <objects>
-                <viewController storyboardIdentifier="CamViewController" title="CamViewController" id="Muh-aM-ekc" customClass="CamViewController" customModule="wdywfm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CamViewController" title="CamViewController" id="Muh-aM-ekc" customClass="CamViewController" customModule="trnd" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B90-rG-bH4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" sceneName="art.scnassets/ship.scn" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-H1-vtl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="art.scnassets/ship.scn" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-H1-vtl">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </arscnView>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKt-b7-dmy">
                                 <rect key="frame" x="132" y="558" width="110" height="37"/>
@@ -48,7 +47,13 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q9d-H1-vtl" firstAttribute="bottom" secondItem="vnh-by-wRA" secondAttribute="bottom" id="1Pt-mw-0wD"/>
+                            <constraint firstItem="q9d-H1-vtl" firstAttribute="trailing" secondItem="vnh-by-wRA" secondAttribute="trailing" id="FWa-IR-UqR"/>
+                            <constraint firstItem="q9d-H1-vtl" firstAttribute="leading" secondItem="vnh-by-wRA" secondAttribute="leading" id="FuC-LU-INl"/>
+                            <constraint firstItem="q9d-H1-vtl" firstAttribute="top" secondItem="vnh-by-wRA" secondAttribute="top" id="gG2-cB-eXE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vnh-by-wRA"/>
                     </view>
                     <navigationItem key="navigationItem" id="jYe-nM-2BS"/>
@@ -59,14 +64,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbF-db-tWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="102.99850074962519"/>
+            <point key="canvasLocation" x="48.799999999999997" y="102.70935960591133"/>
         </scene>
         <!--FotoPreviewViewController-->
         <scene sceneID="M93-u5-Smc">
             <objects>
-                <viewController storyboardIdentifier="FotoPreviewViewController" title="FotoPreviewViewController" id="RwZ-fV-jkh" customClass="FotoPreviewViewController" customModule="wdywfm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FotoPreviewViewController" title="FotoPreviewViewController" id="RwZ-fV-jkh" customClass="FotoPreviewViewController" customModule="trnd" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="54n-iq-jfl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNK-zQ-rPp" customClass="FLAnimatedImageView">

@@ -21,6 +21,7 @@ enum ProfileMode {
 
 class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var closeLabel: UILabel!
     // MARK: - IBOutlets
     @IBOutlet weak var backVButton: VBFPopFlatButton!
     @IBOutlet weak var backButton: UIButton!
@@ -44,7 +45,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.backButton.isHidden = true
+        //self.backButton.isHidden = true
         /// animator: your customize animator, default is NormalHeaderAnimator
         collectionView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
             /// start refresh
@@ -62,7 +63,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         //collectionView.cr.beginHeaderRefresh()
         downloadProfileData()
         self.collectionView.reloadData()
-        
+        self.closeLabel.isHidden = true
         setupNavigationBar()
         setupProfileDataSource()
         //setupNavigationBar()
@@ -95,9 +96,11 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         
         switch profileMode {
         case .currentUser:
-             self.backButton.isHidden = true
+            print("hello")
+             self.closeLabel.isHidden = true
         case .guest(let username):
-             self.backButton.isHidden = false
+            print("hello")
+             self.closeLabel.isHidden = true
         }
         
         self.collectionView.reloadData()
@@ -148,13 +151,14 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
     func setupNavigationBar() {
         switch profileMode {
         case .currentUser:
-            self.backButton.isHidden = true
+            //self.backButton.isHidden = true
             guard let username = PFUser.current()?.username else { return }
             self.navigationController?.navigationBar.tintColor = UIColor.black
             self.navigationItem.title = ""
             self.navigationItem.hidesBackButton = true
         case .guest(let username):
-            self.backButton.isHidden = false
+            print("hello :)")
+            //self.backButton.isHidden = false
             //self.setupNavigationBar()
             //self.navigationItem.title = username.uppercased()
             //let backButton = UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(ProfileViewController.backPressed))
