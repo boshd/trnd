@@ -24,6 +24,7 @@ PODS:
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
   - pop (1.0.12)
+  - RecordButton (1.0.2)
   - SwiftIconFont (2.9.1)
   - TextFieldEffects (1.5.1)
   - VBFPopFlatButton (0.0.7):
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - KILabel (= 1.0.0)
   - KRProgressHUD
   - Parse
+  - RecordButton
   - SwiftIconFont
   - TextFieldEffects
   - VBFPopFlatButton
@@ -58,6 +60,7 @@ SPEC REPOS:
     - KRProgressHUD
     - Parse
     - pop
+    - RecordButton
     - SwiftIconFont
     - TextFieldEffects
     - VBFPopFlatButton
@@ -85,10 +88,11 @@ SPEC CHECKSUMS:
   KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  RecordButton: 76677be0f4b94f8a387454a23b4b64bd9b6c0e51
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: cf118168797c289b780842f1ba55433c95bc62b4
+PODFILE CHECKSUM: 55f0e861816ffe9a112fef07c519d9fc3b7650d1
 
 COCOAPODS: 1.5.3

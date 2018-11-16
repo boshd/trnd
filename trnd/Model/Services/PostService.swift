@@ -180,17 +180,11 @@ struct PostService {
     }
     
     static func createPostWith(_ gifUrl: URL, title: String?, location: String, latitude: String, longitude: String, successBlock: @escaping () -> Void) {
-        print("r1")
         guard let currentUser = PFUser.current() else { return }
-        print("r2")
         let uniqueID = "\(currentUser.username!)\(UUID().uuidString)"
-        print("r3")
         let object = PFObject(className: ParseClass.Post)
-        print("r4")
         object[QueryKey.Username] = currentUser.username
-        print("r6")
         object[QueryKey.Avatar] = currentUser.value(forKey: QueryKey.Avatar) as? PFFile
-        print("r7")
         object[QueryKey.UniqueID] = uniqueID
         object[QueryKey.Title] = title?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) ?? ""
         object[QueryKey.Location] = location ?? ""

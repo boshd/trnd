@@ -99,6 +99,8 @@
 		BCD0D392219BD7E80013A695 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D339219BD7E80013A695 /* UserService.swift */; };
 		BCD0D393219BD7E80013A695 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D33A219BD7E80013A695 /* image1.png */; };
 		BCD0D394219BD7E80013A695 /* OnboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D33B219BD7E80013A695 /* OnboardButton.swift */; };
+		BCF5B007219F6A4400BE6432 /* TestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5B006219F6A4400BE6432 /* TestClass.swift */; };
+		BCF5B009219F6BD800BE6432 /* man.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF5B008219F6BD800BE6432 /* man.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +224,8 @@
 		BCD0D339219BD7E80013A695 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BCD0D33A219BD7E80013A695 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		BCD0D33B219BD7E80013A695 /* OnboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardButton.swift; sourceTree = "<group>"; };
+		BCF5B006219F6A4400BE6432 /* TestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClass.swift; sourceTree = "<group>"; };
+		BCF5B008219F6BD800BE6432 /* man.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = man.gif; sourceTree = "<group>"; };
 		DA44E301EB53C734B6E5CF71 /* Pods-trndUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */,
+				BCF5B006219F6A4400BE6432 /* TestClass.swift */,
 				BCD0D39C219BE9720013A695 /* Layouts */,
 				BCD0D39B219BE94D0013A695 /* Resources */,
 				BCD0D399219BE8090013A695 /* Support */,
@@ -470,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0EF985219E8269002CE5ED /* chill.png */,
+				BCF5B008219F6BD800BE6432 /* man.gif */,
 				BCD0D31F219BD7E50013A695 /* gif.png */,
 				BCD0D33A219BD7E80013A695 /* image1.png */,
 				BCD0D2F6219BD7E10013A695 /* image2.png */,
@@ -608,6 +614,7 @@
 				BCD0D389219BD7E80013A695 /* Cam.storyboard in Resources */,
 				BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */,
 				BCD0D35F219BD7E80013A695 /* LaunchScreen.storyboard in Resources */,
+				BCF5B009219F6BD800BE6432 /* man.gif in Resources */,
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
@@ -697,6 +704,7 @@
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
@@ -718,6 +726,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecordButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
@@ -791,6 +800,7 @@
 				BCD0D364219BD7E80013A695 /* CommentService.swift in Sources */,
 				BCD0D33C219BD7E80013A695 /* Storyboard.swift in Sources */,
 				BCD0D394219BD7E80013A695 /* OnboardButton.swift in Sources */,
+				BCF5B007219F6A4400BE6432 /* TestClass.swift in Sources */,
 				BCD0D33F219BD7E80013A695 /* FotoViewController.swift in Sources */,
 				BCD0D38E219BD7E80013A695 /* FollowViewController.swift in Sources */,
 				BCD0D383219BD7E80013A695 /* OnboardingViewController.swift in Sources */,

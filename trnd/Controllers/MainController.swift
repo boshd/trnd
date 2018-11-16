@@ -11,14 +11,15 @@ import UIKit
 import AVFoundation
 import NotificationCenter
 import Parse
+import RecordButton
 
-class MainController: UIViewController {
+class MainController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var trndLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
     @IBOutlet weak var profileLabel: UILabel!
-    @IBOutlet weak var cameraLabel: UILabel!
+    //@IBOutlet weak var cameraLabel: UILabel!
     @IBOutlet weak var feedLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -28,6 +29,9 @@ class MainController: UIViewController {
     var page2: UIViewController!
     var page3: UIViewController!
     var pages = [UIViewController]()
+    var recordButton : RecordButton!
+    var progressTimer : Timer!
+    var progress : CGFloat! = 0
     var index = 0
 
     override func viewDidLoad() {
@@ -37,8 +41,10 @@ class MainController: UIViewController {
         setupTopBar()
         setupBottomBar()
         setupGestures()
-        setupButtonAnimation()
+        setupRecordButton()
+        //setupButtonAnimation()
         
+        self.scrollView.delegate = self
         let point = CGPoint(x: CGFloat(self.scrollView.frame.size.width), y: CGFloat(0))
         self.scrollView.setContentOffset(point, animated: false)
 
@@ -47,10 +53,9 @@ class MainController: UIViewController {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let foto_storyboard = UIStoryboard(name: "Cam", bundle: nil)
-        page1      = storyboard.instantiateViewController(withIdentifier: "FeedViewControllerNAV")
+        page1 = storyboard.instantiateViewController(withIdentifier: "FeedViewControllerNAV")
         page2 = foto_storyboard.instantiateViewController(withIdentifier: "CamViewControllerNAV")
-        page3   = storyboard.instantiateViewController(withIdentifier: "ProfileViewControllerNAV")
-        
+        page3  = storyboard.instantiateViewController(withIdentifier: "ProfileViewControllerNAV")
         
         // Horizontal ScrollView
         page3.view.translatesAutoresizingMaskIntoConstraints = false
@@ -88,9 +93,9 @@ class MainController: UIViewController {
         feedLabel.isUserInteractionEnabled = true
         feedLabel.addGestureRecognizer(feedGR)
         
-        let camGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToCam))
-        cameraLabel.isUserInteractionEnabled = true
-        cameraLabel.addGestureRecognizer(camGR)
+        //let camGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToCam))
+        //cameraLabel.isUserInteractionEnabled = true
+        //cameraLabel.addGestureRecognizer(camGR)
         
         let profileGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToProfile))
         profileLabel.isUserInteractionEnabled = true
@@ -104,6 +109,21 @@ class MainController: UIViewController {
         trndLabel.isUserInteractionEnabled = true
         trndLabel.addGestureRecognizer(trndGR)
 
+    }
+    
+    func setupRecordButton() {
+        
+        // set up recorder button
+        recordButton = RecordButton(frame: CGRect(x: 0,y: -20,width: 70,height: 70))
+        //recordButton.center = self.bottomView.center
+        recordButton.progressColor = UIColor.litPink()
+        recordButton.buttonColor = UIColor.offWhite()
+        recordButton.closeWhenFinished = false
+        recordButton.addTarget(self, action: #selector(MainController.record), for: .touchDown)
+        recordButton.addTarget(self, action: #selector(MainController.stop), for: .touchUpInside)
+        recordButton.center.x = self.view.center.x
+        bottomView.addSubview(recordButton)
+        
     }
     
     func setupTopBar() {
@@ -120,13 +140,13 @@ class MainController: UIViewController {
     func setupBottomBar() {
         
         feedLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
-        feedLabel.textColor = UIColor(red:0.89, green:0.90, blue:0.91, alpha:1.0)
+        feedLabel.textColor = UIColor.offWhite()
         feedLabel.text = String.fontAwesomeIcon("bolt")
-        cameraLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 65)
-        cameraLabel.textColor = UIColor(red:0.89, green:0.90, blue:0.91, alpha:1.0)
-        cameraLabel.text = String.fontAwesomeIcon("circle")
+        //cameraLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 130) //prev 65
+        //cameraLabel.textColor = UIColor.offWhite()
+        //cameraLabel.text = String.fontAwesomeIcon("circle")
         profileLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
-        profileLabel.textColor = UIColor(red:0.89, green:0.90, blue:0.91, alpha:1.0)
+        profileLabel.textColor = UIColor.offWhite()
         profileLabel.text = String.fontAwesomeIcon("user")
         
         bottomView.layer.shadowColor = UIColor.gray.cgColor
@@ -135,19 +155,19 @@ class MainController: UIViewController {
         bottomView.layer.shadowRadius = 6
     }
     
-    func setupButtonAnimation()
-    {
+    func setupButtonAnimation() {
         let animation = CABasicAnimation.init(keyPath: "transform.scale")
-        animation.fromValue = 1.0
-        animation.toValue = 0.45
-        animation.duration = 1.0
+        animation.fromValue = 0.5
+        animation.toValue = 1.0
+        animation.duration = 0.6
         //Set the speed of the layer to 0 so it doesn't animate until we tell it to
-        self.cameraLabel.layer.speed = 0.0;
-        self.cameraLabel.layer.add(animation, forKey: "transform");
+        //self.cameraLabel.layer.speed = 0.0;
+        //self.cameraLabel.layer.add(animation, forKey: "transform");
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
-    {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /*
+        print("WE REACHED AND THIS IS us")
         let screenSize = self.view.bounds.size
         if let btn =  self.cameraLabel
         {
@@ -157,11 +177,11 @@ class MainController: UIViewController {
             {
                 factor = 2 - factor
             }
-            print(factor)
+            print("WE REACHED AND THIS IS FACTOR: \(factor)")
             //This will change the size
             let timeOffset = CFTimeInterval(1-factor)
             btn.layer.timeOffset = timeOffset
-        }
+        }*/
     }
     
     @objc func TRND(sender:UITapGestureRecognizer) {
@@ -203,6 +223,48 @@ class MainController: UIViewController {
         frame.origin.x = frame.size.width * 2
         frame.origin.y = 0
         scrollView.scrollRectToVisible(frame, animated: true)
+    }
+    
+    @objc func record() {
+        var frame: CGRect = scrollView.frame
+        let width: CGFloat = scrollView.frame.size.width
+        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
+        
+        if page != 1 {
+            frame.origin.x = frame.size.width * 1
+            frame.origin.y = 0
+            scrollView.scrollRectToVisible(frame, animated: true)
+        } else {
+            self.progressTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MainController.updateProgress), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func updateProgress() {
+        
+        let maxDuration = CGFloat(5) // Max duration of the recordButton
+        
+        progress = progress + (CGFloat(0.05) / maxDuration)
+        recordButton.setProgress(progress)
+        
+        if progress >= 1 {
+            progressTimer.invalidate()
+        }
+        
+    }
+    
+    @objc func stop() {
+        var frame: CGRect = scrollView.frame
+        let width: CGFloat = scrollView.frame.size.width
+        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
+        
+        if page != 1 {
+            frame.origin.x = frame.size.width * 1
+            frame.origin.y = 0
+            scrollView.scrollRectToVisible(frame, animated: true)
+        } else {
+            self.progressTimer.invalidate()
+        }
+        
     }
     
 }

@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup Parse Server
         ParseServer.singleInstance.initializeParseServer()
         
+        let urlpath = Bundle.main.path(forResource: "man", ofType: "gif")
+        let gifUrl = NSURL.fileURL(withPath: urlpath!)
+        
+        PostService.createPostWith(gifUrl, title: "halabzain", location: "", latitude: "", longitude: "") {
+            print("Creted example post")
+        }
         
         UINavigationBar.appearance().barTintColor = UIColor.offBlack()
         UINavigationBar.appearance().tintColor = UIColor.white

@@ -127,7 +127,7 @@ extension FeedDataSource: UITableViewDataSource {
             let delegate = UIApplication.shared.delegate as! AppDelegate
             if delegate.reachability.isReachable == false {
                 let noConLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Regular", size: 22.0)! ]
+                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 22.0)! ]
                 let myString = NSMutableAttributedString(string: "No Internet Connection.", attributes: myAttribute )
                 noConLabel.numberOfLines = 0
                 noConLabel.attributedText = myString
@@ -139,8 +139,8 @@ extension FeedDataSource: UITableViewDataSource {
                 return 0
             } else if delegate.reachability.isReachable == true {
                 let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Regular", size: 22.0)! ]
-                let myString = NSMutableAttributedString(string: "Follow others to see their \nposts. Start by tapping the \ngif.t button above.", attributes: myAttribute )
+                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 22.0)! ]
+                let myString = NSMutableAttributedString(string: "Follow others to see their \nposts. Start by tapping the \nTRND button above.", attributes: myAttribute )
                 emptyLabel.numberOfLines = 0
                 emptyLabel.attributedText = myString
                 emptyLabel.textAlignment = NSTextAlignment.center
