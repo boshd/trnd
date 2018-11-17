@@ -58,13 +58,13 @@ class PostCell: UITableViewCell {
     }
     
     func setupButtons() {
-        likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 30)
+        likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
         likeLabel.textColor = .white
         likeLabel.text = String.fontAwesomeIcon("heart")
-        commentLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 30)
+        commentLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
         commentLabel.textColor = .white
         commentLabel.text = String.fontAwesomeIcon("comment")
-        moreLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 30)
+        moreLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
         moreLabel.textColor = .white
         moreLabel.text = String.fontAwesomeIcon("ellipsish")
     }
