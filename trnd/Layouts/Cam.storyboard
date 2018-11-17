@@ -35,17 +35,6 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="art.scnassets/ship.scn" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-H1-vtl">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </arscnView>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKt-b7-dmy">
-                                <rect key="frame" x="132" y="558" width="110" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="capture">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="capture:" destination="Muh-aM-ekc" eventType="touchUpInside" id="XZc-o9-0M3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -58,7 +47,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="jYe-nM-2BS"/>
                     <connections>
-                        <outlet property="captureButton" destination="YKt-b7-dmy" id="xDd-QL-h8c"/>
                         <outlet property="sceneView" destination="q9d-H1-vtl" id="Csi-yG-CvA"/>
                     </connections>
                 </viewController>

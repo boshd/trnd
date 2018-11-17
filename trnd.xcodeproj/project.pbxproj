@@ -99,6 +99,11 @@
 		BCD0D392219BD7E80013A695 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D339219BD7E80013A695 /* UserService.swift */; };
 		BCD0D393219BD7E80013A695 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D33A219BD7E80013A695 /* image1.png */; };
 		BCD0D394219BD7E80013A695 /* OnboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D33B219BD7E80013A695 /* OnboardButton.swift */; };
+		BCD1175D219F7502007A2E2E /* luck.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCD11758219F7500007A2E2E /* luck.gif */; };
+		BCD1175E219F7502007A2E2E /* wow.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCD11759219F7500007A2E2E /* wow.gif */; };
+		BCD1175F219F7502007A2E2E /* salah.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCD1175A219F7501007A2E2E /* salah.gif */; };
+		BCD11760219F7502007A2E2E /* damn.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCD1175B219F7501007A2E2E /* damn.gif */; };
+		BCD11761219F7502007A2E2E /* cool.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCD1175C219F7501007A2E2E /* cool.gif */; };
 		BCF5B007219F6A4400BE6432 /* TestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5B006219F6A4400BE6432 /* TestClass.swift */; };
 		BCF5B009219F6BD800BE6432 /* man.gif in Resources */ = {isa = PBXBuildFile; fileRef = BCF5B008219F6BD800BE6432 /* man.gif */; };
 /* End PBXBuildFile section */
@@ -224,6 +229,11 @@
 		BCD0D339219BD7E80013A695 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BCD0D33A219BD7E80013A695 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 		BCD0D33B219BD7E80013A695 /* OnboardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardButton.swift; sourceTree = "<group>"; };
+		BCD11758219F7500007A2E2E /* luck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = luck.gif; sourceTree = "<group>"; };
+		BCD11759219F7500007A2E2E /* wow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wow.gif; sourceTree = "<group>"; };
+		BCD1175A219F7501007A2E2E /* salah.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = salah.gif; sourceTree = "<group>"; };
+		BCD1175B219F7501007A2E2E /* damn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = damn.gif; sourceTree = "<group>"; };
+		BCD1175C219F7501007A2E2E /* cool.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cool.gif; sourceTree = "<group>"; };
 		BCF5B006219F6A4400BE6432 /* TestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClass.swift; sourceTree = "<group>"; };
 		BCF5B008219F6BD800BE6432 /* man.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = man.gif; sourceTree = "<group>"; };
 		DA44E301EB53C734B6E5CF71 /* Pods-trndUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -474,6 +484,11 @@
 		BCD0D39B219BE94D0013A695 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCD1175C219F7501007A2E2E /* cool.gif */,
+				BCD1175B219F7501007A2E2E /* damn.gif */,
+				BCD11758219F7500007A2E2E /* luck.gif */,
+				BCD1175A219F7501007A2E2E /* salah.gif */,
+				BCD11759219F7500007A2E2E /* wow.gif */,
 				BC0EF985219E8269002CE5ED /* chill.png */,
 				BCF5B008219F6BD800BE6432 /* man.gif */,
 				BCD0D31F219BD7E50013A695 /* gif.png */,
@@ -606,18 +621,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC0EF986219E8269002CE5ED /* chill.png in Resources */,
+				BCD1175F219F7502007A2E2E /* salah.gif in Resources */,
+				BCD11761219F7502007A2E2E /* cool.gif in Resources */,
 				BCD0D378219BD7E80013A695 /* gif.png in Resources */,
 				BCD0D2C0219BD5B30013A695 /* LaunchScreen.storyboard in Resources */,
 				BCD0D34F219BD7E80013A695 /* image2.png in Resources */,
 				BCD0D356219BD7E80013A695 /* Foto.storyboard in Resources */,
 				BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */,
 				BCD0D389219BD7E80013A695 /* Cam.storyboard in Resources */,
+				BCD1175D219F7502007A2E2E /* luck.gif in Resources */,
+				BCD1175E219F7502007A2E2E /* wow.gif in Resources */,
 				BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */,
 				BCD0D35F219BD7E80013A695 /* LaunchScreen.storyboard in Resources */,
 				BCF5B009219F6BD800BE6432 /* man.gif in Resources */,
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
+				BCD11760219F7502007A2E2E /* damn.gif in Resources */,
 				BCD0D349219BD7E80013A695 /* image3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

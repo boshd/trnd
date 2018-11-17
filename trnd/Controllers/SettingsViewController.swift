@@ -156,11 +156,6 @@ class SettingsViewController: UIViewController {
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width / 2
         avatarImage.clipsToBounds = true
     }
-    
-    /// Hide status bar
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
 
     /// Image selected from image picker
     func imagePickerFinished(_ notification: Foundation.Notification) {

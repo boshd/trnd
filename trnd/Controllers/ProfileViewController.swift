@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
             /// Do anything you want...
             self?.downloadProfileData()
             self?.collectionView.reloadData()
+            //self?.setupEmptyView()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 /// Stop refresh when your job finished, it will reset refresh footer if completion is true
@@ -61,7 +62,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         }
         /// manual refresh
         //collectionView.cr.beginHeaderRefresh()
-        setupEmptyView()
+        //setupEmptyView()
         downloadProfileData()
         self.collectionView.reloadData()
         self.closeLabel.isHidden = true
@@ -81,6 +82,10 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         
     }
     
+    func refreshData() {
+        self.collectionView.reloadData()
+    }
+    
     func backPressed() {
         dismiss(animated: true, completion: nil)
     }
@@ -92,6 +97,9 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
  
     func setupEmptyView() {
         print("Number of items in this section: \(collectionView.numberOfItems(inSection: 0))")
+        
+        collectionView.backgroundColor = UIColor.offWhite()
+        
         
     }
     

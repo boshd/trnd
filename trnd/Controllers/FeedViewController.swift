@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import CRRefresh
+import KRProgressHUD
 
 enum FeedMode {
     case singlePost(String)
@@ -20,6 +21,10 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var moreLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var likeLabel: UILabel!
     
     // MARK: - IBActions
     @IBAction func backAction(_ sender: Any) {
@@ -43,6 +48,12 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            
+            self.setupBadPage()
+        })
+        
         /// animator: your customize animator, default is NormalHeaderAnimator
         tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
             /// start refresh
@@ -65,6 +76,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         setupSwipeToGoBack()
         setupAutoResizingRows()
         setupBackButton()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -86,21 +98,6 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         removePostUploadObserver()
         //hidingNavBarManager?.viewWillDisappear(animated)
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        //hidingNavBarManager?.viewDidLayoutSubviews()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: - Methods
-    
-    // MARK: - Downloads
     
     /// Sets up the FeedDataSource
     func setupFeedDataSource() {
@@ -157,6 +154,8 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    
     /// Refreshes the controllers data
     @objc func refreshData() {
         tableView.reloadData()
@@ -173,6 +172,37 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         self.view.addGestureRecognizer(swipeGesture)
     }
     
+    func setupBadPage() {
+        
+        if tableView.numberOfRows(inSection: 0) == 0 {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            if delegate.reachability.isReachable == false {
+                let noConLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 17)! ]
+                let myString = NSMutableAttributedString(string: "No Internet Connection.", attributes: myAttribute )
+                noConLabel.numberOfLines = 0
+                noConLabel.attributedText = myString
+                noConLabel.textAlignment = NSTextAlignment.center
+                noConLabel.textColor = UIColor.lightGray
+                noConLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                self.tableView.backgroundView = noConLabel
+                self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+            } else {
+                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 17)! ]
+                let myString = NSMutableAttributedString(string: "Follow others to see their posts. \nStart by tapping the TRND button \nabove.", attributes: myAttribute )
+                emptyLabel.numberOfLines = 0
+                emptyLabel.attributedText = myString
+                emptyLabel.textAlignment = NSTextAlignment.center
+                emptyLabel.textColor = UIColor.lightGray
+                emptyLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+                self.tableView.backgroundView = emptyLabel
+                self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+            }
+        }
+        
+        
+    }
     
     /// Dismiesses view controller on swipe right gesture
     @objc func swipeToGoBack() {
@@ -215,15 +245,25 @@ class FeedViewController: UIViewController, UITableViewDelegate {
 
     }
     
-    @IBAction func moreButtonPressed(_ sender: AnyObject) {
-        print(" moreee")
-        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
+    @objc func likeAction(sender:UITapGestureRecognizer) {
+        
+    }
+    func commentAction(sender: UIGestureRecognizer) {
+        let touch = sender.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: touch) {
+            guard let feedDataSource = feedDataSource else { return }
+            
+            let uniqueID = feedDataSource.uniqueIDs[(indexPath as NSIndexPath).row]
+            let commentOwner = feedDataSource.usernames[(indexPath as NSIndexPath).row]
+            NavigationManager.showCommentViewController(withPresenter: self, postID: uniqueID, commentOwner: commentOwner)
+        }
+    }
+    
+    @objc func moreAction(sender:UITapGestureRecognizer) {
+        let buttonPosition = (sender as AnyObject).convert(CGPoint.zero, to: tableView)
         let indexPath: IndexPath? = tableView.indexPathForRow(at: buttonPosition)
-        print(" moreee2")
         guard let cell = tableView.cellForRow(at: indexPath!) as? PostCell else { return }
-        print(" moreee3")
         guard let feedDataSource = feedDataSource else { return }
-        print(" moreee4")
         
         let postDescription = feedDataSource.postDescriptions[(indexPath! as NSIndexPath).row]
         let username = feedDataSource.usernames[(indexPath! as NSIndexPath).row]
@@ -255,7 +295,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    
+        
         let actionSheet = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
         
         actionSheet.addAction(cancelAction)

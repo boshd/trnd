@@ -39,8 +39,8 @@ class SearchViewController: UIViewController {
         self.navBar.shadowImage = UIImage()
         
         let popFlatButtonLeft = VBFPopFlatButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30), buttonType: FlatButtonType.buttonDownBasicType, buttonStyle: FlatButtonStyle.buttonPlainStyle, animateToInitialState: false)
-        popFlatButtonLeft?.tintColor = UIColor.black
-        //popFlatButtonLeft?.addTarget(self, action: #selector(ProfileViewController.backPressed), for: UIControl.Event.touchUpInside)
+        popFlatButtonLeft?.tintColor = UIColor.white
+        popFlatButtonLeft?.addTarget(self, action: #selector(SearchViewController.backPressed), for: UIControl.Event.touchUpInside)
         let collapseButtonLeft = UIBarButtonItem(customView: popFlatButtonLeft!)
         self.navBar.topItem?.leftBarButtonItem = collapseButtonLeft
         
@@ -60,10 +60,6 @@ class SearchViewController: UIViewController {
         //self.tableView.delegate = self
         //self.tableView.dataSource = UITableViewDataSource.self as? UITableViewDataSource
         
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @objc func textFieldDidEndChanging(_ textField: UITextField) {

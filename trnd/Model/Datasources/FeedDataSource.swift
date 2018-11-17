@@ -121,41 +121,7 @@ class FeedDataSource: NSObject {
 extension FeedDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        // Check if post.count == 0 .. if yes, is it becuase there are no objects to show or it's because of a bad connection.
-        if self.postFiles.count == 0 {
-            let delegate = UIApplication.shared.delegate as! AppDelegate
-            if delegate.reachability.isReachable == false {
-                let noConLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 22.0)! ]
-                let myString = NSMutableAttributedString(string: "No Internet Connection.", attributes: myAttribute )
-                noConLabel.numberOfLines = 0
-                noConLabel.attributedText = myString
-                noConLabel.textAlignment = NSTextAlignment.center
-                noConLabel.textColor = UIColor.lightGray
-                noConLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-                self.tableView.backgroundView = noConLabel
-                self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-                return 0
-            } else if delegate.reachability.isReachable == true {
-                let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-                let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-Bold", size: 22.0)! ]
-                let myString = NSMutableAttributedString(string: "Follow others to see their \nposts. Start by tapping the \nTRND button above.", attributes: myAttribute )
-                emptyLabel.numberOfLines = 0
-                emptyLabel.attributedText = myString
-                emptyLabel.textAlignment = NSTextAlignment.center
-                emptyLabel.textColor = UIColor.lightGray
-                emptyLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-                self.tableView.backgroundView = emptyLabel
-                self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-                return 0
-            } else {
-                return self.postFiles.count
-            }
-        } else {
-            return self.postFiles.count
-        }
-        
+        return self.postFiles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

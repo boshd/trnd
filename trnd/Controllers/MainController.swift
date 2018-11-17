@@ -37,19 +37,22 @@ class MainController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //start()
+        
         setupTopBar()
         setupBottomBar()
-        setupGestures()
-        setupRecordButton()
+        setupGesturesAndTargets()
+        //setupRecordButton()
         //setupButtonAnimation()
+        start()
+        
+        // stuff
         
         self.scrollView.delegate = self
         let point = CGPoint(x: CGFloat(self.scrollView.frame.size.width), y: CGFloat(0))
         self.scrollView.setContentOffset(point, animated: false)
 
         view.bringSubviewToFront(bottomView)
-        view.bringSubviewToFront(topView)
+        //view.bringSubviewToFront(topView)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let foto_storyboard = UIStoryboard(name: "Cam", bundle: nil)
@@ -82,13 +85,19 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     func start() {
+        feedLabel.textColor = UIColor.litGreen()
+        recordButton.progressColor = UIColor.offWhite()
+        //recordButton.buttonColor = UIColor.offWhite()
+        profileLabel.textColor = UIColor.offWhite()
+        
+        index = 0
         var frame: CGRect = scrollView.frame
-        frame.origin.x = frame.size.width * 1
+        frame.origin.x = frame.size.width * 0
         frame.origin.y = 0
         scrollView.scrollRectToVisible(frame, animated: true)
     }
     
-    func setupGestures() {
+    func setupGesturesAndTargets() {
         let feedGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToFeed))
         feedLabel.isUserInteractionEnabled = true
         feedLabel.addGestureRecognizer(feedGR)
@@ -108,6 +117,10 @@ class MainController: UIViewController, UIScrollViewDelegate {
         let trndGR = UITapGestureRecognizer(target: self, action: #selector(MainController.TRND))
         trndLabel.isUserInteractionEnabled = true
         trndLabel.addGestureRecognizer(trndGR)
+        
+        recordButton.addTarget(self, action: #selector(MainController.record), for: .touchDown)
+        recordButton.addTarget(self, action: #selector(MainController.stop), for: .touchUpInside)
+        
 
     }
     
@@ -131,10 +144,10 @@ class MainController: UIViewController, UIScrollViewDelegate {
         notificationLabel.textColor = UIColor.litPink()
         notificationLabel.text = String.fontAwesomeIcon("grav")
         
-        topView.layer.shadowColor = UIColor.gray.cgColor
-        topView.layer.shadowOpacity = 0.1
-        topView.layer.shadowOffset = CGSize(width: 0, height: 7)
-        topView.layer.shadowRadius = 6
+//        topView.layer.shadowColor = UIColor.gray.cgColor
+//        topView.layer.shadowOpacity = 0.1
+//        topView.layer.shadowOffset = CGSize(width: 0, height: 7)
+//        topView.layer.shadowRadius = 6
     }
     
     func setupBottomBar() {
@@ -142,9 +155,15 @@ class MainController: UIViewController, UIScrollViewDelegate {
         feedLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
         feedLabel.textColor = UIColor.offWhite()
         feedLabel.text = String.fontAwesomeIcon("bolt")
-        //cameraLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 130) //prev 65
-        //cameraLabel.textColor = UIColor.offWhite()
-        //cameraLabel.text = String.fontAwesomeIcon("circle")
+        
+        // set up recorder button
+        recordButton = RecordButton(frame: CGRect(x: 0,y: -25,width: 70,height: 70))
+        recordButton.progressColor = UIColor.offWhite()
+        recordButton.buttonColor = UIColor.offWhite()
+        recordButton.closeWhenFinished = false
+        recordButton.center.x = self.view.center.x
+        bottomView.addSubview(recordButton)
+        
         profileLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
         profileLabel.textColor = UIColor.offWhite()
         profileLabel.text = String.fontAwesomeIcon("user")
@@ -165,7 +184,28 @@ class MainController: UIViewController, UIScrollViewDelegate {
         //self.cameraLabel.layer.add(animation, forKey: "transform");
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var frame: CGRect = scrollView.frame
+        let width: CGFloat = scrollView.frame.size.width
+        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
+        
+        if page == 0 {
+            feedLabel.textColor = UIColor.litGreen()
+            recordButton.progressColor = UIColor.offWhite()
+            //recordButton.buttonColor = UIColor.offWhite()
+            profileLabel.textColor = UIColor.offWhite()
+        } else if page == 1 {
+            feedLabel.textColor = UIColor.offWhite()
+            recordButton.progressColor = UIColor.litGreen()
+            //recordButton.buttonColor = .white
+            profileLabel.textColor = UIColor.offWhite()
+        } else if page == 2 {
+            feedLabel.textColor = UIColor.offWhite()
+            recordButton.progressColor = UIColor.offWhite()
+            //recordButton.buttonColor = UIColor.offWhite()
+            profileLabel.textColor = UIColor.litGreen()
+        }
+            
         /*
         print("WE REACHED AND THIS IS us")
         let screenSize = self.view.bounds.size
@@ -192,17 +232,41 @@ class MainController: UIViewController, UIScrollViewDelegate {
     @objc func NOTIF(sender:UITapGestureRecognizer) {
         //let controller = storyboard?.instantiateViewController(withIdentifier: "NotificationViewController")
         //self.present(controller!, animated: true, completion: nil)
-        PFUser.logOutInBackground { (error: Error?) in
-            if error != nil {
-                print(error.debugDescription)
+        
+        
+        let logOutAction = UIAlertAction(title: "Logout", style: .default) { (action: UIAlertAction) in
+            PFUser.logOutInBackground { (error: Error?) in
+                if error != nil {
+                    print(error.debugDescription)
+                }
+                UserDefaults.standard.removeObject(forKey: DEFAULTS_USERNAME)
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                appDelegate?.login()
             }
-            UserDefaults.standard.removeObject(forKey: DEFAULTS_USERNAME)
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            appDelegate?.login()
         }
+        
+        let deleteAction = UIAlertAction(title: "Delete account", style: .default) { (action: UIAlertAction) in
+            //
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let actionSheet = UIAlertController(title: "Menu", message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(logOutAction)
+        actionSheet.addAction(deleteAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @objc func goToFeed(sender:UITapGestureRecognizer) {
+        
+        feedLabel.textColor = UIColor.litGreen()
+        recordButton.progressColor = UIColor.offWhite()
+        //recordButton.buttonColor = UIColor.offWhite()
+        profileLabel.textColor = UIColor.offWhite()
+        
         index = 0
         var frame: CGRect = scrollView.frame
         frame.origin.x = frame.size.width * 0
@@ -211,6 +275,12 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func goToCam(sender:UITapGestureRecognizer) {
+        
+        feedLabel.textColor = UIColor.offWhite()
+        recordButton.progressColor = UIColor.litGreen()
+        //recordButton.buttonColor = .white
+        profileLabel.textColor = UIColor.offWhite()
+        
         var frame: CGRect = scrollView.frame
         frame.origin.x = frame.size.width * 1
         frame.origin.y = 0
@@ -218,6 +288,12 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func goToProfile(sender:UITapGestureRecognizer) {
+        
+        feedLabel.textColor = UIColor.offWhite()
+        recordButton.progressColor = UIColor.offWhite()
+        //recordButton.buttonColor = UIColor.offWhite()
+        profileLabel.textColor = UIColor.litGreen()
+        
         index = 0
         var frame: CGRect = scrollView.frame
         frame.origin.x = frame.size.width * 2
@@ -231,6 +307,10 @@ class MainController: UIViewController, UIScrollViewDelegate {
         let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
         
         if page != 1 {
+            feedLabel.textColor = UIColor.offWhite()
+            recordButton.progressColor = .red
+            //recordButton.buttonColor = UIColor.litGreen()
+            profileLabel.textColor = UIColor.offWhite()
             frame.origin.x = frame.size.width * 1
             frame.origin.y = 0
             scrollView.scrollRectToVisible(frame, animated: true)
@@ -266,5 +346,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
         }
         
     }
+    
+    
     
 }

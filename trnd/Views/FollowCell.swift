@@ -26,7 +26,7 @@ class FollowCell: UITableViewCell {
         self.followImage.layer.cornerRadius = 4
         self.followImage.clipsToBounds = true
         
-        followButton.layer.cornerRadius = 15
+        followButton.layer.cornerRadius = 6
         //followButton.layer.borderWidth = 1
         //followButton.layer.borderColor = UIColor.fabGold().CGColor
     }
