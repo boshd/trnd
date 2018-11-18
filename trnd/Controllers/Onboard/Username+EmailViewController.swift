@@ -86,6 +86,11 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Add reachability observer
+        if let reachability = AppDelegate.sharedAppDelegate()?.reachability {
+            NotificationCenter.default.addObserver( self, selector: #selector( self.reachabilityChanged ),name: ReachabilityChangedNotification, object: reachability )
+        }
+        
         //hideKeyboardWhenTappedAround()
         let backButton = UIBarButtonItem()
         backButton.title = "" //in your case it will be empty or you can put the title of your choice
@@ -140,6 +145,33 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
                            options: animationCurve,
                            animations: { self.view.layoutIfNeeded() },
                            completion: nil)
+        }
+    }
+    
+    @objc private func reachabilityChanged( notification: NSNotification ) {
+        guard let reachability = notification.object as? Reachability else
+        {
+            return
+        }
+        
+        if reachability.isReachable
+        {
+            if reachability.isReachableViaWiFi
+            {
+                print("Reachable via WiFi")
+                nextButton.setTitle("Next", for: .normal)
+            }
+            else
+            {
+                print("Reachable via Cellular")
+                nextButton.setTitle("Next", for: .normal)
+            }
+        }
+        else
+        {
+            nextButton.setTitle("No internet.", for: .normal)
+            nextButton.isEnabled = false
+            nextButton.setTitleColor(UIColor.offGreen(), for: .normal)
         }
     }
     

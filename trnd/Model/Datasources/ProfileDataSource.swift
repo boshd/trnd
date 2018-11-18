@@ -128,7 +128,7 @@ extension ProfileDataSource: UICollectionViewDataSource {
             if delegate.reachability.isReachable == false {
                 let emptyLabel = UILabel(frame: CGRect(x: 0, y: 100, width: self.collectionView.bounds.size.width, height: self.collectionView.bounds.size.height))
                 let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-DemiBold", size: 20.0)! ]
-                let myString = NSMutableAttributedString(string: "\n\n\n\n\n\n\n\nNo internet.. :/\n Connect to the internet and\ntry again.", attributes: myAttribute )
+                let myString = NSMutableAttributedString(string: "\n\n\n\n\n\n\n\nNo internet.. \n Connect to the internet and\ntry again.", attributes: myAttribute )
                 emptyLabel.numberOfLines = 0
                 emptyLabel.attributedText = myString
                 emptyLabel.textAlignment = NSTextAlignment.center

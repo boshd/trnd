@@ -12,6 +12,7 @@ import VBFPopFlatButton
 import QuartzCore
 import CRRefresh
 import FLAnimatedImage
+import SwiftIconFont
 
 // Controls the data being shown in the ProfileViewController
 enum ProfileMode {
@@ -22,72 +23,49 @@ enum ProfileMode {
 class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var closeLabel: UILabel!
-    // MARK: - IBOutlets
-    @IBOutlet weak var backVButton: VBFPopFlatButton!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBAction func closeAction(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
     @IBOutlet weak var collectionView: UICollectionView!
-    //var collectionView: UICollectionView!
-    @IBAction func backPressedYo(_ sender: AnyObject) {
-        backPressed()
-    }
-    
-    // MARK: - Properties
-    
+
+    // MARK: - Props
     var profileUsername: String?
     var profileMode: ProfileMode = .currentUser
     var profileDataSource: ProfileDataSource?
-
-    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.backButton.isHidden = true
-        /// animator: your customize animator, default is NormalHeaderAnimator
         collectionView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
-            /// start refresh
-            /// Do anything you want...
             self?.downloadProfileData()
             self?.collectionView.reloadData()
-            //self?.setupEmptyView()
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                /// Stop refresh when your job finished, it will reset refresh footer if completion is true
                 self?.collectionView.cr.endHeaderRefresh()
-                
             })
         }
-        /// manual refresh
-        //collectionView.cr.beginHeaderRefresh()
-        //setupEmptyView()
-        downloadProfileData()
-        self.collectionView.reloadData()
-        self.closeLabel.isHidden = true
-        setupNavigationBar()
-        setupProfileDataSource()
-        //setupNavigationBar()
-        collectionView.delegate = self
-        //collectionView.backgroundColor = UIColor.clear
-        collectionView.alwaysBounceVertical = true
-
-        // Button for right item
+        
         let popFlatButtonRight = VBFPopFlatButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30), buttonType: FlatButtonType.buttonForwardType, buttonStyle: FlatButtonStyle.buttonPlainStyle, animateToInitialState: false)
         popFlatButtonRight?.tintColor = UIColor.black
         popFlatButtonRight?.addTarget(self, action: #selector(ProfileViewController.goToSettings), for: UIControl.Event.touchUpInside)
         let collapseButtonRight = UIBarButtonItem(customView: popFlatButtonRight!)
-        //self.navBar.topItem?.rightBarButtonItem = collapseButtonRight
+        
+        self.closeLabel.isHidden = true
+        
+        collectionView.delegate = self
+        self.collectionView.reloadData()
+        collectionView.alwaysBounceVertical = true
+        
+        downloadProfileData()
+        setupNavigationBar()
+        setupProfileDataSource()
+        
+        let closeGR = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.closeView))
+        closeLabel.isUserInteractionEnabled = true
+        closeLabel.addGestureRecognizer(closeGR)
+        closeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+        closeLabel.textColor = UIColor.offWhite()
+        closeLabel.text = String.fontAwesomeIcon("angledown")
         
     }
     
     func refreshData() {
         self.collectionView.reloadData()
-    }
-    
-    func backPressed() {
-        dismiss(animated: true, completion: nil)
     }
     
     @objc func goToSettings() {
@@ -96,14 +74,25 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
     }
  
     func setupEmptyView() {
-        print("Number of items in this section: \(collectionView.numberOfItems(inSection: 0))")
-        
-        collectionView.backgroundColor = UIColor.offWhite()
-        
-        
+        if collectionView.numberOfItems(inSection: 0) == 0 {
+            let emptyLabel = UILabel(frame: CGRect(x: 0, y: 100, width: self.collectionView.bounds.size.width, height: self.collectionView.bounds.size.height))
+            let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "AvenirNext-DemiBold", size: 20.0)! ]
+            let myString = NSMutableAttributedString(string: "\n\n\n\n\n\n\n\nNo posts yet.", attributes: myAttribute )
+            emptyLabel.numberOfLines = 0
+            emptyLabel.attributedText = myString
+            emptyLabel.textAlignment = NSTextAlignment.center
+            emptyLabel.textColor = UIColor.lightGray
+            emptyLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            self.collectionView.backgroundView = emptyLabel
+        }
     }
     
-
+    @objc func closeView(sender: UIGestureRecognizer) {
+        dismiss(animated: true) {
+            self.refreshData()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -111,7 +100,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         case .currentUser:
              self.closeLabel.isHidden = true
         case .guest:
-            self.closeLabel.isHidden = true
+            self.closeLabel.isHidden = false
         }
         
         self.collectionView.reloadData()
@@ -128,10 +117,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         super.viewDidDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    
-    // MARK: - Methods
-    
+
     /// Sets up the ProfileDataSource
     func setupProfileDataSource() {
         profileDataSource = ProfileDataSource(collectionView: collectionView)
@@ -162,17 +148,6 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
     }
     
     // MARK: - IBActions
-
-    @IBAction func logoutAction(_ sender: Any) {
-        PFUser.logOutInBackground { (error: Error?) in
-            if error != nil {
-                print(error.debugDescription)
-            }
-            UserDefaults.standard.removeObject(forKey: DEFAULTS_USERNAME)
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            appDelegate?.login()
-        }
-    }
     
     @IBAction func totalFollowersPressed(_ sender: AnyObject) {
         guard let dataSource = profileDataSource else { return }

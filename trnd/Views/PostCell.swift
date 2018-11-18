@@ -58,20 +58,29 @@ class PostCell: UITableViewCell {
     }
     
     func setupButtons() {
-        likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
-        likeLabel.textColor = .white
-        likeLabel.text = String.fontAwesomeIcon("heart")
-        commentLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
-        commentLabel.textColor = .white
+        likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+        likeLabel.textColor = UIColor.offBlack()
+        likeLabel.text = String.fontAwesomeIcon("hearto")
+        commentLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+        commentLabel.textColor = UIColor.offBlack()
         commentLabel.text = String.fontAwesomeIcon("comment")
-        moreLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 15)
-        moreLabel.textColor = .white
+        moreLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+        moreLabel.textColor = UIColor.offBlack()
         moreLabel.text = String.fontAwesomeIcon("ellipsish")
     }
     
     @objc func likeAction(sender:UITapGestureRecognizer) {
-        
+        if likeLabel.textColor == UIColor.offBlack() {
+            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+            likeLabel.textColor = UIColor.litPink()
+            likeLabel.text = String.fontAwesomeIcon("heart")
+        } else {
+            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+            likeLabel.textColor = UIColor.offBlack()
+            likeLabel.text = String.fontAwesomeIcon("hearto")
+        }
     }
+    
     @objc func commentAction(sender:UITapGestureRecognizer) {
 
     }
@@ -87,31 +96,12 @@ class PostCell: UITableViewCell {
 
         setupButtons()
         setupGestures()
-        // username
+
+        self.backgroundColor = UIColor.offWhite()
         usernameButton.setTitle("\(username)", for: UIControl.State())
-        
-        let screenSize: CGRect = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
-        // lat-lon
-        var lat : Float = NSString(string: latitude).floatValue
-        var lon : Float = NSString(string: latitude).floatValue
-        
-        // avatar
+        postMessageLabel.text = title
         self.avatarImage.layer.cornerRadius = 20
         self.avatarImage.clipsToBounds = true
-
-    }
-
-    @IBAction func likeAction(_ sender: Any) {
-        if likeButton.currentImage == UIImage(named: "Unlike") {
-            //likeButton.setImage(UIImage(named: "Like"), for: UIControlState.normal)
-        } else {
-            //likeButton.setImage(UIImage(named: "Unlike"), for: UIControlState.normal)
-        }
-    }
-    func like() {
 
     }
 

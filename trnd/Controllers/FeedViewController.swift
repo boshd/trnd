@@ -43,17 +43,18 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     var feedDataSource: FeedDataSource?
     //var hidingNavBarManager: HidingNavigationBarManager?
     var rows = [String]()
-
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.backgroundColor = UIColor.offWhite()
        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             
-            self.setupBadPage()
+            
         })
-        
+        self.setupBadPage()
         /// animator: your customize animator, default is NormalHeaderAnimator
         tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
             /// start refresh
@@ -175,6 +176,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     func setupBadPage() {
         
         if tableView.numberOfRows(inSection: 0) == 0 {
+            tableView.separatorStyle = .none
             let delegate = UIApplication.shared.delegate as! AppDelegate
             if delegate.reachability.isReachable == false {
                 let noConLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))

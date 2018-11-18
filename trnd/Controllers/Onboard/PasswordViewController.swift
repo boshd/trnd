@@ -251,11 +251,11 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
                 self.passwordField.isEnabled = true
             })
         default:
-            self.nextButton.setTitle("", for: .normal)
+            //self.nextButton.setTitle("", for: .normal)
             
             self.errLabel.isHidden = true
             self.nextButton.isEnabled = false
-            self.nextButton.tintColor = UIColor(red:0.71, green:0.22, blue:0.33, alpha:1.0)
+            self.nextButton.tintColor = UIColor.offGreen()
             
             let user = self.createUser()
             self.signUpUser(user!)

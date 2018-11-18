@@ -62,6 +62,10 @@ class SearchViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @objc func textFieldDidEndChanging(_ textField: UITextField) {
         
         overlayButton.isHidden = true

@@ -58,18 +58,13 @@ struct NavigationManager {
     
     /// Presents the profile view controller for a given username and pushes it onto the MainNavigationController stack
     static func showProfileViewController(withPresenter presenter: UIViewController, forUsername username: String) {
-        print("NM .. prof1")
         let controller = Storyboard.profileViewController()
-        print("NM .. prof2")
-        //guard let navigationController = presenter.navigationController else { return }
-        print("NM .. prof3")
+        guard let navigationController = presenter.navigationController else { return }
         let profileMode: ProfileMode = username == PFUser.current()?.username ? .currentUser : .guest(username)
-        print("NM .. prof4")
         controller.profileMode = profileMode
-        print("NM .. prof5")
-        presenter.present(controller, animated: true, completion: nil)
-        print("NM .. prof6")
+        //presenter.present(controller, animated: true, completion: nil)
         //navigationController.pushViewController(controller, animated: false)
+        navigationController.present(controller, animated: true, completion: nil)
     }
     
     /// Presents the posts view controller for a given username and pushes it onto the MainNavigationController stack

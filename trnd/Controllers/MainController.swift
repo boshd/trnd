@@ -102,10 +102,6 @@ class MainController: UIViewController, UIScrollViewDelegate {
         feedLabel.isUserInteractionEnabled = true
         feedLabel.addGestureRecognizer(feedGR)
         
-        //let camGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToCam))
-        //cameraLabel.isUserInteractionEnabled = true
-        //cameraLabel.addGestureRecognizer(camGR)
-        
         let profileGR = UITapGestureRecognizer(target: self, action: #selector(MainController.goToProfile))
         profileLabel.isUserInteractionEnabled = true
         profileLabel.addGestureRecognizer(profileGR)
@@ -127,7 +123,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
     func setupRecordButton() {
         
         // set up recorder button
-        recordButton = RecordButton(frame: CGRect(x: 0,y: -20,width: 70,height: 70))
+        recordButton = RecordButton(frame: CGRect(x: 0,y: 0,width: 70,height: 70))
         //recordButton.center = self.bottomView.center
         recordButton.progressColor = UIColor.litPink()
         recordButton.buttonColor = UIColor.offWhite()
@@ -143,11 +139,6 @@ class MainController: UIViewController, UIScrollViewDelegate {
         notificationLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 40.0)
         notificationLabel.textColor = UIColor.litPink()
         notificationLabel.text = String.fontAwesomeIcon("grav")
-        
-//        topView.layer.shadowColor = UIColor.gray.cgColor
-//        topView.layer.shadowOpacity = 0.1
-//        topView.layer.shadowOffset = CGSize(width: 0, height: 7)
-//        topView.layer.shadowRadius = 6
     }
     
     func setupBottomBar() {
@@ -157,10 +148,11 @@ class MainController: UIViewController, UIScrollViewDelegate {
         feedLabel.text = String.fontAwesomeIcon("bolt")
         
         // set up recorder button
-        recordButton = RecordButton(frame: CGRect(x: 0,y: -25,width: 70,height: 70))
+        recordButton = RecordButton(frame: CGRect(x: 0,y: 5, width: 50, height: 50))
         recordButton.progressColor = UIColor.offWhite()
         recordButton.buttonColor = UIColor.offWhite()
         recordButton.closeWhenFinished = false
+        //recordButton.center.y = self.bottomView.center.y
         recordButton.center.x = self.view.center.x
         bottomView.addSubview(recordButton)
         
@@ -190,20 +182,20 @@ class MainController: UIViewController, UIScrollViewDelegate {
         let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
         
         if page == 0 {
-            feedLabel.textColor = UIColor.litGreen()
+            feedLabel.textColor = UIColor.offBlack()
             recordButton.progressColor = UIColor.offWhite()
             //recordButton.buttonColor = UIColor.offWhite()
             profileLabel.textColor = UIColor.offWhite()
         } else if page == 1 {
             feedLabel.textColor = UIColor.offWhite()
-            recordButton.progressColor = UIColor.litGreen()
+            recordButton.progressColor = UIColor.offBlack()
             //recordButton.buttonColor = .white
             profileLabel.textColor = UIColor.offWhite()
         } else if page == 2 {
             feedLabel.textColor = UIColor.offWhite()
             recordButton.progressColor = UIColor.offWhite()
             //recordButton.buttonColor = UIColor.offWhite()
-            profileLabel.textColor = UIColor.litGreen()
+            profileLabel.textColor = UIColor.offBlack()
         }
             
         /*
@@ -262,7 +254,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
     
     @objc func goToFeed(sender:UITapGestureRecognizer) {
         
-        feedLabel.textColor = UIColor.litGreen()
+        feedLabel.textColor = UIColor.offBlack()
         recordButton.progressColor = UIColor.offWhite()
         //recordButton.buttonColor = UIColor.offWhite()
         profileLabel.textColor = UIColor.offWhite()
@@ -277,7 +269,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
     @objc func goToCam(sender:UITapGestureRecognizer) {
         
         feedLabel.textColor = UIColor.offWhite()
-        recordButton.progressColor = UIColor.litGreen()
+        recordButton.progressColor = UIColor.offBlack()
         //recordButton.buttonColor = .white
         profileLabel.textColor = UIColor.offWhite()
         
@@ -292,7 +284,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
         feedLabel.textColor = UIColor.offWhite()
         recordButton.progressColor = UIColor.offWhite()
         //recordButton.buttonColor = UIColor.offWhite()
-        profileLabel.textColor = UIColor.litGreen()
+        profileLabel.textColor = UIColor.offBlack()
         
         index = 0
         var frame: CGRect = scrollView.frame

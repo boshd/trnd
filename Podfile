@@ -21,6 +21,7 @@ target 'trnd' do
   pod 'SwiftIconFont'
   pod 'KRProgressHUD'
   pod 'RecordButton'
+  pod 'NotificationBannerSwift'
 
   pod 'ARVideoKit', :git => 'https://github.com/AFathi/ARVideoKit.git'
 

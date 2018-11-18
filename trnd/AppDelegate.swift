@@ -30,8 +30,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
         
+        do
+        {
+            try reachability.startNotifier()
+        }
+        catch
+        {
+            print( "ERROR: Could not start reachability notifier." )
+        }
         
         return true
+    }
+    
+    class func sharedAppDelegate() -> AppDelegate?
+    {
+        return UIApplication.shared.delegate as? AppDelegate
     }
     
     // Called when the user logs in or signs up in the app, determines which storyboard to present
