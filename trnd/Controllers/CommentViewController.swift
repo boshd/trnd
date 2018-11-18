@@ -16,6 +16,7 @@ class CommentViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var inputContainer: UIView!
+    @IBOutlet weak var closeLabel: UILabel!
     @IBOutlet weak var inputContainerBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var inputContainerHeightConstraint: NSLayoutConstraint!
@@ -40,6 +41,18 @@ class CommentViewController: UIViewController, UITextViewDelegate {
 
         tableView.delegate = self
         commentTextView.delegate = self
+        
+        let closeGR = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.closeView))
+        closeLabel.isUserInteractionEnabled = true
+        closeLabel.addGestureRecognizer(closeGR)
+        closeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+        closeLabel.textColor = UIColor.offWhite()
+        closeLabel.text = String.fontAwesomeIcon("angledown")
+        
+    }
+    
+    @objc func closeView(sender: UIGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -201,7 +214,7 @@ class CommentViewController: UIViewController, UITextViewDelegate {
 extension CommentViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

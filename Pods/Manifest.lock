@@ -19,12 +19,17 @@ PODS:
   - KRActivityIndicatorView (3.0.0)
   - KRProgressHUD (3.4.0):
     - KRActivityIndicatorView (= 3.0.0)
+  - MarqueeLabel/Swift (3.2.0)
+  - NotificationBannerSwift (1.8.0):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.0.1)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
   - pop (1.0.12)
   - RecordButton (1.0.2)
+  - SnapKit (4.0.1)
   - SwiftIconFont (2.9.1)
   - TextFieldEffects (1.5.1)
   - VBFPopFlatButton (0.0.7):
@@ -40,6 +45,7 @@ DEPENDENCIES:
   - FLAnimatedImage
   - KILabel (= 1.0.0)
   - KRProgressHUD
+  - NotificationBannerSwift
   - Parse
   - RecordButton
   - SwiftIconFont
@@ -58,9 +64,12 @@ SPEC REPOS:
     - KILabel
     - KRActivityIndicatorView
     - KRProgressHUD
+    - MarqueeLabel
+    - NotificationBannerSwift
     - Parse
     - pop
     - RecordButton
+    - SnapKit
     - SwiftIconFont
     - TextFieldEffects
     - VBFPopFlatButton
@@ -86,13 +95,16 @@ SPEC CHECKSUMS:
   KILabel: 84049969642d4ac1061ebe38ad4c0da37fed108b
   KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
   KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   RecordButton: 76677be0f4b94f8a387454a23b4b64bd9b6c0e51
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: 55f0e861816ffe9a112fef07c519d9fc3b7650d1
+PODFILE CHECKSUM: 322c79663b56aaa65935faf1b3f5833c3318b647
 
 COCOAPODS: 1.5.3

@@ -121,8 +121,8 @@ struct NavigationManager {
         controller.commentOwner = commentOwner
         guard let navigationController = presenter.navigationController else { return }
         navigationController.hidesBottomBarWhenPushed = true
-        //navigationController.present(controller, animated: true, completion: nil)
-        navigationController.pushViewController(controller, animated: true)
+        navigationController.present(controller, animated: true, completion: nil)
+        //navigationController.pushViewController(controller, animated: true)
     }
     
     /// Presents the hashtag view controller for a hashtag

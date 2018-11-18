@@ -34,7 +34,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()    
         
         setupSearchTableDataSource()
-        
         self.navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navBar.shadowImage = UIImage()
         
@@ -59,7 +58,7 @@ class SearchViewController: UIViewController {
         
         //self.tableView.delegate = self
         //self.tableView.dataSource = UITableViewDataSource.self as? UITableViewDataSource
-        
+        //searchTextField.becomeFirstResponder()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

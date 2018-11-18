@@ -62,6 +62,7 @@ class ProfileViewController: UIViewController, UIGestureRecognizerDelegate, UICo
         closeLabel.textColor = UIColor.offWhite()
         closeLabel.text = String.fontAwesomeIcon("angledown")
         
+        
     }
     
     func refreshData() {

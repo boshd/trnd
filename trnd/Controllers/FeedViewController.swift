@@ -67,8 +67,8 @@ class FeedViewController: UIViewController, UITableViewDelegate {
                 
             })
         }
-        /// manual refresh
-        //tableView.cr.beginHeaderRefresh()
+        
+        //NotificationCenter.default.addObserver(self, selector: #selector(commentAction(_:)), name: NSNotification.Name(rawValue: "commentAction"), object: nil)
         download()
         refreshData()
         backButton.isHidden = true
@@ -106,6 +106,24 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = feedDataSource
         
     }
+
+    
+    @objc func likeAction(sender:UITapGestureRecognizer) {
+        if likeLabel.textColor == UIColor.offBlack() {
+            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+            likeLabel.textColor = UIColor.litPink()
+            likeLabel.text = String.fontAwesomeIcon("heart")
+        } else {
+            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+            likeLabel.textColor = UIColor.offBlack()
+            likeLabel.text = String.fontAwesomeIcon("hearto")
+        }
+    }
+    
+    @objc func commentAction(sender:UITapGestureRecognizer) {
+        
+    }
+
     
     /// Downloads either a single post or all the posts based on the controllers FeedMode
     func download() {
@@ -135,7 +153,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     func setupAutoResizingRows() {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 445
+        tableView.estimatedRowHeight = 700
     }
     
     func setupBackButton() {
@@ -155,18 +173,11 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
     /// Refreshes the controllers data
     @objc func refreshData() {
         tableView.reloadData()
     }
 
-    // MARK: - Gesture Recognizers
-    
-    // FIXME: - Gesture not recognized on table view... only backing view
-    
-    /// Sets up a swipe gesture recognizer to go back to the previous view
     func setupSwipeToGoBack() {
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(FeedViewController.swipeToGoBack))
         swipeGesture.direction = .right
@@ -233,7 +244,27 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     }
     
     
-    @IBAction func commentAction(_ sender: Any) {
+    @IBAction func likePressed(_ sender: Any) {
+        /*
+         likeButton.setTitle("fa:hearto", for: .normal)
+         likeButton.setTitleColor(UIColor.offBlack(), for: .normal)
+         likeButton.parseIcon()
+         moreButton.setTitle("fa:ellipsish", for: .normal)
+         moreButton.setTitleColor(UIColor.offBlack(), for: .normal)
+         moreButton.parseIcon()
+         if likeLabel.textColor == UIColor.offBlack() {
+         likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+         likeLabel.textColor = UIColor.litPink()
+         likeLabel.text = String.fontAwesomeIcon("heart")
+         } else {
+         likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
+         likeLabel.textColor = UIColor.offBlack()
+         likeLabel.text = String.fontAwesomeIcon("hearto")
+         }
+         */
+    }
+    
+    @IBAction func commentPressed(_ sender: Any) {
         let buttonPosition = (sender as AnyObject).convert(CGPoint.zero, to: tableView)
         let indexPath: IndexPath? = tableView.indexPathForRow(at: buttonPosition)
         guard let feedDataSource = feedDataSource else { return }
@@ -242,26 +273,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         let commentOwner = feedDataSource.usernames[(indexPath! as NSIndexPath).row]
         NavigationManager.showCommentViewController(withPresenter: self, postID: uniqueID, commentOwner: commentOwner)
     }
-    
-    @IBAction func more2(_ sender: UIButton) {
-
-    }
-    
-    @objc func likeAction(sender:UITapGestureRecognizer) {
-        
-    }
-    func commentAction(sender: UIGestureRecognizer) {
-        let touch = sender.location(in: tableView)
-        if let indexPath = tableView.indexPathForRow(at: touch) {
-            guard let feedDataSource = feedDataSource else { return }
-            
-            let uniqueID = feedDataSource.uniqueIDs[(indexPath as NSIndexPath).row]
-            let commentOwner = feedDataSource.usernames[(indexPath as NSIndexPath).row]
-            NavigationManager.showCommentViewController(withPresenter: self, postID: uniqueID, commentOwner: commentOwner)
-        }
-    }
-    
-    @objc func moreAction(sender:UITapGestureRecognizer) {
+    @IBAction func morePressed(_ sender: Any) {
         let buttonPosition = (sender as AnyObject).convert(CGPoint.zero, to: tableView)
         let indexPath: IndexPath? = tableView.indexPathForRow(at: buttonPosition)
         guard let cell = tableView.cellForRow(at: indexPath!) as? PostCell else { return }
@@ -305,10 +317,25 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         
         self.present(actionSheet, animated: true, completion: nil)
     }
+
+//    @objc func commentAction(_ notification: NSNotification) {
+//        let touch = sender.location(in: tableView)
+//        if let indexPath = tableView.indexPathForRow(at: touch) {
+//            guard let feedDataSource = feedDataSource else { return }
+//            
+//            let uniqueID = feedDataSource.uniqueIDs[(indexPath as NSIndexPath).row]
+//            let commentOwner = feedDataSource.usernames[(indexPath as NSIndexPath).row]
+//            NavigationManager.showCommentViewController(withPresenter: self, postID: uniqueID, commentOwner: commentOwner)
+//        }
+//    }
+    
+    @objc func moreAction(sender:UITapGestureRecognizer) {
+        
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 620
+        return 700
     }
     
     private func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

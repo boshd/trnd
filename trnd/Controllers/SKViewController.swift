@@ -6,47 +6,38 @@
 //  Copyright © 2018 Kareem Arab. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import ARVideoKit
 import ARKit
+import ARVideoKit
 import Photos
 
-class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, RecordARDelegate {
+class SKViewController: UIViewController, ARSKViewDelegate, RenderARDelegate, RecordARDelegate  {
     
-    // MARK: - Properties
-    let recordingQueue = DispatchQueue(label: "recordingThread", attributes: .concurrent)
+    @IBOutlet var SKSceneView: ARSKView!
+    
+    let recordingQueue = DispatchQueue(label: "recordingThread")
     let caprturingQueue = DispatchQueue(label: "capturingThread", attributes: .concurrent)
-    var recorder: RecordAR?
     
-    // MARK: - UI STUFF
-    @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var captureButton: UIButton!
+    var recorder:RecordAR?
     
-    
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(disappeared(_:)), name: NSNotification.Name(rawValue: "disappeared"), object: nil)
         
         // Set the view's delegate
-        sceneView.delegate = self
+        SKSceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // Show statistics such as fps and node count
+        SKSceneView.showsFPS = true
+        SKSceneView.showsNodeCount = true
         
-        // Create a new scene
-        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        //sceneView.scene = scene
-        //sceneView.scene.rootNode.scale = SCNVector3(0.2, 0.2, 0.2)
-        //
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.autoenablesDefaultLighting = true
+        // Load the SKScene from 'Scene.sks'
+        if let scene = SKScene(fileNamed: "Scene") {
+            SKSceneView.presentScene(scene)
+        }
         
         // Initialize ARVideoKit recorder
-        
-        
-        recorder = RecordAR(ARSceneKit: sceneView)
+        recorder = RecordAR(ARSpriteKit: SKSceneView)
         
         /*----👇---- ARVideoKit Configuration ----👇----*/
         
@@ -59,20 +50,11 @@ class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, 
         // Configure the renderer to perform additional image & video processing 👁
         recorder?.onlyRenderWhileRecording = false
         
-        // Configure ARKit content mode. Default is .auto
-        recorder?.contentMode = .aspectFill
-        
-        //record or photo add environment light rendering, Default is false
-        recorder?.enableAdjustEnvironmentLighting = true
-        
         // Set the UIViewController orientations
         recorder?.inputViewOrientations = [.landscapeLeft, .landscapeRight, .portrait]
+        
         // Configure RecordAR to store media files in local app directory
         recorder?.deleteCacheWhenExported = false
-        
-        sceneView.preferredFramesPerSecond = 60
-        recorder?.fps = .fps60
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,15 +64,17 @@ class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, 
         let configuration = ARWorldTrackingConfiguration()
         
         // Run the view's session
-        sceneView.session.run(configuration)
+        SKSceneView.session.run(configuration)
         
         // Prepare the recorder with sessions configuration
         recorder?.prepare(configuration)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         // Pause the view's session
-        sceneView.session.pause()
+        SKSceneView.session.pause()
         
         if recorder?.status == .recording {
             recorder?.stopAndExport()
@@ -100,6 +84,22 @@ class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, 
         
         // Switch off the orientation lock for UIViewControllers with AR Scenes
         recorder?.rest()
+    }
+    
+    @objc func disappeared(_ notification: NSNotification) {
+        
+        // Pause the view's session
+        SKSceneView.session.pause()
+        
+        if recorder?.status == .recording {
+            recorder?.stopAndExport()
+        }
+        recorder?.onlyRenderWhileRecording = true
+        recorder?.prepare(ARWorldTrackingConfiguration())
+        
+        // Switch off the orientation lock for UIViewControllers with AR Scenes
+        recorder?.rest()
+        print("called with recorder status: \(recorder?.status)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,7 +118,6 @@ class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, 
             let alert = UIAlertController(title: "Exported", message: "Media exported to camera roll successfully!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Awesome", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
         }else if status == .denied || status == .restricted || status == .notDetermined {
             let errorView = UIAlertController(title: "😅", message: "Please allow access to the photo library in order to save this media file.", preferredStyle: .alert)
             let settingsBtn = UIAlertAction(title: "Open Settings", style: .cancel) { (_) -> Void in
@@ -149,68 +148,33 @@ class CamViewController: UIViewController, ARSCNViewDelegate, RenderARDelegate, 
 }
 
 //MARK: - Button Action Methods
-extension CamViewController {
-    
-    @IBAction func capture(_ sender: UIButton) {
-        if sender.tag == 0 {
-            //Photo
-            if recorder?.status == .readyToRecord {
-                let image = self.recorder?.photo()
-                self.recorder?.export(UIImage: image) { saved, status in
-                    if saved {
-                        // Inform user photo has exported successfully
-                        self.exportMessage(success: saved, status: status)
-                    }
+extension SKViewController {
+    @objc func pleaseRecord(_ notification: NSNotification) {
+        if recorder?.status == .readyToRecord {
+            recorder?.gif(forDuration: 3.0, export: true) { ready, gifPath, status, saved in
+                print("\n\n\n\n\n\n \(gifPath)\n\n\n\n\n\n")
+                
+                let controller = Storyboard.fotoPreviewViewController()
+                controller.gifURL = gifPath
+                //guard let navigationController = self.navigationController else { return }
+                
+                DispatchQueue.main.sync {
+                    self.present(controller, animated: true, completion: nil)
+                    //navigationController.pushViewController(controller, animated: false)
                 }
-            }
-        }else if sender.tag == 1 {
-            //Live Photo
-            if recorder?.status == .readyToRecord {
-                caprturingQueue.async {
-                    self.recorder?.livePhoto(export: true) { ready, photo, status, saved in
-                        /*
-                         if ready {
-                         // Do something with the `photo` (PHLivePhotoPlus)
-                         }
-                         */
-                        
-                        if saved {
-                            // Inform user Live Photo has exported successfully
-                            self.exportMessage(success: saved, status: status)
-                        }
-                    }
-                }
-            }
-        }else if sender.tag == 2 {
-            //GIF
-            if recorder?.status == .readyToRecord {
-                recorder?.gif(forDuration: 1.0, export: true) { ready, gifPath, status, saved in
-                    print("\n\n\n\n\n\n \(gifPath)\n\n\n\n\n\n")
-                    
-                    let controller = Storyboard.fotoPreviewViewController()
-                    controller.gifURL = gifPath
-                    guard let navigationController = self.navigationController else { return }
-                    
-                    DispatchQueue.main.sync {
-                        //self.present(controller, animated: true, completion: nil)
-                        navigationController.pushViewController(controller, animated: false)
-                    }
-                   
-                    if saved {
-                        // Inform user GIF image has exported successfully
-                        
-                        //self.exportMessage(success: saved, status: status)
-                    }
+                
+                if saved {
+                    // Inform user GIF image has exported successfully
+                    self.exportMessage(success: saved, status: status)
                 }
             }
         }
     }
     
-    
 }
 
 //MARK: - ARVideoKit Delegate Methods
-extension CamViewController {
+extension SKViewController {
     func frame(didRender buffer: CVPixelBuffer, with time: CMTime, using rawBuffer: CVPixelBuffer) {
         // Do some image/video processing.
     }
@@ -226,10 +190,42 @@ extension CamViewController {
     }
     
     func recorder(willEnterBackground status: RecordARStatus) {
-        // Use this method to pause or stop video recording. Check [applicationWillResignActive(_:)](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622950-applicationwillresignactive) for more information.
+        // Use this method to pause or stop video recording. Check [applicationWillResignActive(_:)](https://developer.apple.com/documentation/ uikit/uiapplicationdelegate/1622950-applicationwillresignactive) for more information.
         if status == .recording {
             recorder?.stopAndExport()
         }
     }
 }
+
+// MARK: - ARSKView Delegate Methods
+extension SKViewController {
+    var randoMoji:String {
+        let emojis = ["👾", "🤓", "🔥", "😜", "😇", "🤣", "🤗"]
+        return emojis[Int(arc4random_uniform(UInt32(emojis.count)))]
+    }
+    
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        // Create and configure a node for the anchor added to the view's session.
+        let labelNode = SKLabelNode(text: randoMoji)
+        labelNode.horizontalAlignmentMode = .center
+        labelNode.verticalAlignmentMode = .center
+        //labelNode.preferredMaxLayoutWidth = 10
+
+        return labelNode;
+    }
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Present an error message to the user
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        
+    }
+}
+
 

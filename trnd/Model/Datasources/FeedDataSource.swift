@@ -150,6 +150,7 @@ extension FeedDataSource: UITableViewDataSource {
                 guard let image = UIImage(data: data as Data) else { return }
                 DispatchQueue.main.async {
                    cell.avatarImage.image = image
+                   cell.commentAvatar.image = image
                 }
             }
             

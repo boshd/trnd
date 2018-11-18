@@ -27,12 +27,10 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var timeStamp: UILabel!
+    @IBOutlet weak var commentAvatar: UIImageView!
     //@IBOutlet weak var postImage: UIImageView!
     //@IBOutlet weak var animatedPostView: FLAnimatedImageView!
-    
-    @IBOutlet weak var likeLabel: UILabel!
-    @IBOutlet weak var commentLabel: UILabel!
-    @IBOutlet weak var moreLabel: UILabel!
+
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
@@ -42,43 +40,17 @@ class PostCell: UITableViewCell {
 
     // MARK: - Methods
     
-    func setupGestures() {
-        let likeGR = UITapGestureRecognizer(target: self, action: #selector(PostCell.likeAction))
-        likeLabel.isUserInteractionEnabled = true
-        likeLabel.addGestureRecognizer(likeGR)
-        
-        //let commGR = UITapGestureRecognizer(target: self, action: #selector(FeedViewController.commentAction))
-        let commGR = UITapGestureRecognizer(target: self, action:#selector(PostCell.commentAction))
-        commentLabel.isUserInteractionEnabled = true
-        commentLabel.addGestureRecognizer(commGR)
-        
-        let moreGR = UITapGestureRecognizer(target: self, action: #selector(PostCell.moreAction))
-        moreLabel.isUserInteractionEnabled = true
-        moreLabel.addGestureRecognizer(moreGR)
-    }
-    
     func setupButtons() {
-        likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-        likeLabel.textColor = UIColor.offBlack()
-        likeLabel.text = String.fontAwesomeIcon("hearto")
-        commentLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-        commentLabel.textColor = UIColor.offBlack()
-        commentLabel.text = String.fontAwesomeIcon("comment")
-        moreLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-        moreLabel.textColor = UIColor.offBlack()
-        moreLabel.text = String.fontAwesomeIcon("ellipsish")
+        likeButton.setTitle("oc:logo-github", for: .normal)
+        likeButton.setTitleColor(UIColor.offBlack(), for: .normal)
+        likeButton.parseIcon()
+        moreButton.setTitle("oc:logo-github", for: .normal)
+        moreButton.setTitleColor(UIColor.offBlack(), for: .normal)
+        moreButton.parseIcon()
     }
     
     @objc func likeAction(sender:UITapGestureRecognizer) {
-        if likeLabel.textColor == UIColor.offBlack() {
-            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-            likeLabel.textColor = UIColor.litPink()
-            likeLabel.text = String.fontAwesomeIcon("heart")
-        } else {
-            likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-            likeLabel.textColor = UIColor.offBlack()
-            likeLabel.text = String.fontAwesomeIcon("hearto")
-        }
+
     }
     
     @objc func commentAction(sender:UITapGestureRecognizer) {
@@ -92,17 +64,39 @@ class PostCell: UITableViewCell {
     // MARK: - Configuration
     
     // Configures a post using a username, time, title, and the unique ID for the post
-    func configurePost(_ username: String, date: Date, title: String, location: String, latitude: String, longitude: String, uniqueID: String, indexPath: IndexPath) {
+    func configurePost(_ username: String, date: Date?, title: String, location: String, latitude: String, longitude: String, uniqueID: String, indexPath: IndexPath) {
 
         setupButtons()
-        setupGestures()
 
+        if let date = date {
+            configureDataLabel(date)
+        }
+        
         self.backgroundColor = UIColor.offWhite()
         usernameButton.setTitle("\(username)", for: UIControl.State())
         postMessageLabel.text = title
         self.avatarImage.layer.cornerRadius = 20
         self.avatarImage.clipsToBounds = true
+        self.commentAvatar.layer.cornerRadius = 15
+        self.commentAvatar.clipsToBounds = true
 
+    }
+    
+    /// Configures the date label of the post
+    func configureDataLabel(_ date: Date) {
+        let today = Date()
+        let components: NSCalendar.Unit = [.second, .minute, .hour, .day, .weekOfMonth]
+        let difference = (Calendar.current as NSCalendar).components(components, from: date, to: today, options: [])
+        
+        switch difference {
+        case _ where difference.weekOfMonth! > 0: self.timeStamp.text = "\(difference.weekOfMonth ?? 0) WEEK(S) AGO"
+        case _ where difference.day! > 0 && difference.weekOfMonth! == 0: self.timeStamp.text = "\(difference.day ?? 0) DAY(S) AGO"
+        case _ where difference.hour! > 0 && difference.day! == 0: self.timeStamp.text = "\(difference.hour ?? 0) HOUR(S) AGO"
+        case _ where difference.minute! > 0 && difference.hour! == 0: self.timeStamp.text = "\(difference.minute ?? 0) MINUTE(S) AGO"
+        case _ where difference.second! > 0 && difference.minute! == 0: self.timeStamp.text = "\(difference.second ?? 0) SECOND(S) AGO"
+        case _ where difference.second! <= 0: self.timeStamp.text = "JUST NOW"
+        default: break
+        }
     }
 
 }

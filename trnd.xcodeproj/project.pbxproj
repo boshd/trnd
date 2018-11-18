@@ -12,6 +12,8 @@
 		73539521BD538028BBA2238B /* Pods_trnd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1BD893280B3CE7F8EC1FA /* Pods_trnd.framework */; };
 		BC0EF986219E8269002CE5ED /* chill.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF985219E8269002CE5ED /* chill.png */; };
 		BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF987219E8370002CE5ED /* Main.storyboard */; };
+		BC83D27221A1846600EE5894 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27021A1846500EE5894 /* Scene.swift */; };
+		BC83D27321A1846600EE5894 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC83D27121A1846500EE5894 /* Scene.sks */; };
 		BCD0D2B3219BD5B00013A695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */; };
 		BCD0D2BB219BD5B00013A695 /* trnd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B9219BD5B00013A695 /* trnd.xcdatamodeld */; };
 		BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2BC219BD5B30013A695 /* Assets.xcassets */; };
@@ -34,7 +36,7 @@
 		BCD0D349219BD7E80013A695 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2F0219BD7E10013A695 /* image3.png */; };
 		BCD0D34B219BD7E80013A695 /* OnboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F2219BD7E10013A695 /* OnboardTextField.swift */; };
 		BCD0D34C219BD7E80013A695 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */; };
-		BCD0D34D219BD7E80013A695 /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F4219BD7E10013A695 /* CamViewController.swift */; };
+		BCD0D34D219BD7E80013A695 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F4219BD7E10013A695 /* SKViewController.swift */; };
 		BCD0D34E219BD7E80013A695 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F5219BD7E10013A695 /* ProjectColors.swift */; };
 		BCD0D34F219BD7E80013A695 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2F6219BD7E10013A695 /* image2.png */; };
 		BCD0D350219BD7E80013A695 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */; };
@@ -136,6 +138,8 @@
 		96C891B0A7959738978738CC /* Pods-trndUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC0EF985219E8269002CE5ED /* chill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chill.png; path = ../../../../../Desktop/chill.png; sourceTree = "<group>"; };
 		BC0EF987219E8370002CE5ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BC83D27021A1846500EE5894 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		BC83D27121A1846500EE5894 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		BCD0D2AF219BD5B00013A695 /* trnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD0D2BA219BD5B00013A695 /* trnd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = trnd.xcdatamodel; sourceTree = "<group>"; };
@@ -164,7 +168,7 @@
 		BCD0D2F0219BD7E10013A695 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		BCD0D2F2219BD7E10013A695 /* OnboardTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardTextField.swift; sourceTree = "<group>"; };
 		BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		BCD0D2F4219BD7E10013A695 /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamViewController.swift; sourceTree = "<group>"; };
+		BCD0D2F4219BD7E10013A695 /* SKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKViewController.swift; sourceTree = "<group>"; };
 		BCD0D2F5219BD7E10013A695 /* ProjectColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
 		BCD0D2F6219BD7E10013A695 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +322,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		BC83D26F21A1846500EE5894 /* SK */ = {
+			isa = PBXGroup;
+			children = (
+				BC83D27021A1846500EE5894 /* Scene.swift */,
+				BC83D27121A1846500EE5894 /* Scene.sks */,
+			);
+			path = SK;
+			sourceTree = "<group>";
+		};
 		BCD0D2A6219BD5B00013A695 = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +365,7 @@
 				BCD0D397219BE7FD0013A695 /* Model */,
 				BCD0D396219BE7F60013A695 /* Controllers */,
 				BCD0D2BE219BD5B30013A695 /* LaunchScreen.storyboard */,
+				BC83D26F21A1846500EE5894 /* SK */,
 				BCD0D2C1219BD5B30013A695 /* Info.plist */,
 				BCD0D2BC219BD5B30013A695 /* Assets.xcassets */,
 				BCD0D2B9219BD5B00013A695 /* trnd.xcdatamodeld */,
@@ -407,7 +421,7 @@
 				BCD0D304219BD7E30013A695 /* SettingsViewController.swift */,
 				BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */,
 				BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */,
-				BCD0D2F4219BD7E10013A695 /* CamViewController.swift */,
+				BCD0D2F4219BD7E10013A695 /* SKViewController.swift */,
 				BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */,
 				BCD0D300219BD7E20013A695 /* FeedViewController.swift */,
 				BCD0D335219BD7E70013A695 /* FollowViewController.swift */,
@@ -634,6 +648,7 @@
 				BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */,
 				BCD0D35F219BD7E80013A695 /* LaunchScreen.storyboard in Resources */,
 				BCF5B009219F6BD800BE6432 /* man.gif in Resources */,
+				BC83D27321A1846600EE5894 /* Scene.sks in Resources */,
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
@@ -723,8 +738,11 @@
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
@@ -745,8 +763,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecordButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
@@ -846,8 +867,9 @@
 				BCD0D35E219BD7E80013A695 /* EmailValidator.swift in Sources */,
 				BCD0D388219BD7E80013A695 /* SearchService.swift in Sources */,
 				BCD0D38B219BD7E80013A695 /* CircleImageView.swift in Sources */,
+				BC83D27221A1846600EE5894 /* Scene.swift in Sources */,
 				BCD0D34C219BD7E80013A695 /* NotificationViewController.swift in Sources */,
-				BCD0D34D219BD7E80013A695 /* CamViewController.swift in Sources */,
+				BCD0D34D219BD7E80013A695 /* SKViewController.swift in Sources */,
 				BCD0D369219BD7E80013A695 /* PostCommentCell.swift in Sources */,
 				BCD0D36D219BD7E80013A695 /* SignUpUserViewController.swift in Sources */,
 				BCD0D380219BD7E80013A695 /* HashtagDataSource.swift in Sources */,
