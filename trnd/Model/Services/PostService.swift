@@ -12,6 +12,7 @@
 import UIKit
 import Parse
 import FLAnimatedImage
+import KRProgressHUD
 
 typealias GETThumbCompletion = ([String], [String], [String], [PFFile]) -> Void
 typealias GETPostCompletion = (String, PFFile, Date, PFFile, String?, String, String, String) -> Void
@@ -197,7 +198,12 @@ struct PostService {
             //}
             
             ParseOperation.saveObject(object: object) { (success: Bool) in
-                if success { successBlock() }
+                if success {
+                    print("success yoo!")
+                    KRProgressHUD.showMessage("Posted!")
+                    successBlock()
+                    
+                }
             }
             
             HashtagService.createHashtagIfExists(title, forID: uniqueID)

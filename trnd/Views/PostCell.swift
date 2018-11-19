@@ -41,10 +41,17 @@ class PostCell: UITableViewCell {
     // MARK: - Methods
     
     func setupButtons() {
-        likeButton.setTitle("oc:logo-github", for: .normal)
+        let like_title = "fa:hearto"
+        likeButton.setAttributedTitle(nil, for: .normal)
+        likeButton.titleLabel?.text = like_title
+        likeButton.setTitle("\(like_title)", for: .normal)
         likeButton.setTitleColor(UIColor.offBlack(), for: .normal)
         likeButton.parseIcon()
-        moreButton.setTitle("oc:logo-github", for: .normal)
+        
+        let more_title = "fa:ellipsish"
+        moreButton.setAttributedTitle(nil, for: .normal)
+        moreButton.titleLabel?.text = more_title
+        moreButton.setTitle("\(more_title)", for: .normal)
         moreButton.setTitleColor(UIColor.offBlack(), for: .normal)
         moreButton.parseIcon()
     }

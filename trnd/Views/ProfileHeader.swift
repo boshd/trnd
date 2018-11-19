@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+import Kingfisher
 
 class ProfileHeader: UICollectionReusableView {
     

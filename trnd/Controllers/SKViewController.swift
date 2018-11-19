@@ -23,6 +23,7 @@ class SKViewController: UIViewController, ARSKViewDelegate, RenderARDelegate, Re
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(disappeared(_:)), name: NSNotification.Name(rawValue: "disappeared"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pleaseRecord(_:)), name: NSNotification.Name(rawValue: "pleaseRecord"), object: nil)
         
         // Set the view's delegate
         SKSceneView.delegate = self
@@ -150,16 +151,17 @@ class SKViewController: UIViewController, ARSKViewDelegate, RenderARDelegate, Re
 //MARK: - Button Action Methods
 extension SKViewController {
     @objc func pleaseRecord(_ notification: NSNotification) {
+        print("triggered")
         if recorder?.status == .readyToRecord {
             recorder?.gif(forDuration: 3.0, export: true) { ready, gifPath, status, saved in
                 print("\n\n\n\n\n\n \(gifPath)\n\n\n\n\n\n")
                 
-                let controller = Storyboard.fotoPreviewViewController()
-                controller.gifURL = gifPath
+                //let controller = Storyboard.fotoPreviewViewController()
+                //controller.gifURL = gifPath
                 //guard let navigationController = self.navigationController else { return }
-                
+                NavigationManager.showPreviewViewController(withPresenter: self, withGifUrl: gifPath)
                 DispatchQueue.main.sync {
-                    self.present(controller, animated: true, completion: nil)
+                    //self.present(controller, animated: true, completion: nil)
                     //navigationController.pushViewController(controller, animated: false)
                 }
                 

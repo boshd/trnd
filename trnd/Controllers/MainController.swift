@@ -160,21 +160,24 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     func upload() {
-        var libraryEnabled: Bool = true
-        var croppingEnabled: Bool = true
-        var allowResizing: Bool = true
-        var allowMoving: Bool = true
-        var croppingParameters: CroppingParameters {
-            return CroppingParameters(isEnabled: croppingEnabled, allowResizing: allowResizing, allowMoving: allowMoving, minimumSize: CGSize(width: 60, height: 60))
-        }
-        /// Provides an image picker wrapped inside a UINavigationController instance
-        let imagePickerViewController = CameraViewController.imagePickerViewController(croppingParameters: croppingParameters) { [weak self] image, asset in
-            // Do something with your image here.
-            // If cropping is enabled this image will be the cropped version
-            
-            self?.dismiss(animated: true, completion: nil)
-        }
-        present(imagePickerViewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PreviewViewController")
+        present(controller, animated: false, completion: nil)
+//        var libraryEnabled: Bool = true
+//        var croppingEnabled: Bool = true
+//        var allowResizing: Bool = true
+//        var allowMoving: Bool = true
+//        var croppingParameters: CroppingParameters {
+//            return CroppingParameters(isEnabled: croppingEnabled, allowResizing: allowResizing, allowMoving: allowMoving, minimumSize: CGSize(width: 60, height: 60))
+//        }
+//        /// Provides an image picker wrapped inside a UINavigationController instance
+//        let imagePickerViewController = CameraViewController.imagePickerViewController(croppingParameters: croppingParameters) { [weak self] image, asset in
+//            // Do something with your image here.
+//            // If cropping is enabled this image will be the cropped version
+//
+//            self?.dismiss(animated: true, completion: nil)
+//        }
+//        present(imagePickerViewController, animated: true, completion: nil)
     }
     
     func start() {
@@ -219,6 +222,8 @@ class MainController: UIViewController, UIScrollViewDelegate {
         if let reachability = AppDelegate.sharedAppDelegate()?.reachability {
             NotificationCenter.default.addObserver( self, selector: #selector( self.reachabilityChanged ),name: ReachabilityChangedNotification, object: reachability )
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToFeed), name: NSNotification.Name(rawValue: "goToFeed"), object: nil)
         
         recordButton.addTarget(self, action: #selector(MainController.record), for: .touchDown)
         recordButton.addTarget(self, action: #selector(MainController.stop), for: .touchUpInside)
@@ -444,17 +449,17 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func stop() {
-        var frame: CGRect = scrollView.frame
-        let width: CGFloat = scrollView.frame.size.width
-        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
-        
-        if page != 1 {
-            frame.origin.x = frame.size.width * 1
-            frame.origin.y = 0
-            scrollView.scrollRectToVisible(frame, animated: true)
-        } else {
-            self.progressTimer.invalidate()
-        }
+//        var frame: CGRect = scrollView.frame
+//        let width: CGFloat = scrollView.frame.size.width
+//        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
+//        
+//        if page != 1 {
+//            frame.origin.x = frame.size.width * 1
+//            frame.origin.y = 0
+//            scrollView.scrollRectToVisible(frame, animated: true)
+//        } else {
+//            self.progressTimer.invalidate()
+//        }
     }
     
 }

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - ALCameraViewController (3.0.3)
   - ARVideoKit (1.3)
   - Bolts (1.9.0):
@@ -15,7 +16,9 @@ PODS:
   - FBSDKShareKit (4.38.1):
     - FBSDKCoreKit
   - FLAnimatedImage (1.0.12)
+  - GiphyCoreSDK (1.4.0)
   - KILabel (1.0.0)
+  - Kingfisher (4.10.1)
   - KRActivityIndicatorView (3.0.0)
   - KRProgressHUD (3.4.0):
     - KRActivityIndicatorView (= 3.0.0)
@@ -29,6 +32,10 @@ PODS:
     - Bolts/Tasks (~> 1.9)
   - pop (1.0.12)
   - RecordButton (1.0.2)
+  - SDWebImage/Core (4.4.2)
+  - SDWebImage/GIF (4.4.2):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
   - SnapKit (4.0.1)
   - SwiftIconFont (2.9.1)
   - TextFieldEffects (1.5.1)
@@ -36,6 +43,7 @@ PODS:
     - pop
 
 DEPENDENCIES:
+  - Alamofire
   - ALCameraViewController
   - ARVideoKit (from `https://github.com/AFathi/ARVideoKit.git`)
   - CRRefresh
@@ -43,17 +51,21 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - FLAnimatedImage
+  - GiphyCoreSDK
   - KILabel (= 1.0.0)
+  - Kingfisher (~> 4.0)
   - KRProgressHUD
   - NotificationBannerSwift
   - Parse
   - RecordButton
+  - SDWebImage/GIF
   - SwiftIconFont
   - TextFieldEffects
   - VBFPopFlatButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ALCameraViewController
     - Bolts
     - CRRefresh
@@ -61,7 +73,9 @@ SPEC REPOS:
     - FBSDKLoginKit
     - FBSDKShareKit
     - FLAnimatedImage
+    - GiphyCoreSDK
     - KILabel
+    - Kingfisher
     - KRActivityIndicatorView
     - KRProgressHUD
     - MarqueeLabel
@@ -69,6 +83,7 @@ SPEC REPOS:
     - Parse
     - pop
     - RecordButton
+    - SDWebImage
     - SnapKit
     - SwiftIconFont
     - TextFieldEffects
@@ -84,6 +99,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/AFathi/ARVideoKit.git
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   ARVideoKit: 9bd6fd31662b8b4c3966797e0f596f4d87948475
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -92,7 +108,9 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
   FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GiphyCoreSDK: 1fe401c5fc65f182e7aa8b7fb2c9005f2a523374
   KILabel: 84049969642d4ac1061ebe38ad4c0da37fed108b
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   KRActivityIndicatorView: c414000730a6f4969eeb354bee4f2aebc89c2c2e
   KRProgressHUD: 79c8703f82179fe34b3602f10b30726f887983fa
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
@@ -100,11 +118,12 @@ SPEC CHECKSUMS:
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   RecordButton: 76677be0f4b94f8a387454a23b4b64bd9b6c0e51
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: 322c79663b56aaa65935faf1b3f5833c3318b647
+PODFILE CHECKSUM: 29a179bd29e0c2153a54894c952919fed96dd12f
 
 COCOAPODS: 1.5.3

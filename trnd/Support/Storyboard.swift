@@ -73,8 +73,8 @@ enum Storyboard: String {
     //    return Storyboard.Foto.viewControllerWithClass(FotoViewController.self)
     //}
     
-    static func fotoPreviewViewController() -> FotoPreviewViewController {
-        return Storyboard.Cam.viewControllerWithClass(FotoPreviewViewController.self)
+    static func previewViewController() -> PreviewViewController {
+        return Storyboard.Main.viewControllerWithClass(PreviewViewController.self)
     }
     
     static func notificationViewController() -> NotificationViewController {

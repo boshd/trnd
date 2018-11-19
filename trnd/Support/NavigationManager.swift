@@ -93,25 +93,24 @@ struct NavigationManager {
         controller.feedMode = mode
         guard let navigationController = presenter.navigationController else { return }
         //navigationController.pushViewController(controller, animated: true)
-
-        navigationController.pushViewController(controller, animated: true)
+        navigationController.present(controller, animated: true, completion: nil)
+        //navigationController.pushViewController(controller, animated: true)
         
     }
     
-    /// Presents the foto preview view controller for a follow mode and pushes it onto the MainNavigationController stack
-    static func showFotoPreviewViewController(withPresenter presenter: UIViewController, withFotos fotos: [UIImage]) {
-        let controller = Storyboard.fotoPreviewViewController()
-        controller.images = fotos
-        guard let navigationController = presenter.navigationController else { return }
-        navigationController.pushViewController(controller, animated: false)
-    }
+
     
     /// Presents the foto preview view controller for a follow mode and pushes it onto the MainNavigationController stack
-    static func showFotooPreviewViewController(withPresenter presenter: UIViewController, withGifUrl gifUrl: URL) {
-        let controller = Storyboard.fotoPreviewViewController()
+    static func showPreviewViewController(withPresenter presenter: UIViewController, withGifUrl gifUrl: URL) {
+        let controller = Storyboard.previewViewController()
         controller.gifURL = gifUrl
-        guard let navigationController = presenter.navigationController else { return }
-        navigationController.pushViewController(controller, animated: false)
+        print("called 1")
+        //guard let navigationController = presenter.navigationController else { return }
+        
+        //navigationController.pushViewController(controller, animated: false)
+        presenter.present(controller, animated: false, completion: nil)
+        //navigationController.present(controller, animated: false, completion: nil)
+        print("called3")
     }
     
     /// Presents the comment view controller with commentID and commentOwner

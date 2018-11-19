@@ -281,7 +281,7 @@ class UsernameEmailViewController: UIViewController, UITextFieldDelegate {
     // Methods
     func GO() {
         KRProgressHUD.show()
-        nextButton.titleLabel?.text = ""
+        //nextButton.titleLabel?.text = ""
         nextButton.backgroundColor = UIColor.offGreen()
         nextButton.isEnabled = false
         switch true {

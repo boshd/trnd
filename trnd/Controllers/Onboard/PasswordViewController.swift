@@ -193,7 +193,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         user.email = UserDefaults.standard.string(forKey: DEFAULTS_EMAIL)
         user.password = passwordField.text!
         
-        if let image = UIImage(named: "chill.png"), let avatarData = image.jpegData(compressionQuality: 0.5) {
+        if let image = UIImage(named: "kikz.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
             let file = PFFile(name: "avatar", data: avatarData)
             user[QueryKey.Avatar] = file
         }

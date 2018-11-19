@@ -22,6 +22,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var closeLabel: UILabel!
     @IBOutlet weak var moreLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var likeLabel: UILabel!
@@ -68,10 +69,18 @@ class FeedViewController: UIViewController, UITableViewDelegate {
             })
         }
         
+        let closeGR = UITapGestureRecognizer(target: self, action: #selector(self.closeAction))
+        closeLabel.isUserInteractionEnabled = true
+        closeLabel.addGestureRecognizer(closeGR)
+        closeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+        closeLabel.textColor = UIColor.offBlack()
+        closeLabel.text = String.fontAwesomeIcon("angledown")
+        
         //NotificationCenter.default.addObserver(self, selector: #selector(commentAction(_:)), name: NSNotification.Name(rawValue: "commentAction"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "refreshData"), object: nil)
         download()
         refreshData()
-        backButton.isHidden = true
+        //backButton.isHidden = true
         addPostUploadObserver()
         setupFeedDataSource()
         setupSwipeToGoBack()
@@ -106,7 +115,10 @@ class FeedViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = feedDataSource
         
     }
-
+    
+    @objc func closeAction(sender: UIGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @objc func likeAction(sender:UITapGestureRecognizer) {
         if likeLabel.textColor == UIColor.offBlack() {
@@ -159,11 +171,12 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     func setupBackButton() {
         switch feedMode {
         case.singlePost:
-            backButton.isHidden = false
+            print("sdsd")
+            //backButton.isHidden = false
             //let backButton = UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(FeedViewController.backPressed))
             //self.navigationItem.leftBarButtonItem = backButton
         case .allPosts:
-            backButton.isHidden = true
+            //backButton.isHidden = true
             self.navigationItem.hidesBackButton = true
         }
     }

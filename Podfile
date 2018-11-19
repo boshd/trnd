@@ -22,6 +22,12 @@ target 'trnd' do
   pod 'KRProgressHUD'
   pod 'RecordButton'
   pod 'NotificationBannerSwift'
+  pod 'Kingfisher', '~> 4.0'
+  
+  pod 'GiphyCoreSDK'
+  pod 'SDWebImage/GIF'
+  pod 'Alamofire'
+  #pod 'Cache'
 
   pod 'ARVideoKit', :git => 'https://github.com/AFathi/ARVideoKit.git'
 
