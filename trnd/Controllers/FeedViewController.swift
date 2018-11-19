@@ -141,9 +141,11 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     func download() {
         switch feedMode {
         case .singlePost(let id):
+            feedDataSource?.downloadDataForCurrentUser()
             feedDataSource?.downloadPost(id)
             //self.navigationItem.title = "Photo"
         case .allPosts:
+            feedDataSource?.downloadDataForCurrentUser()
             feedDataSource?.downloadAllPosts()
             //self.navigationItem.title = "photograph :)"
         }

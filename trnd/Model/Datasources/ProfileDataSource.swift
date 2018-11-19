@@ -76,7 +76,7 @@ class ProfileDataSource: NSObject {
     func downloadMorePosts() {
         guard let username = profileOwner?.username else { return }
         if imagesToLoad <= uniqueIDs.count {
-            imagesToLoad += 15
+            imagesToLoad += 5
             getPostsForUser(username, withLimit: imagesToLoad)
         }
     }

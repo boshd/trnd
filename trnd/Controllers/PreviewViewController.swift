@@ -31,13 +31,18 @@ class PreviewViewController: UIViewController {
         setupTopBar()
         setupBottomBar()
         setupGesturesAndTargets()
-        do {
-            try animatedImage = FLAnimatedImage(gifData: Data(contentsOf: gifURL))
-        } catch {
-            print("err from INSIDE FOTO PREV. \(error)")
-        }
+        bottomBar.isHidden = false
+        topBar.isHidden = false
         
-        self.imageView.animatedImage = animatedImage
+        view.bringSubviewToFront(topBar)
+        view.bringSubviewToFront(bottomBar)
+//        do {
+//            try animatedImage = FLAnimatedImage(gifData: Data(contentsOf: gifURL))
+//        } catch {
+//            print("err from INSIDE FOTO PREV. \(error)")
+//        }
+//
+//        self.imageVisew.animatedImage = animatedImage
         
         print("\n\n\n\n\n\n \(gifURL)\n\n\n\n\n\n")
 
@@ -53,24 +58,28 @@ class PreviewViewController: UIViewController {
 //    }
     
     func setupTopBar() {
-        closeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 40.0)
+        closeLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         closeLabel.textColor = .white
-        closeLabel.text = String.fontAwesomeIcon("times")
-        textLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 40.0)
+        closeLabel.text = String.fontIonIcon("ios-close")
+        textLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         textLabel.textColor = .white
-        textLabel.text = String.fontAwesomeIcon("font")
+        textLabel.text = String.fontIonIcon("ios-color-wand")
         
     }
     
     func setupBottomBar() {
-        saveLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 40.0)
+        print("ACCESSED SETUP BOTTOMMMM")
+        saveLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         saveLabel.textColor = .white
-        saveLabel.text = String.fontAwesomeIcon("save")
-        
-        postLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 40.0)
+        saveLabel.text = String.fontIonIcon("io-download")
+        saveLabel.isHidden = false
+        view.bringSubviewToFront(saveLabel)
+        postLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         postLabel.textColor = .white
-        postLabel.text = String.fontAwesomeIcon("pluscircle")
-
+        postLabel.text = String.fontIonIcon("ios-checkmark-circle")
+        postLabel.isHidden = false
+        view.bringSubviewToFront(postLabel)
+        print("ACCESSED SETUP BOTTOMMMM AND FINISHED")
     }
     
     func setupGesturesAndTargets() {

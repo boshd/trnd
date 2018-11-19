@@ -17,7 +17,7 @@ class FeedDataSource: NSObject {
     
     // MARK: - Properties
     var tableView: UITableView
-    
+    var profileOwner: PFUser?
     var usersToShow = [String]()
     var postsToShow = 33
     
@@ -39,6 +39,14 @@ class FeedDataSource: NSObject {
     }
     
     // MARK: - Methods
+    
+    func downloadDataForCurrentUser() {
+        guard let currentUser = PFUser.current() else { return }
+        self.profileOwner = currentUser
+        
+        guard let currentName = currentUser.username else { return }
+        //self.getPostsForUser(currentName, withLimit: imagesToLoad)
+    }
     
     /// Downloads a single post with a postID
     func downloadPost(_ postID: String) {
@@ -144,13 +152,23 @@ extension FeedDataSource: UITableViewDataSource {
         //cell.configurePost(username, date: date, title: description, uniqueID: id, indexPath: indexPath)
         cell.configurePost(username, date: date, title: description, location: location, latitude: latitude, longitude: longitude, uniqueID: id, indexPath: indexPath)
 
+        let user = profileOwner
+        //guard let username = user.username else { return cell }
         
         DispatchQueue.global(qos: .userInitiated).async {
+            
+            UserService.getAvatarImgForUser(user!) { (image: UIImage) in
+                DispatchQueue.main.async {
+                    
+                    cell.commentAvatar.image = image
+                    
+                }
+            }
             ParseOperation.getData(forFile: avatarFile) { (data: NSData) in
                 guard let image = UIImage(data: data as Data) else { return }
                 DispatchQueue.main.async {
                    cell.avatarImage.image = image
-                   cell.commentAvatar.image = image
+                   //cell.commentAvatar.image = image
                 }
             }
             

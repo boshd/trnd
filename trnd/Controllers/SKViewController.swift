@@ -160,10 +160,7 @@ extension SKViewController {
                 //controller.gifURL = gifPath
                 //guard let navigationController = self.navigationController else { return }
                 NavigationManager.showPreviewViewController(withPresenter: self, withGifUrl: gifPath)
-                DispatchQueue.main.sync {
-                    //self.present(controller, animated: true, completion: nil)
-                    //navigationController.pushViewController(controller, animated: false)
-                }
+                
                 
                 if saved {
                     // Inform user GIF image has exported successfully

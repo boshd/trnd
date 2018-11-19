@@ -102,13 +102,18 @@ struct NavigationManager {
     
     /// Presents the foto preview view controller for a follow mode and pushes it onto the MainNavigationController stack
     static func showPreviewViewController(withPresenter presenter: UIViewController, withGifUrl gifUrl: URL) {
+        
         let controller = Storyboard.previewViewController()
         controller.gifURL = gifUrl
         print("called 1")
-        //guard let navigationController = presenter.navigationController else { return }
+        guard let navigationController = presenter.navigationController else {
+            return
+        }
         
         //navigationController.pushViewController(controller, animated: false)
-        presenter.present(controller, animated: false, completion: nil)
+        navigationController.present(controller, animated: false, completion: nil)
+        //
+        
         //navigationController.present(controller, animated: false, completion: nil)
         print("called3")
     }

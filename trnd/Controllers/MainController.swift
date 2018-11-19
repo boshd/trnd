@@ -106,13 +106,13 @@ class MainController: UIViewController, UIScrollViewDelegate {
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disappeared"), object: nil)
         } else if offset > 0 && offset < 375 {
-            leftLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+            leftLabel.font = UIFont.icon(from: .ionicon, ofSize: 35.0)
             leftLabel.textColor = UIColor(red:1.0, green:1.0, blue:1.0, alpha: left_right_first_in_trans)
-            leftLabel.text = String.fontAwesomeIcon("caretsquareoup")
+            leftLabel.text = String.fontIonIcon("ios-share")
             leftLabel.outlineColor = UIColor(red:1.0, green:1.0, blue:1.0, alpha: left_right_first_in_trans)
-            rightLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+            rightLabel.font = UIFont.icon(from: .ionicon, ofSize: 35.0)
             rightLabel.textColor = UIColor(red:1.0, green:1.0, blue:1.0, alpha: left_right_first_in_trans)
-            rightLabel.text = String.fontAwesomeIcon("fire")
+            rightLabel.text = String.fontIonIcon("ios-reverse-camera")
             rightLabel.outlineColor = UIColor(red:1.0, green:1.0, blue:1.0, alpha: left_right_first_in_trans)
             
             if offset > 187.5 {
@@ -132,12 +132,12 @@ class MainController: UIViewController, UIScrollViewDelegate {
                 return .lightContent
             }
         } else if offset > 375 && offset < 750 {
-            leftLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+            leftLabel.font = UIFont.icon(from: .ionicon, ofSize: 35.0)
             leftLabel.textColor = UIColor(red:0.89, green:0.90, blue:0.91, alpha: left_right_first_out_trans)
-            leftLabel.text = String.fontAwesomeIcon("caretsquareoup")
-            rightLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
+            leftLabel.text = String.fontIonIcon("ios-share")
+            rightLabel.font = UIFont.icon(from: .ionicon, ofSize: 35.0)
             rightLabel.textColor = UIColor(red:0.89, green:0.90, blue:0.91, alpha: left_right_first_out_trans)
-            rightLabel.text = String.fontAwesomeIcon("fire")
+            rightLabel.text = String.fontIonIcon("ios-reverse-camera")
             if offset > 562.5 && offset < 750 {
                 rightLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 35.0)
                 rightLabel.textColor = UIColor(red:1.00, green:0.31, blue:0.45, alpha:left_right_second_in_trans)
@@ -160,9 +160,9 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     func upload() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "PreviewViewController")
-        present(controller, animated: false, completion: nil)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let controller = storyboard.instantiateViewController(withIdentifier: "PreviewViewController")
+        //present(controller, animated: false, completion: nil)
 //        var libraryEnabled: Bool = true
 //        var croppingEnabled: Bool = true
 //        var allowResizing: Bool = true
@@ -281,27 +281,8 @@ class MainController: UIViewController, UIScrollViewDelegate {
         animation.duration = 0.6
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var frame: CGRect = scrollView.frame
-        let width: CGFloat = scrollView.frame.size.width
-        let page = Int((scrollView.contentOffset.x + (0.5 * width)) / width)
-//        if page == 0 {
-//            feedLabel.textColor = UIColor.offBlack()
-//            recordButton.progressColor = UIColor.offWhite()
-//            profileLabel.textColor = UIColor.offWhite()
-//        } else if page == 1 {
-//            feedLabel.textColor = UIColor.offWhite()
-//            recordButton.progressColor = UIColor.offBlack()
-//            profileLabel.textColor = UIColor.offWhite()
-//        } else if page == 2 {
-//            feedLabel.textColor = UIColor.offWhite()
-//            recordButton.progressColor = UIColor.offWhite()
-//            profileLabel.textColor = UIColor.offBlack()
-//        }
-    }
-    
     @objc func leftPressed(sender:UIGestureRecognizer) {
-        if leftLabel.text == String.fontAwesomeIcon("caretsquareoup") {
+        if leftLabel.text == String.fontIonIcon("ios-share") {
             upload()
         } else if leftLabel.text == "" {
             //
@@ -309,7 +290,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func rightPressed(sender:UIGestureRecognizer) {
-        if rightLabel.text == String.fontAwesomeIcon("fire") {
+        if rightLabel.text == String.fontIonIcon("ios-reverse-camera") {
             print("flip camera plz")
         } else if rightLabel.text == String.fontAwesomeIcon("grav") {
             NOTIF(sender: .init())
