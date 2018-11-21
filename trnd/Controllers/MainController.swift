@@ -361,7 +361,6 @@ class MainController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func goToFeed(sender:UITapGestureRecognizer) {
-        
         feedLabel.textColor = UIColor.offBlack()
         recordButton.progressColor = UIColor.offWhite()
         //recordButton.buttonColor = UIColor.offWhite()

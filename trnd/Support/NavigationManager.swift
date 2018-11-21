@@ -110,8 +110,8 @@ struct NavigationManager {
             return
         }
         
-        //navigationController.pushViewController(controller, animated: false)
-        navigationController.present(controller, animated: false, completion: nil)
+        navigationController.pushViewController(controller, animated: false)
+        //navigationController.present(controller, animated: false, completion: nil)
         //
         
         //navigationController.present(controller, animated: false, completion: nil)

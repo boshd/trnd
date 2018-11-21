@@ -10,8 +10,8 @@
 		04DA35ADABFE22E7E8FFC165 /* Pods_trndTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2075DC13973B176B8ED6C3CE /* Pods_trndTests.framework */; };
 		5A06BB74D034BB48B0FFBB33 /* Pods_trndUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622668CE7354B29752044795 /* Pods_trndUITests.framework */; };
 		73539521BD538028BBA2238B /* Pods_trnd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1BD893280B3CE7F8EC1FA /* Pods_trnd.framework */; };
-		BC0EF986219E8269002CE5ED /* chill.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF985219E8269002CE5ED /* chill.png */; };
 		BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF987219E8370002CE5ED /* Main.storyboard */; };
+		BC24DABB21A4990400910E18 /* kikz.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BC24DABA21A4990400910E18 /* kikz.jpeg */; };
 		BC83D27221A1846600EE5894 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27021A1846500EE5894 /* Scene.swift */; };
 		BC83D27321A1846600EE5894 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC83D27121A1846500EE5894 /* Scene.sks */; };
 		BC83D27521A213F500EE5894 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27421A213F400EE5894 /* UploadViewController.swift */; };
@@ -61,7 +61,6 @@
 		BC83D2DE21A22B9C00EE5894 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D2C321A22B9C00EE5894 /* UIImage+Extensions.swift */; };
 		BC83D2DF21A22B9C00EE5894 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC83D2C421A22B9C00EE5894 /* README.md */; };
 		BC83D30421A22EF900EE5894 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D30321A22EF900EE5894 /* PreviewViewController.swift */; };
-		BC8ED09121A260FF000ED07B /* kikz.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BC8ED09021A260FF000ED07B /* kikz.jpeg */; };
 		BCD0D2B3219BD5B00013A695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */; };
 		BCD0D2BB219BD5B00013A695 /* trnd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2B9219BD5B00013A695 /* trnd.xcdatamodeld */; };
 		BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2BC219BD5B30013A695 /* Assets.xcassets */; };
@@ -184,8 +183,8 @@
 		79DF7331788D3A06D05A70FF /* Pods-trndTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trndTests/Pods-trndTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E66006F690FD192BAF1037F /* Pods-trnd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trnd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trnd/Pods-trnd.debug.xcconfig"; sourceTree = "<group>"; };
 		96C891B0A7959738978738CC /* Pods-trndUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.release.xcconfig"; sourceTree = "<group>"; };
-		BC0EF985219E8269002CE5ED /* chill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chill.png; path = ../../../../../Desktop/chill.png; sourceTree = "<group>"; };
 		BC0EF987219E8370002CE5ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BC24DABA21A4990400910E18 /* kikz.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kikz.jpeg; sourceTree = "<group>"; };
 		BC83D27021A1846500EE5894 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		BC83D27121A1846500EE5894 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		BC83D27421A213F400EE5894 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -262,7 +261,6 @@
 		BC83D30121A22BD000EE5894 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		BC83D30221A22BD000EE5894 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BC83D30321A22EF900EE5894 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
-		BC8ED09021A260FF000ED07B /* kikz.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kikz.jpeg; path = ../../../../../Desktop/kikz.jpeg; sourceTree = "<group>"; };
 		BCD0D2AF219BD5B00013A695 /* trnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0D2B2219BD5B00013A695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD0D2BA219BD5B00013A695 /* trnd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = trnd.xcdatamodel; sourceTree = "<group>"; };
@@ -893,9 +891,8 @@
 				BCD11758219F7500007A2E2E /* luck.gif */,
 				BCD1175A219F7501007A2E2E /* salah.gif */,
 				BCD11759219F7500007A2E2E /* wow.gif */,
-				BC0EF985219E8269002CE5ED /* chill.png */,
+				BC24DABA21A4990400910E18 /* kikz.jpeg */,
 				BCF5B008219F6BD800BE6432 /* man.gif */,
-				BC8ED09021A260FF000ED07B /* kikz.jpeg */,
 				BCD0D31F219BD7E50013A695 /* gif.png */,
 				BCD0D33A219BD7E80013A695 /* image1.png */,
 				BCD0D2F6219BD7E10013A695 /* image2.png */,
@@ -1025,7 +1022,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC0EF986219E8269002CE5ED /* chill.png in Resources */,
 				BCD1175F219F7502007A2E2E /* salah.gif in Resources */,
 				BCD11761219F7502007A2E2E /* cool.gif in Resources */,
 				BCD0D378219BD7E80013A695 /* gif.png in Resources */,
@@ -1044,9 +1040,9 @@
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
-				BC8ED09121A260FF000ED07B /* kikz.jpeg in Resources */,
 				BCD11760219F7502007A2E2E /* damn.gif in Resources */,
 				BC83D2DF21A22B9C00EE5894 /* README.md in Resources */,
+				BC24DABB21A4990400910E18 /* kikz.jpeg in Resources */,
 				BCD0D349219BD7E80013A695 /* image3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
