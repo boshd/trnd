@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SwiftyGiphy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup Parse Server
         ParseServer.singleInstance.initializeParseServer()
-        
+        //Sp2V7VQnfKwNZLnzKhW6CcYPkh0UOmgq
+        SwiftyGiphyAPI.shared.apiKey = "Sp2V7VQnfKwNZLnzKhW6CcYPkh0UOmgq"
         
         UINavigationBar.appearance().barTintColor = UIColor.offBlack()
         UINavigationBar.appearance().tintColor = UIColor.white

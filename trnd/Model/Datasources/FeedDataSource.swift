@@ -194,7 +194,7 @@ extension FeedDataSource: UITableViewDataSource {
             
             LikeService.likeCountForPost(withUniqueID: id) { (count: Int) in
                 DispatchQueue.main.async {
-                    //cell.likeCountLabel.text = "\(count)"
+                    cell.likeCountLabel.text = "\(count) Likes"
                 }
             }
         }

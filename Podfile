@@ -28,6 +28,7 @@ target 'trnd' do
   pod 'SDWebImage/GIF'
   pod 'Alamofire'
   #pod 'Cache'
+  pod 'SwiftyGiphy', '~> 1.0'
 
   pod 'ARVideoKit', :git => 'https://github.com/AFathi/ARVideoKit.git'
 

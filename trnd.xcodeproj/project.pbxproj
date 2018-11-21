@@ -12,6 +12,26 @@
 		73539521BD538028BBA2238B /* Pods_trnd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF1BD893280B3CE7F8EC1FA /* Pods_trnd.framework */; };
 		BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC0EF987219E8370002CE5ED /* Main.storyboard */; };
 		BC24DABB21A4990400910E18 /* kikz.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BC24DABA21A4990400910E18 /* kikz.jpeg */; };
+		BC24DABE21A55E1700910E18 /* GiphyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DABD21A55E1700910E18 /* GiphyViewController.swift */; };
+		BC24DAD421A5662B00910E18 /* GiphyLogoEmblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC24DAC021A5662A00910E18 /* GiphyLogoEmblem@2x.png */; };
+		BC24DAD521A5662B00910E18 /* GiphyLogoEmblem.png in Resources */ = {isa = PBXBuildFile; fileRef = BC24DAC121A5662A00910E18 /* GiphyLogoEmblem.png */; };
+		BC24DAD621A5662B00910E18 /* GiphyLogoEmblem@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC24DAC221A5662A00910E18 /* GiphyLogoEmblem@3x.png */; };
+		BC24DAD721A5662B00910E18 /* GiphyImageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC421A5662B00910E18 /* GiphyImageSet.swift */; };
+		BC24DAD821A5662B00910E18 /* GiphyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC521A5662B00910E18 /* GiphyUser.swift */; };
+		BC24DAD921A5662B00910E18 /* GiphyMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC621A5662B00910E18 /* GiphyMeta.swift */; };
+		BC24DADA21A5662B00910E18 /* GiphyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC721A5662B00910E18 /* GiphyItem.swift */; };
+		BC24DADB21A5662C00910E18 /* GiphySimpleSingleGIFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC821A5662B00910E18 /* GiphySimpleSingleGIFResponse.swift */; };
+		BC24DADC21A5662C00910E18 /* SwiftyGiphyGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAC921A5662B00910E18 /* SwiftyGiphyGridLayout.swift */; };
+		BC24DADD21A5662C00910E18 /* GiphySimpleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACA21A5662B00910E18 /* GiphySimpleItem.swift */; };
+		BC24DADE21A5662C00910E18 /* GiphyMultipleGIFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACB21A5662B00910E18 /* GiphyMultipleGIFResponse.swift */; };
+		BC24DADF21A5662C00910E18 /* CornerRoundingMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACC21A5662B00910E18 /* CornerRoundingMaskView.swift */; };
+		BC24DAE021A5662C00910E18 /* SwiftyGiphyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACD21A5662B00910E18 /* SwiftyGiphyAPI.swift */; };
+		BC24DAE121A5662C00910E18 /* SwiftyGiphyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACE21A5662B00910E18 /* SwiftyGiphyCollectionViewCell.swift */; };
+		BC24DAE221A5662C00910E18 /* GiphySingleGIFResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DACF21A5662B00910E18 /* GiphySingleGIFResponse.swift */; };
+		BC24DAE321A5662C00910E18 /* GiphyPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD021A5662B00910E18 /* GiphyPagination.swift */; };
+		BC24DAE421A5662C00910E18 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD121A5662B00910E18 /* RoundedCornerView.swift */; };
+		BC24DAE521A5662C00910E18 /* ParsingTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD221A5662B00910E18 /* ParsingTransforms.swift */; };
+		BC24DAE621A5662C00910E18 /* SwiftyGiphyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD321A5662B00910E18 /* SwiftyGiphyViewController.swift */; };
 		BC83D27221A1846600EE5894 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27021A1846500EE5894 /* Scene.swift */; };
 		BC83D27321A1846600EE5894 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC83D27121A1846500EE5894 /* Scene.sks */; };
 		BC83D27521A213F500EE5894 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27421A213F400EE5894 /* UploadViewController.swift */; };
@@ -83,7 +103,7 @@
 		BCD0D349219BD7E80013A695 /* image3.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2F0219BD7E10013A695 /* image3.png */; };
 		BCD0D34B219BD7E80013A695 /* OnboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F2219BD7E10013A695 /* OnboardTextField.swift */; };
 		BCD0D34C219BD7E80013A695 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */; };
-		BCD0D34D219BD7E80013A695 /* SKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F4219BD7E10013A695 /* SKViewController.swift */; };
+		BCD0D34D219BD7E80013A695 /* SCNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F4219BD7E10013A695 /* SCNViewController.swift */; };
 		BCD0D34E219BD7E80013A695 /* ProjectColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F5219BD7E10013A695 /* ProjectColors.swift */; };
 		BCD0D34F219BD7E80013A695 /* image2.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD0D2F6219BD7E10013A695 /* image2.png */; };
 		BCD0D350219BD7E80013A695 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */; };
@@ -185,6 +205,26 @@
 		96C891B0A7959738978738CC /* Pods-trndUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trndUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-trndUITests/Pods-trndUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC0EF987219E8370002CE5ED /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BC24DABA21A4990400910E18 /* kikz.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kikz.jpeg; sourceTree = "<group>"; };
+		BC24DABD21A55E1700910E18 /* GiphyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyViewController.swift; sourceTree = "<group>"; };
+		BC24DAC021A5662A00910E18 /* GiphyLogoEmblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GiphyLogoEmblem@2x.png"; sourceTree = "<group>"; };
+		BC24DAC121A5662A00910E18 /* GiphyLogoEmblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GiphyLogoEmblem.png; sourceTree = "<group>"; };
+		BC24DAC221A5662A00910E18 /* GiphyLogoEmblem@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GiphyLogoEmblem@3x.png"; sourceTree = "<group>"; };
+		BC24DAC421A5662B00910E18 /* GiphyImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyImageSet.swift; sourceTree = "<group>"; };
+		BC24DAC521A5662B00910E18 /* GiphyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyUser.swift; sourceTree = "<group>"; };
+		BC24DAC621A5662B00910E18 /* GiphyMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyMeta.swift; sourceTree = "<group>"; };
+		BC24DAC721A5662B00910E18 /* GiphyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyItem.swift; sourceTree = "<group>"; };
+		BC24DAC821A5662B00910E18 /* GiphySimpleSingleGIFResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphySimpleSingleGIFResponse.swift; sourceTree = "<group>"; };
+		BC24DAC921A5662B00910E18 /* SwiftyGiphyGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyGridLayout.swift; sourceTree = "<group>"; };
+		BC24DACA21A5662B00910E18 /* GiphySimpleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphySimpleItem.swift; sourceTree = "<group>"; };
+		BC24DACB21A5662B00910E18 /* GiphyMultipleGIFResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyMultipleGIFResponse.swift; sourceTree = "<group>"; };
+		BC24DACC21A5662B00910E18 /* CornerRoundingMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRoundingMaskView.swift; sourceTree = "<group>"; };
+		BC24DACD21A5662B00910E18 /* SwiftyGiphyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyAPI.swift; sourceTree = "<group>"; };
+		BC24DACE21A5662B00910E18 /* SwiftyGiphyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC24DACF21A5662B00910E18 /* GiphySingleGIFResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphySingleGIFResponse.swift; sourceTree = "<group>"; };
+		BC24DAD021A5662B00910E18 /* GiphyPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyPagination.swift; sourceTree = "<group>"; };
+		BC24DAD121A5662B00910E18 /* RoundedCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
+		BC24DAD221A5662B00910E18 /* ParsingTransforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTransforms.swift; sourceTree = "<group>"; };
+		BC24DAD321A5662B00910E18 /* SwiftyGiphyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyViewController.swift; sourceTree = "<group>"; };
 		BC83D27021A1846500EE5894 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		BC83D27121A1846500EE5894 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		BC83D27421A213F400EE5894 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -289,7 +329,7 @@
 		BCD0D2F0219BD7E10013A695 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image3.png; sourceTree = "<group>"; };
 		BCD0D2F2219BD7E10013A695 /* OnboardTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardTextField.swift; sourceTree = "<group>"; };
 		BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		BCD0D2F4219BD7E10013A695 /* SKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKViewController.swift; sourceTree = "<group>"; };
+		BCD0D2F4219BD7E10013A695 /* SCNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNViewController.swift; sourceTree = "<group>"; };
 		BCD0D2F5219BD7E10013A695 /* ProjectColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectColors.swift; sourceTree = "<group>"; };
 		BCD0D2F6219BD7E10013A695 /* image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2.png; sourceTree = "<group>"; };
 		BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +454,39 @@
 				622668CE7354B29752044795 /* Pods_trndUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC24DABF21A5662A00910E18 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BC24DAC021A5662A00910E18 /* GiphyLogoEmblem@2x.png */,
+				BC24DAC121A5662A00910E18 /* GiphyLogoEmblem.png */,
+				BC24DAC221A5662A00910E18 /* GiphyLogoEmblem@3x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		BC24DAC321A5662B00910E18 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BC24DAC421A5662B00910E18 /* GiphyImageSet.swift */,
+				BC24DAC521A5662B00910E18 /* GiphyUser.swift */,
+				BC24DAC621A5662B00910E18 /* GiphyMeta.swift */,
+				BC24DAC721A5662B00910E18 /* GiphyItem.swift */,
+				BC24DAC821A5662B00910E18 /* GiphySimpleSingleGIFResponse.swift */,
+				BC24DAC921A5662B00910E18 /* SwiftyGiphyGridLayout.swift */,
+				BC24DACA21A5662B00910E18 /* GiphySimpleItem.swift */,
+				BC24DACB21A5662B00910E18 /* GiphyMultipleGIFResponse.swift */,
+				BC24DACC21A5662B00910E18 /* CornerRoundingMaskView.swift */,
+				BC24DACD21A5662B00910E18 /* SwiftyGiphyAPI.swift */,
+				BC24DACE21A5662B00910E18 /* SwiftyGiphyCollectionViewCell.swift */,
+				BC24DACF21A5662B00910E18 /* GiphySingleGIFResponse.swift */,
+				BC24DAD021A5662B00910E18 /* GiphyPagination.swift */,
+				BC24DAD121A5662B00910E18 /* RoundedCornerView.swift */,
+				BC24DAD221A5662B00910E18 /* ParsingTransforms.swift */,
+				BC24DAD321A5662B00910E18 /* SwiftyGiphyViewController.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		BC37CB33219C86F700D8450C /* Onboard */ = {
@@ -749,6 +822,8 @@
 				BCD0D397219BE7FD0013A695 /* Model */,
 				BCD0D396219BE7F60013A695 /* Controllers */,
 				BCD0D2BE219BD5B30013A695 /* LaunchScreen.storyboard */,
+				BC24DABF21A5662A00910E18 /* Assets */,
+				BC24DAC321A5662B00910E18 /* Library */,
 				BC83D26F21A1846500EE5894 /* SK */,
 				BC83D27621A2142600EE5894 /* Source */,
 				BC83D2A221A22B9C00EE5894 /* Cache */,
@@ -805,12 +880,13 @@
 				BCD0D2F9219BD7E20013A695 /* ProfileViewController.swift */,
 				BCD0D315219BD7E50013A695 /* SearchViewController.swift */,
 				BC83D27421A213F400EE5894 /* UploadViewController.swift */,
+				BC24DABD21A55E1700910E18 /* GiphyViewController.swift */,
 				BCD0D2FF219BD7E20013A695 /* FotoPreviewViewController.swift */,
 				BC83D30321A22EF900EE5894 /* PreviewViewController.swift */,
 				BCD0D304219BD7E30013A695 /* SettingsViewController.swift */,
 				BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */,
 				BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */,
-				BCD0D2F4219BD7E10013A695 /* SKViewController.swift */,
+				BCD0D2F4219BD7E10013A695 /* SCNViewController.swift */,
 				BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */,
 				BCD0D300219BD7E20013A695 /* FeedViewController.swift */,
 				BCD0D335219BD7E70013A695 /* FollowViewController.swift */,
@@ -1030,7 +1106,9 @@
 				BCD0D356219BD7E80013A695 /* Foto.storyboard in Resources */,
 				BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */,
 				BCD0D389219BD7E80013A695 /* Cam.storyboard in Resources */,
+				BC24DAD421A5662B00910E18 /* GiphyLogoEmblem@2x.png in Resources */,
 				BCD1175D219F7502007A2E2E /* luck.gif in Resources */,
+				BC24DAD521A5662B00910E18 /* GiphyLogoEmblem.png in Resources */,
 				BCD1175E219F7502007A2E2E /* wow.gif in Resources */,
 				BC0EF988219E8370002CE5ED /* Main.storyboard in Resources */,
 				BCD0D35F219BD7E80013A695 /* LaunchScreen.storyboard in Resources */,
@@ -1039,6 +1117,7 @@
 				BC83D27321A1846600EE5894 /* Scene.sks in Resources */,
 				BCD0D365219BD7E80013A695 /* Settings.storyboard in Resources */,
 				BCD0D393219BD7E80013A695 /* image1.png in Resources */,
+				BC24DAD621A5662B00910E18 /* GiphyLogoEmblem@3x.png in Resources */,
 				BCD0D370219BD7E80013A695 /* Onboard.storyboard in Resources */,
 				BCD11760219F7502007A2E2E /* damn.gif in Resources */,
 				BC83D2DF21A22B9C00EE5894 /* README.md in Resources */,
@@ -1132,12 +1211,15 @@
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NSTimer-Blocks/NSTimer_Blocks.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGiphy/SwiftyGiphy.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/VBFPopFlatButton/VBFPopFlatButton.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -1161,12 +1243,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSTimer_Blocks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecordButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGiphy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VBFPopFlatButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -1206,9 +1291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD0D381219BD7E80013A695 /* HashtagService.swift in Sources */,
+				BC24DADC21A5662C00910E18 /* SwiftyGiphyGridLayout.swift in Sources */,
 				BC83D27521A213F500EE5894 /* UploadViewController.swift in Sources */,
 				BC83D2D521A22B9C00EE5894 /* SyncStorage.swift in Sources */,
 				BC83D2CD21A22B9C00EE5894 /* Expiry.swift in Sources */,
+				BC24DAD921A5662B00910E18 /* GiphyMeta.swift in Sources */,
 				BCD0D347219BD7E80013A695 /* CommentViewController.swift in Sources */,
 				BCD0D38F219BD7E80013A695 /* extensions.swift in Sources */,
 				BC83D2DB21A22B9C00EE5894 /* HybridStorage.swift in Sources */,
@@ -1224,9 +1311,12 @@
 				BC83D29E21A2142600EE5894 /* AMGifPicker.swift in Sources */,
 				BCD0D366219BD7E80013A695 /* SignInViewController.swift in Sources */,
 				BCD0D33D219BD7E80013A695 /* NotificationCell.swift in Sources */,
+				BC24DAE221A5662C00910E18 /* GiphySingleGIFResponse.swift in Sources */,
 				BCD0D2B3219BD5B00013A695 /* AppDelegate.swift in Sources */,
+				BC24DAE421A5662C00910E18 /* RoundedCornerView.swift in Sources */,
 				BCD0D36E219BD7E80013A695 /* SearchViewController.swift in Sources */,
 				BC83D29421A2142600EE5894 /* AMGifBaseLayout.swift in Sources */,
+				BC24DAE021A5662C00910E18 /* SwiftyGiphyAPI.swift in Sources */,
 				BCD0D371219BD7E80013A695 /* ParseServer.swift in Sources */,
 				BCD0D340219BD7E80013A695 /* NotificationService.swift in Sources */,
 				BCD0D33E219BD7E80013A695 /* OnboardNavigationController.swift in Sources */,
@@ -1239,22 +1329,29 @@
 				BCD0D34E219BD7E80013A695 /* ProjectColors.swift in Sources */,
 				BC83D2DC21A22B9C00EE5894 /* JSONDecoder+Extensions.swift in Sources */,
 				BC83D29921A2142600EE5894 /* AMGifViewModel.swift in Sources */,
+				BC24DAE121A5662C00910E18 /* SwiftyGiphyCollectionViewCell.swift in Sources */,
 				BCD0D37F219BD7E80013A695 /* Reachability.swift in Sources */,
 				BC83D29021A2142600EE5894 /* FileManager+Extension.swift in Sources */,
+				BC24DADD21A5662C00910E18 /* GiphySimpleItem.swift in Sources */,
 				BCD0D343219BD7E80013A695 /* SignUpProfileViewController.swift in Sources */,
 				BCD0D357219BD7E80013A695 /* FollowDataSource.swift in Sources */,
+				BC24DADF21A5662C00910E18 /* CornerRoundingMaskView.swift in Sources */,
 				BCD0D382219BD7E80013A695 /* SignUpViewController1.swift in Sources */,
 				BCD0D346219BD7E80013A695 /* ProfileHeader.swift in Sources */,
 				BCD0D38C219BD7E80013A695 /* usernameViewController.swift in Sources */,
+				BC24DADA21A5662B00910E18 /* GiphyItem.swift in Sources */,
 				BCD0D35C219BD7E80013A695 /* PostsViewController.swift in Sources */,
 				BC83D29721A2142600EE5894 /* AMGif.swift in Sources */,
 				BC83D29B21A2142600EE5894 /* AMGifPickerModel.swift in Sources */,
 				BC83D2CB21A22B9C00EE5894 /* Entry.swift in Sources */,
 				BCD0D368219BD7E80013A695 /* PostCell.swift in Sources */,
+				BC24DAD821A5662B00910E18 /* GiphyUser.swift in Sources */,
 				BCD0D386219BD7E80013A695 /* WebsiteValidator.swift in Sources */,
 				BCD0D345219BD7E80013A695 /* ImageCell.swift in Sources */,
+				BC24DAE521A5662C00910E18 /* ParsingTransforms.swift in Sources */,
 				BC83D29321A2142600EE5894 /* AMGifHorizontalLayout.swift in Sources */,
 				BCD0D364219BD7E80013A695 /* CommentService.swift in Sources */,
+				BC24DABE21A55E1700910E18 /* GiphyViewController.swift in Sources */,
 				BCD0D33C219BD7E80013A695 /* Storyboard.swift in Sources */,
 				BCD0D394219BD7E80013A695 /* OnboardButton.swift in Sources */,
 				BC83D2C621A22B9C00EE5894 /* DiskConfig.swift in Sources */,
@@ -1277,6 +1374,7 @@
 				BCD0D36C219BD7E80013A695 /* PostInfoCell.swift in Sources */,
 				BCD0D2BB219BD5B00013A695 /* trnd.xcdatamodeld in Sources */,
 				BCD0D390219BD7E80013A695 /* SignUpDetailsViewController.swift in Sources */,
+				BC24DAD721A5662B00910E18 /* GiphyImageSet.swift in Sources */,
 				BCD0D351219BD7E80013A695 /* FeedDataSource.swift in Sources */,
 				BCD0D352219BD7E80013A695 /* ProfileViewController.swift in Sources */,
 				BC83D2CA21A22B9C00EE5894 /* MD5.swift in Sources */,
@@ -1296,6 +1394,7 @@
 				BC83D2DE21A22B9C00EE5894 /* UIImage+Extensions.swift in Sources */,
 				BCD0D379219BD7E80013A695 /* FollowCell.swift in Sources */,
 				BC83D2CF21A22B9C00EE5894 /* JSONDictionaryWrapper.swift in Sources */,
+				BC24DAE621A5662C00910E18 /* SwiftyGiphyViewController.swift in Sources */,
 				BCD0D342219BD7E80013A695 /* SearchCollectionDataSource.swift in Sources */,
 				BCD0D37D219BD7E80013A695 /* OnboardFieldObserver.swift in Sources */,
 				BCD0D373219BD7E80013A695 /* PasswordValidator.swift in Sources */,
@@ -1307,21 +1406,24 @@
 				BCD0D38B219BD7E80013A695 /* CircleImageView.swift in Sources */,
 				BC83D27221A1846600EE5894 /* Scene.swift in Sources */,
 				BCD0D34C219BD7E80013A695 /* NotificationViewController.swift in Sources */,
-				BCD0D34D219BD7E80013A695 /* SKViewController.swift in Sources */,
+				BCD0D34D219BD7E80013A695 /* SCNViewController.swift in Sources */,
 				BCD0D369219BD7E80013A695 /* PostCommentCell.swift in Sources */,
 				BCD0D36D219BD7E80013A695 /* SignUpUserViewController.swift in Sources */,
 				BCD0D380219BD7E80013A695 /* HashtagDataSource.swift in Sources */,
 				BC83D29221A2142600EE5894 /* NSSet+Extension.swift in Sources */,
+				BC24DADB21A5662C00910E18 /* GiphySimpleSingleGIFResponse.swift in Sources */,
 				BC83D2D421A22B9C00EE5894 /* StorageAware.swift in Sources */,
 				BC83D2C821A22B9C00EE5894 /* ImageWrapper.swift in Sources */,
 				BCD0D377219BD7E80013A695 /* Constants.swift in Sources */,
 				BCD0D374219BD7E80013A695 /* SearchTableDataSource.swift in Sources */,
 				BCD0D353219BD7E80013A695 /* PostService.swift in Sources */,
 				BCD0D350219BD7E80013A695 /* PasswordViewController.swift in Sources */,
+				BC24DADE21A5662C00910E18 /* GiphyMultipleGIFResponse.swift in Sources */,
 				BC83D2D121A22B9C00EE5894 /* StorageError.swift in Sources */,
 				BCD0D344219BD7E80013A695 /* Username+EmailViewController.swift in Sources */,
 				BCD0D341219BD7E80013A695 /* CommentCell.swift in Sources */,
 				BCD0D34B219BD7E80013A695 /* OnboardTextField.swift in Sources */,
+				BC24DAE321A5662C00910E18 /* GiphyPagination.swift in Sources */,
 				BCD0D392219BD7E80013A695 /* UserService.swift in Sources */,
 				BCD0D358219BD7E80013A695 /* FotoPreviewViewController.swift in Sources */,
 				BCD0D35B219BD7E80013A695 /* ProfileDataSource.swift in Sources */,

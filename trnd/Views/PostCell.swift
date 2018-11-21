@@ -78,7 +78,7 @@ class PostCell: UITableViewCell {
         if let date = date {
             configureDataLabel(date)
         }
-        
+        animatedImageView.clipsToBounds = true
         self.backgroundColor = UIColor.offWhite()
         usernameButton.setTitle("\(username)", for: UIControl.State())
         postMessageLabel.text = title

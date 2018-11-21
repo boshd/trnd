@@ -42,9 +42,25 @@ class MainController: UIViewController, UIScrollViewDelegate {
     var progress : CGFloat! = 0
     var index = 0
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        makeEverythingAppear()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        feedLabel.textColor = UIColor.offWhite()
+        recordButton.progressColor = UIColor.offBlack()
+        //recordButton.buttonColor = UIColor.offBlack()
+        profileLabel.textColor = UIColor.offWhite()
+        
+        var frame: CGRect = scrollView.frame
+        frame.origin.x = frame.size.width * 1
+        frame.origin.y = 0
+        scrollView.scrollRectToVisible(frame, animated: true)
+        
         setupTopBar()
         setupBottomBar()
         setupGesturesAndTargets()
@@ -161,8 +177,11 @@ class MainController: UIViewController, UIScrollViewDelegate {
     
     func upload() {
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let controller = storyboard.instantiateViewController(withIdentifier: "PreviewViewController")
+        //let controller = storyboard.instantiateViewController(withIdentifier: "UploadViewController")
         //present(controller, animated: false, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "UploadViewController")
+        present(controller, animated: false, completion: nil)
 //        var libraryEnabled: Bool = true
 //        var croppingEnabled: Bool = true
 //        var allowResizing: Bool = true
@@ -178,6 +197,22 @@ class MainController: UIViewController, UIScrollViewDelegate {
 //            self?.dismiss(animated: true, completion: nil)
 //        }
 //        present(imagePickerViewController, animated: true, completion: nil)
+    }
+    
+    func makeEverythingVanish() {
+        topView.isHidden = true
+        feedLabel.isHidden = true
+        profileLabel.isHidden = true
+        recordButton.isEnabled = false
+        scrollView.isScrollEnabled = false
+    }
+    
+    func makeEverythingAppear() {
+        topView.isHidden = false
+        feedLabel.isHidden = false
+        profileLabel.isHidden = false
+        recordButton.isEnabled = true
+        scrollView.isScrollEnabled = true
     }
     
     func start() {
@@ -415,6 +450,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
             scrollView.scrollRectToVisible(frame, animated: true)
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pleaseRecord"), object: nil)
+            makeEverythingVanish()
             //self.progressTimer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MainController.updateProgress), userInfo: nil, repeats: true)
         }
     }

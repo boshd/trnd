@@ -32,6 +32,7 @@ class AMGifCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
+        imageView.contentMode = .scaleAspectFill
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

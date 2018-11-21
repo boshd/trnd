@@ -13,8 +13,10 @@ import KRProgressHUD
 class PreviewViewController: UIViewController {
     
     var animatedImage: FLAnimatedImage!
-    var gifURL: URL!
+    var gifURL: URL?
+    var caption :String = ""
     
+    @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var imageView: FLAnimatedImageView!
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var bottomBar: UIView!
@@ -26,7 +28,7 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        hideKeyboardWhenTappedAround()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "disappeared"), object: nil)
         setupTopBar()
         setupBottomBar()
@@ -36,15 +38,17 @@ class PreviewViewController: UIViewController {
         
         view.bringSubviewToFront(topBar)
         view.bringSubviewToFront(bottomBar)
-//        do {
-//            try animatedImage = FLAnimatedImage(gifData: Data(contentsOf: gifURL))
-//        } catch {
-//            print("err from INSIDE FOTO PREV. \(error)")
-//        }
-//
-//        self.imageVisew.animatedImage = animatedImage
+        do {
+            try animatedImage = FLAnimatedImage(gifData: Data(contentsOf: gifURL!))
+            print("inside try \(gifURL!)")
+            
+        } catch {
+            print("err from INSIDE FOTO PREV. \(error)")
+        }
+
+        self.imageView.animatedImage = animatedImage
         
-        print("\n\n\n\n\n\n \(gifURL)\n\n\n\n\n\n")
+        print("\n\n\n\n\n\n \(gifURL!)\n\n\n\n\n\n")
 
         
     }
@@ -53,9 +57,9 @@ class PreviewViewController: UIViewController {
         view.bringSubviewToFront(topBar)
         view.bringSubviewToFront(bottomBar)
     }
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     func setupTopBar() {
         closeLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
@@ -64,21 +68,18 @@ class PreviewViewController: UIViewController {
         textLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         textLabel.textColor = .white
         textLabel.text = String.fontIonIcon("ios-color-wand")
-        
     }
     
     func setupBottomBar() {
         print("ACCESSED SETUP BOTTOMMMM")
         saveLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         saveLabel.textColor = .white
-        saveLabel.text = String.fontIonIcon("io-download")
+        saveLabel.text = String.fontIonIcon("ios-download")
         saveLabel.isHidden = false
-        view.bringSubviewToFront(saveLabel)
         postLabel.font = UIFont.icon(from: .ionicon, ofSize: 50.0)
         postLabel.textColor = .white
         postLabel.text = String.fontIonIcon("ios-checkmark-circle")
         postLabel.isHidden = false
-        view.bringSubviewToFront(postLabel)
         print("ACCESSED SETUP BOTTOMMMM AND FINISHED")
     }
     
@@ -115,7 +116,31 @@ class PreviewViewController: UIViewController {
     
     @objc func postAction(sender:UIGestureRecognizer) {
         KRProgressHUD.show(withMessage: "Posting GIF..", completion: nil)
-        PostService.createPostWith(gifURL, title: "😅😅😅😅", location: "", latitude: "", longitude: "") {
+        /*let newImg = textToImage(drawText: "😅😅😅😅", inImage: imageView.animatedImage, atPoint: CGPoint(x: 0, y: 0))
+        let imageData = newImg.jpegData(compressionQuality: 0.5)
+
+        
+        PostService.createPostWith(imageData, title: "😅😅😅", location: "", latitude: "", longitude: "") {
+            print("POSTED FROM THE PREVIEW CONTROLLER")
+            
+            self.dismiss(animated: false, completion: {
+                // replace with notification banner
+                let alertController = UIAlertController(title: "GIF posted!", message: "Posted to your feed.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "goToFeed"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshData"), object: nil)
+            })
+        }*/
+        
+        if captionField.text == "" {
+            caption = "😅😅😅"
+        } else {
+            caption = captionField.text!
+        }
+
+        PostService.createPostWith(gifURL!, title: caption, location: "", latitude: "", longitude: "") {
             
             print("POSTED FROM THE PREVIEW CONTROLLER")
 
@@ -131,29 +156,29 @@ class PreviewViewController: UIViewController {
 
         }
     }
-    
-    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
-        
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-        
-        let textFontAttributes = [
-            NSAttributedString.Key.font: textFont,
-            NSAttributedString.Key.foregroundColor: textColor,
-            ] as [NSAttributedString.Key : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-        
-        let rect = CGRect(origin: point, size: image.size)
-        text.draw(in: rect, withAttributes: textFontAttributes)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
+//
+//    func textToImage(drawText text: String, inImage image: FLAnimatedImage, atPoint point: CGPoint) -> UIImage {
+//        let textColor = UIColor.white
+//        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
+//
+//        let scale = UIScreen.main.scale
+//        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+//
+//        let textFontAttributes = [
+//            NSAttributedString.Key.font: textFont,
+//            NSAttributedString.Key.foregroundColor: textColor,
+//            ] as [NSAttributedString.Key : Any]
+//        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+//
+//        let rect = CGRect(origin: point, size: image.size)
+//        text.draw(in: rect, withAttributes: textFontAttributes)
+//
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return newImage!
+//    }
+
 }
 
 
