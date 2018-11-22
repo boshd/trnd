@@ -193,10 +193,10 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         user.email = UserDefaults.standard.string(forKey: DEFAULTS_EMAIL)
         user.password = passwordField.text!
         
-        if let image = UIImage(named: "kikz.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
-            let file = PFFile(name: "avatar", data: avatarData)
-            user[QueryKey.Avatar] = file
-        }
+//        if let image = UIImage(named: "kikz.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
+//            let file = PFFile(name: "avatar", data: avatarData)
+//            user[QueryKey.Avatar] = file
+//        }
         
         
         
@@ -208,8 +208,11 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if success {
                 UserDefaults.standard.set(user.username!, forKey: DEFAULTS_USERNAME)
-                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                appDelegate?.login()
+//                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//                appDelegate?.login()
+                let story = UIStoryboard(name: "Onboard", bundle: nil)
+                let controller = story.instantiateViewController(withIdentifier: "SignUpProfileViewController")
+                self.navigationController?.pushViewController(controller, animated: true)
                 KRProgressHUD.dismiss()
             } else if let error = error {
                 print(error)

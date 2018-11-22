@@ -333,39 +333,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jqs-UG-uB4">
-                                <rect key="frame" x="0.0" y="28" width="375" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="gif.t" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-gf-mO7">
-                                        <rect key="frame" x="116" y="2" width="143" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-HeavyItalic" family="Avenir Next" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="amplitudeBase">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="amplitudeRange">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="glitchAmplitude">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="glitchThreshold">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="alphaMin">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="glitchEnabled" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="drawScanline" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.31372549020000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvn-rd-izY">
                                 <rect key="frame" x="26" y="200" width="323" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -505,8 +472,34 @@
                                 </attributedString>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="gif.t" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-gf-mO7">
+                                <rect key="frame" x="116" y="484" width="143" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-HeavyItalic" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeBase">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="amplitudeRange">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchAmplitude">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glitchThreshold">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaMin">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="glitchEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="drawScanline" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.31372549020000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1215686275" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="b8N-L6-OiF"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nks-gJ-2nQ"/>
@@ -522,7 +515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIm-d0-FlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3297" y="774"/>
+            <point key="canvasLocation" x="3527" y="941"/>
         </scene>
         <!--Sign Up Profile View Controller-->
         <scene sceneID="UEe-TV-cn5">
@@ -536,9 +529,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jP6-bz-SXO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jP6-bz-SXO">
                                 <rect key="frame" x="122" y="341" width="130" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbE-fg-0jh">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
@@ -547,19 +539,25 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9q-mb-jid">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="plus"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Add Photo">
+                                            <color key="titleColor" red="0.1176470588" green="0.1215686275" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="addPhotoAction:" destination="gRi-Dx-jDo" eventType="touchUpInside" id="ZZA-QU-lbP"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.31372549020000001" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="0mW-5g-cG1"/>
+                                    <constraint firstAttribute="height" constant="130" id="vxa-u0-KLr"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aJ-Gr-eUr">
-                                <rect key="frame" x="44" y="108" width="288" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aJ-Gr-eUr">
+                                <rect key="frame" x="43" y="154" width="288" height="38.333333333333343"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Welcome  username!">
+                                    <fragment content="You're all set, kareem">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="28" name="AvenirNext-DemiBold"/>
@@ -569,19 +567,36 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You're nearly done,  choose a profile picture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHO-Gv-Rh2">
-                                <rect key="frame" x="43" y="220" width="288" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRND" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwK-zs-3Yr">
+                                <rect key="frame" x="106" y="44" width="162" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="1PX-ss-0jA"/>
+                                    <constraint firstAttribute="width" constant="162" id="vZq-jb-hP8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-BoldItalic" family="Avenir Next" pointSize="30"/>
+                                <color key="textColor" red="0.19215686269999999" green="0.81960784310000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" red="1" green="0.31372549020000001" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="3" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a profile picture." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHO-Gv-Rh2">
+                                <rect key="frame" x="43" y="251" width="288" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ban-Ig-vEw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" red="0.19215686269999999" green="0.81960784310000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQb-Nq-Y2m">
-                                <rect key="frame" x="39" y="563" width="296" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQb-Nq-Y2m">
+                                <rect key="frame" x="39" y="538" width="296" height="50"/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.81960784310000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="BYO-Ez-ZZV"/>
+                                    <constraint firstAttribute="height" constant="50" id="pXL-Fa-dPI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
-                                <state key="normal" title="done">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" red="0.1176470588" green="0.1215686275" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -591,6 +606,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1176470588" green="0.1215686275" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="0Lx-ia-YcF" firstAttribute="trailing" secondItem="uQb-Nq-Y2m" secondAttribute="trailing" constant="40" id="0jg-Xe-q71"/>
+                            <constraint firstItem="uQb-Nq-Y2m" firstAttribute="top" secondItem="jP6-bz-SXO" secondAttribute="bottom" constant="67" id="2Lr-xD-9zh"/>
+                            <constraint firstItem="0Lx-ia-YcF" firstAttribute="trailing" secondItem="RwK-zs-3Yr" secondAttribute="trailing" constant="107" id="4Di-2e-Kx2"/>
+                            <constraint firstItem="jP6-bz-SXO" firstAttribute="leading" secondItem="0Lx-ia-YcF" secondAttribute="leading" constant="122" id="8re-iY-Y2f"/>
+                            <constraint firstItem="uQb-Nq-Y2m" firstAttribute="leading" secondItem="0Lx-ia-YcF" secondAttribute="leading" constant="39" id="Dke-A1-JpV"/>
+                            <constraint firstItem="RwK-zs-3Yr" firstAttribute="leading" secondItem="0Lx-ia-YcF" secondAttribute="leading" constant="106" id="ISe-LH-0kM"/>
+                            <constraint firstItem="0Lx-ia-YcF" firstAttribute="trailing" secondItem="NHO-Gv-Rh2" secondAttribute="trailing" constant="44" id="IlV-vX-Ce9"/>
+                            <constraint firstItem="7aJ-Gr-eUr" firstAttribute="leading" secondItem="0Lx-ia-YcF" secondAttribute="leading" constant="43" id="T0m-Io-XFY"/>
+                            <constraint firstItem="RwK-zs-3Yr" firstAttribute="top" secondItem="R3J-XM-zTe" secondAttribute="bottom" id="TM4-dB-e2W"/>
+                            <constraint firstItem="7aJ-Gr-eUr" firstAttribute="top" secondItem="0Lx-ia-YcF" secondAttribute="top" constant="110" id="age-28-tYj"/>
+                            <constraint firstItem="NHO-Gv-Rh2" firstAttribute="top" secondItem="0Lx-ia-YcF" secondAttribute="top" constant="207" id="bV3-kf-frJ"/>
+                            <constraint firstItem="NHO-Gv-Rh2" firstAttribute="leading" secondItem="0Lx-ia-YcF" secondAttribute="leading" constant="43" id="i5W-u4-V9O"/>
+                            <constraint firstItem="0Lx-ia-YcF" firstAttribute="trailing" secondItem="jP6-bz-SXO" secondAttribute="trailing" constant="123" id="kUz-5T-PYx"/>
+                            <constraint firstItem="0Lx-ia-YcF" firstAttribute="trailing" secondItem="7aJ-Gr-eUr" secondAttribute="trailing" constant="44" id="oPL-kF-fma"/>
+                            <constraint firstItem="jP6-bz-SXO" firstAttribute="top" secondItem="NHO-Gv-Rh2" secondAttribute="bottom" constant="42" id="sOu-bk-ea2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Lx-ia-YcF"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="88s-lq-e25" appends="YES" id="XbC-id-lKa"/>
@@ -611,7 +643,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4106" y="774"/>
+            <point key="canvasLocation" x="2613.5999999999999" y="773.64532019704438"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="5UO-nZ-xfO">
@@ -895,7 +927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vV1-su-UX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="774"/>
+            <point key="canvasLocation" x="3660" y="800"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="emg-v4-ihY">
@@ -1122,7 +1154,4 @@
             <point key="canvasLocation" x="1888.8" y="773.64532019704438"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="plus" width="512" height="512"/>
-    </resources>
 </document>

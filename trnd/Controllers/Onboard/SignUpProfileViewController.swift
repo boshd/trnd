@@ -37,21 +37,16 @@ class SignUpProfileViewController: UIViewController {
             print("No image uploaded.")
 
             guard let currentUser2 = PFUser.current() else { return }
-            if let image = UIImage(named: "chill.jpg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
+            if let image = UIImage(named: "main_av.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
                 let file = PFFile(name: "avatar", data: avatarData)
                 currentUser2[QueryKey.Avatar] = file
             }
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
             appDelegate?.login()
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-                let controller = MainController()
-                controller.storyboard
-            }
             
         }else{
             guard let currentUser = PFUser.current() else { return }
-            if let image = profileImage.image, let avatarData = image.jpegData(compressionQuality: 0.5) {
+            if let image = UIImage(named: "main_av.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
                 let file = PFFile(name: "avatar", data: avatarData)
                 currentUser[QueryKey.Avatar] = file
             }
@@ -59,16 +54,11 @@ class SignUpProfileViewController: UIViewController {
                 if success {
                     print("saved new pp")
                 } else {
-                    ErrorAlertService.displayAlertFor(.CouldNotSave, withPresenter: self)
+                    //ErrorAlertService.displayAlertFor(.CouldNotSave, withPresenter: self)
                 }
             }
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
             appDelegate?.login()
-            if let navController = self.navigationController {
-                navController.popViewController(animated: true)
-                let controller = MainController()
-                controller.storyboard
-            }
             
 
         }
@@ -76,18 +66,21 @@ class SignUpProfileViewController: UIViewController {
     }
     
     @IBAction func addPhotoAction(_ sender: AnyObject) {
-        
-        //let croppingEnabled = true
-        //let cameraViewController = CameraViewController(croppingParameters: croppingEnabled) { [weak self] image, asset in
-            
-            //self?.profileImage.image = image
-            //self?.addPhotoButton.setImage(nil, for: .normal)
-            
-            //self?.dismiss(animated: true, completion: nil)
-        //}
-        
-        //present(cameraViewController, animated: true, completion: nil)
-
+        var libraryEnabled: Bool = true
+        var croppingEnabled: Bool = true
+        var allowResizing: Bool = true
+        var allowMoving: Bool = true
+        var croppingParameters: CroppingParameters {
+            return CroppingParameters(isEnabled: croppingEnabled, allowResizing: allowResizing, allowMoving: allowMoving, minimumSize: CGSize(width: 60, height: 60))
+        }
+        let cameraViewController = CameraViewController { [weak self] image, asset in
+            self?.profileImage.image = image
+            self?.addPhotoButton.setImage(nil, for: .normal)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        present(cameraViewController, animated: true) {
+            self.addPhotoButton.setTitle("", for: .normal)
+        }
     }
     
     override func viewDidLoad() {

@@ -49,10 +49,9 @@ class MainController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         feedLabel.textColor = UIColor.offWhite()
-        recordButton.progressColor = UIColor.offBlack()
+        //recordButton.progressColor = UIColor.offBlack()
         //recordButton.buttonColor = UIColor.offBlack()
         profileLabel.textColor = UIColor.offWhite()
         
@@ -66,7 +65,7 @@ class MainController: UIViewController, UIScrollViewDelegate {
         setupGesturesAndTargets()
 
         self.scrollView.delegate = self
-        let point = CGPoint(x: CGFloat(self.scrollView.frame.size.width), y: CGFloat(0))
+        let point = CGPoint(x: 0, y: CGFloat(0))
         self.scrollView.setContentOffset(point, animated: false)
 
         view.bringSubviewToFront(bottomView)

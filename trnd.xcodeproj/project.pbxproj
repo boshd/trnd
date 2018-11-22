@@ -32,6 +32,7 @@
 		BC24DAE421A5662C00910E18 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD121A5662B00910E18 /* RoundedCornerView.swift */; };
 		BC24DAE521A5662C00910E18 /* ParsingTransforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD221A5662B00910E18 /* ParsingTransforms.swift */; };
 		BC24DAE621A5662C00910E18 /* SwiftyGiphyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC24DAD321A5662B00910E18 /* SwiftyGiphyViewController.swift */; };
+		BC673FF321A643C40002C332 /* main_av.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BC673FF221A643C30002C332 /* main_av.jpeg */; };
 		BC83D27221A1846600EE5894 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27021A1846500EE5894 /* Scene.swift */; };
 		BC83D27321A1846600EE5894 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC83D27121A1846500EE5894 /* Scene.sks */; };
 		BC83D27521A213F500EE5894 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC83D27421A213F400EE5894 /* UploadViewController.swift */; };
@@ -225,6 +226,7 @@
 		BC24DAD121A5662B00910E18 /* RoundedCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
 		BC24DAD221A5662B00910E18 /* ParsingTransforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingTransforms.swift; sourceTree = "<group>"; };
 		BC24DAD321A5662B00910E18 /* SwiftyGiphyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGiphyViewController.swift; sourceTree = "<group>"; };
+		BC673FF221A643C30002C332 /* main_av.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_av.jpeg; sourceTree = "<group>"; };
 		BC83D27021A1846500EE5894 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		BC83D27121A1846500EE5894 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
 		BC83D27421A213F400EE5894 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -496,8 +498,8 @@
 				BCD0D31D219BD7E50013A695 /* WelcomeViewController.swift */,
 				BCD0D2EB219BD7E10013A695 /* Username+EmailViewController.swift */,
 				BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */,
-				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
 				BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */,
+				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
 				BC37CB34219C876100D8450C /* Other */,
 			);
 			path = Onboard;
@@ -971,6 +973,7 @@
 				BCF5B008219F6BD800BE6432 /* man.gif */,
 				BCD0D31F219BD7E50013A695 /* gif.png */,
 				BCD0D33A219BD7E80013A695 /* image1.png */,
+				BC673FF221A643C30002C332 /* main_av.jpeg */,
 				BCD0D2F6219BD7E10013A695 /* image2.png */,
 				BCD0D2F0219BD7E10013A695 /* image3.png */,
 			);
@@ -1105,6 +1108,7 @@
 				BCD0D34F219BD7E80013A695 /* image2.png in Resources */,
 				BCD0D356219BD7E80013A695 /* Foto.storyboard in Resources */,
 				BCD0D2BD219BD5B30013A695 /* Assets.xcassets in Resources */,
+				BC673FF321A643C40002C332 /* main_av.jpeg in Resources */,
 				BCD0D389219BD7E80013A695 /* Cam.storyboard in Resources */,
 				BC24DAD421A5662B00910E18 /* GiphyLogoEmblem@2x.png in Resources */,
 				BCD1175D219F7502007A2E2E /* luck.gif in Resources */,
@@ -1598,6 +1602,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXW89PWCPT;
 				INFOPLIST_FILE = trnd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1617,6 +1622,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXW89PWCPT;
 				INFOPLIST_FILE = trnd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
