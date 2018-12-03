@@ -260,23 +260,7 @@ class FeedViewController: UIViewController, UITableViewDelegate {
     
     
     @IBAction func likePressed(_ sender: Any) {
-        /*
-         likeButton.setTitle("fa:hearto", for: .normal)
-         likeButton.setTitleColor(UIColor.offBlack(), for: .normal)
-         likeButton.parseIcon()
-         moreButton.setTitle("fa:ellipsish", for: .normal)
-         moreButton.setTitleColor(UIColor.offBlack(), for: .normal)
-         moreButton.parseIcon()
-         if likeLabel.textColor == UIColor.offBlack() {
-         likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-         likeLabel.textColor = UIColor.litPink()
-         likeLabel.text = String.fontAwesomeIcon("heart")
-         } else {
-         likeLabel.font = UIFont.icon(from: .fontAwesome, ofSize: 20)
-         likeLabel.textColor = UIColor.offBlack()
-         likeLabel.text = String.fontAwesomeIcon("hearto")
-         }
-         */
+        
     }
     
     @IBAction func commentPressed(_ sender: Any) {

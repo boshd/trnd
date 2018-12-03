@@ -32,7 +32,7 @@ class SignUpProfileViewController: UIViewController {
         //let appDelegate = UIApplication.shared.delegate as? AppDelegate
         //appDelegate?.login()
         
-        if profileImage == nil {
+        if profileImage.image == nil {
             let currentUser = PFUser.current()
             print("No image uploaded.")
 
@@ -46,7 +46,7 @@ class SignUpProfileViewController: UIViewController {
             
         }else{
             guard let currentUser = PFUser.current() else { return }
-            if let image = UIImage(named: "main_av.jpeg"), let avatarData = image.jpegData(compressionQuality: 0.5) {
+            if let image = profileImage.image, let avatarData = image.jpegData(compressionQuality: 0.5) {
                 let file = PFFile(name: "avatar", data: avatarData)
                 currentUser[QueryKey.Avatar] = file
             }

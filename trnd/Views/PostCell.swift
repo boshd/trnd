@@ -88,6 +88,26 @@ class PostCell: UITableViewCell {
         self.commentAvatar.clipsToBounds = true
 
     }
+    @IBAction func likeAction(_ sender: Any) {
+        
+        if likeButton.currentTitleColor == UIColor.offBlack() {
+            let like_title = "fa:heart"
+            likeButton.setAttributedTitle(nil, for: .normal)
+            likeButton.titleLabel?.text = like_title
+            likeButton.setTitle("\(like_title)", for: .normal)
+            likeButton.setTitleColor(UIColor.litPink(), for: .normal)
+            likeButton.parseIcon()
+            likeCountLabel.text = "1"
+        } else {
+            let like_title = "fa:hearto"
+            likeButton.setAttributedTitle(nil, for: .normal)
+            likeButton.titleLabel?.text = like_title
+            likeButton.setTitle("\(like_title)", for: .normal)
+            likeButton.setTitleColor(UIColor.offBlack(), for: .normal)
+            likeButton.parseIcon()
+            likeCountLabel.text = "0"
+        }
+    }
     
     /// Configures the date label of the post
     func configureDataLabel(_ date: Date) {

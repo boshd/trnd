@@ -18,7 +18,6 @@ class CommentViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inputContainer: UIView!
     @IBOutlet weak var closeLabel: UILabel!
     @IBOutlet weak var inputContainerBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var inputContainerHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
@@ -72,10 +71,6 @@ class CommentViewController: UIViewController, UITextViewDelegate {
     deinit {
         KeyboardObserver.endObservingWillHide(self)
         KeyboardObserver.endObservingWillShow(self)
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     // MARK: - Methods

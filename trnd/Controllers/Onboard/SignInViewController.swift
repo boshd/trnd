@@ -28,7 +28,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupOnboardFieldObserver()
-        UITextField.appearance().tintColor = UIColor.fabishPink()
+        UITextField.appearance().tintColor = UIColor.litGreen()
         self.loginButton.layer.cornerRadius = 8
         self.loginButton.clipsToBounds = true
         
@@ -38,8 +38,25 @@ class SignInViewController: UIViewController {
         self.usernameField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         self.passwordField.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         
-        self.usernameField.becomeFirstResponder()
         
+        let backButton = UIBarButtonItem()
+        backButton.title = "" //in your case it will be empty or you can put the title of your choice
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.title = "TRND"
+        self.view.backgroundColor = UIColor.offBlack()
+        //self.navigationItem.hidesBackButton = false
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Basdck", style: .plain, target: nil, action: nil)
+        let yourBackImage = UIImage(from: .fontAwesome, code: "angleleft", textColor: .white, backgroundColor: .clear, size: CGSize(width: 60, height: 60))
+        let bb = UIBarButtonItem(image: yourBackImage, style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        self.navigationItem.backBarButtonItem = bb
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        usernameField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,15 +71,6 @@ class SignInViewController: UIViewController {
     /// Dismisses the keyboard
     override func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    /// Dismisses keyboard when touch occurs in the view
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        dismissKeyboard()
     }
     
     /// Returns a light statusbar style by default

@@ -28,7 +28,7 @@ class WelcomeViewController: UIViewController {
     @IBAction func signInButton(_ sender: AnyObject) {
         let story = UIStoryboard(name: "Onboard", bundle: nil)
         let controller = story.instantiateViewController(withIdentifier: "SignInViewController")
-        present(controller, animated: false, completion: nil)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // 

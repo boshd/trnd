@@ -152,7 +152,6 @@
 		BCD0D380219BD7E80013A695 /* HashtagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D327219BD7E60013A695 /* HashtagDataSource.swift */; };
 		BCD0D381219BD7E80013A695 /* HashtagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D328219BD7E60013A695 /* HashtagService.swift */; };
 		BCD0D382219BD7E80013A695 /* SignUpViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D329219BD7E60013A695 /* SignUpViewController1.swift */; };
-		BCD0D383219BD7E80013A695 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */; };
 		BCD0D384219BD7E80013A695 /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D32B219BD7E70013A695 /* TextFieldValidator.swift */; };
 		BCD0D385219BD7E80013A695 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D32C219BD7E70013A695 /* NavigationManager.swift */; };
 		BCD0D386219BD7E80013A695 /* WebsiteValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0D32D219BD7E70013A695 /* WebsiteValidator.swift */; };
@@ -379,7 +378,6 @@
 		BCD0D327219BD7E60013A695 /* HashtagDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashtagDataSource.swift; sourceTree = "<group>"; };
 		BCD0D328219BD7E60013A695 /* HashtagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashtagService.swift; sourceTree = "<group>"; };
 		BCD0D329219BD7E60013A695 /* SignUpViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController1.swift; sourceTree = "<group>"; };
-		BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BCD0D32B219BD7E70013A695 /* TextFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
 		BCD0D32C219BD7E70013A695 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		BCD0D32D219BD7E70013A695 /* WebsiteValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteValidator.swift; sourceTree = "<group>"; };
@@ -500,6 +498,7 @@
 				BCD0D2F7219BD7E10013A695 /* PasswordViewController.swift */,
 				BCD0D2EA219BD7E00013A695 /* SignUpProfileViewController.swift */,
 				BCD0D316219BD7E50013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift */,
+				BCD0D30D219BD7E40013A695 /* SignInViewController.swift */,
 				BC37CB34219C876100D8450C /* Other */,
 			);
 			path = Onboard;
@@ -509,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				BCD0D32E219BD7E70013A695 /* RegisterViewController.swift */,
-				BCD0D30D219BD7E40013A695 /* SignInViewController.swift */,
 				BCD0D337219BD7E80013A695 /* SignUpDetailsViewController.swift */,
 				BCD0D314219BD7E40013A695 /* SignUpUserViewController.swift */,
 				BCD0D322219BD7E60013A695 /* SignUpViewController.swift */,
@@ -887,7 +885,6 @@
 				BC83D30321A22EF900EE5894 /* PreviewViewController.swift */,
 				BCD0D304219BD7E30013A695 /* SettingsViewController.swift */,
 				BCD0D2F3219BD7E10013A695 /* NotificationViewController.swift */,
-				BCD0D32A219BD7E70013A695 /* OnboardingViewController.swift */,
 				BCD0D2F4219BD7E10013A695 /* SCNViewController.swift */,
 				BCD0D2EE219BD7E10013A695 /* CommentViewController.swift */,
 				BCD0D300219BD7E20013A695 /* FeedViewController.swift */,
@@ -1364,7 +1361,6 @@
 				BCD0D38E219BD7E80013A695 /* FollowViewController.swift in Sources */,
 				BC83D2D221A22B9C00EE5894 /* Types.swift in Sources */,
 				BC83D29821A2142600EE5894 /* AMGifWrapper.swift in Sources */,
-				BCD0D383219BD7E80013A695 /* OnboardingViewController.swift in Sources */,
 				BCD0D376219BD7E80013A695 /* WelcomeViewController.swift in Sources */,
 				BCD0D36F219BD7E80013A695 /* UsernameViewController.temp_caseinsensitive_rename.swift in Sources */,
 				BC83D29621A2142600EE5894 /* GPHMediaWrapper.swift in Sources */,
@@ -1602,7 +1598,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXW89PWCPT;
 				INFOPLIST_FILE = trnd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1622,7 +1618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXW89PWCPT;
 				INFOPLIST_FILE = trnd/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
