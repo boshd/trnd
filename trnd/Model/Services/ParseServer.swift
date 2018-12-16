@@ -22,9 +22,9 @@ struct ParseServer {
     // Initialize and configure Parse server
     func initializeParseServer() {
         let configuration = ParseClientConfiguration { (ParseMutableClientConfiguration) in
-            ParseMutableClientConfiguration.applicationId = "thisishowiidentifyhype"
-            ParseMutableClientConfiguration.clientKey = "taWe%H5vC&G&A^eQ(@$WwwblqIKd"
-            ParseMutableClientConfiguration.server = "http://hyyype.herokuapp.com/parse"
+            ParseMutableClientConfiguration.applicationId = ""
+            ParseMutableClientConfiguration.clientKey = ""
+            ParseMutableClientConfiguration.server = ""
         }
         Parse.initialize(with: configuration)
     }
