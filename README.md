@@ -1,6 +1,6 @@
 # TRND - iOS Social Network for GIFs
 
-**Depricated, so use @ your own risk**
+**Depricated, so use @ your own risk.**
 
 ## Features
 
@@ -13,8 +13,6 @@
 Plus a bunch of other crap that I don't remember so feel free to delve into this carcass of a project. Also, it's worth mentioning that this project has been depricated before it even started in it's open-source life. I'm not moving forward with it for many reasons ranging from crappy architecture to the discontinuation of Parse ¯\_(ツ)_/¯.
 
 ## How to run the app
-Follow these steps:
-
 ### Connect to server
 
 Since Parse was open-sourced and officialy depricated, you'll need to setup a server using services like AWS, Heroku, etc.
