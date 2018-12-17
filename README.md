@@ -16,7 +16,7 @@ Plus a bunch of other crap that I don't remember so feel free to delve into this
 ### Connect to server
 
 Since Parse was open-sourced and officialy depricated, you'll need to setup a server using services like AWS, Heroku, etc.
-Choose the service of your choosing and replace all the information in the ParseServer.swift file and you should be set.
+Choose the service of your liking and add the information to the ParseServer.swift file and you should be set.
 
 ### Run
 - Open the trnd.xcworkspace in Xcode.
