@@ -1,8 +1,16 @@
 # TRND - Social Network for GIFs
 
+**Depricated, do use @ your own risk**
+
 ## Features
 
-Lesa shwaya..
+- Users can like, comment, delete and report posts
+- Users can search for other users
+- Support for animated images (obviously)
+- Seamless onboarding
+- GIPHY built-in using their dev. API
+
+Plus a bunch of other crap that I don't remember so feel free to delve into this carcass of a project. Also, it's worth mentioning that this project has been depricated before it even started in it's oopen-source life. I'm not moving forward with it for many reasons ranging from crappy architecture to the discontinuation of Parse (Firebase ftw).
 
 ## How to run the app
 Follow these steps:
@@ -15,10 +23,9 @@ Choose the service of your choosing and replace all the information in the Parse
 ### Run
 1. Open the trnd.xcworkspace in Xcode.
 
-Note before last step:<i> if you don't have cocoapods installed on your computer, you have to install it first. You can do it by opening the terminal and running "sudo gem install cocoapods". If you already have cocoapods installed, ignore this note.</i>
-
 2. Open the terminal, navigate to project folder and run "pod update".
 
+Note before last step:<i> if you don't have cocoapods installed on your computer, you have to install it first. You can do it by opening the terminal and running "sudo gem install cocoapods". If you already have cocoapods installed, ignore this note.</i>
 
 ## Compatibility
 TRND is written in Swift 4.2 and requires iOS 12.0 or later.
