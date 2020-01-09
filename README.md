@@ -10,7 +10,7 @@
 - Seamless onboarding
 - GIPHY built-in using their dev. API
 
-Plus a bunch of other crap that I don't remember so feel free to delve into this carcass of a project. Also, it's worth mentioning that this project has been depricated before it even started in it's open-source life. I'm not moving forward with it for many reasons ranging from crappy architecture to the discontinuation of Parse ¯\\__(ツ)__/¯.
+Plus a bunch of other things that I don't remember so feel free to delve into this project. Also, it's worth mentioning that this project has been depricated. I'm not moving forward with it for many reasons ranging from inefficient architecture to the discontinuation of Parse ¯\__(ツ)__/¯.
 
 ## How to run the app
 ### Connect to server
